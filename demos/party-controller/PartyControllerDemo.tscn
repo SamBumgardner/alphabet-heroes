@@ -42,12 +42,16 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
+text = "Party:"
 script = ExtResource("5_oj1a8")
 
 [node name="SimpleCombatPreviewVisualizer" type="Label" parent="."]
 offset_left = 305.0
 offset_right = 345.0
 offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Combat Preview:"
 script = ExtResource("6_siuuk")
 
 [node name="Button" type="Button" parent="."]
