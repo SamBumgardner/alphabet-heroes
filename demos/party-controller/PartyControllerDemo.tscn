@@ -1,3 +1,50 @@
-[gd_scene format=3 uid="uid://dltgtmy7ux33w"]
+[gd_scene load_steps=7 format=3 uid="uid://dltgtmy7ux33w"]
+
+[ext_resource type="Script" path="res://src/TextController.gd" id="1_171lj"]
+[ext_resource type="Script" path="res://demos/text-input/SimpleTextVisualizer.gd" id="2_rtf72"]
+[ext_resource type="Script" path="res://src/heroes/PartyController.gd" id="3_7vanj"]
+[ext_resource type="Script" path="res://src/heroes/HeroRepository.gd" id="4_id8pd"]
+[ext_resource type="Script" path="res://demos/party-controller/SimplePartyVisualizer.gd" id="5_oj1a8"]
+[ext_resource type="Script" path="res://demos/party-controller/SimpleCombatPreviewVisualizer.gd" id="6_siuuk"]
 
 [node name="PartyControllerDemo" type="Node2D"]
+
+[node name="TextController" type="Node" parent="."]
+script = ExtResource("1_171lj")
+max_letters = 10
+
+[node name="SimpleTextVisualizer" type="Label" parent="."]
+offset_left = 328.0
+offset_top = 160.0
+offset_right = 378.0
+offset_bottom = 183.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 48
+script = ExtResource("2_rtf72")
+
+[node name="PartyController" type="Node" parent="." node_paths=PackedStringArray("hero_repository")]
+script = ExtResource("3_7vanj")
+hero_repository = NodePath("../HeroRepository")
+
+[node name="HeroRepository" type="Node" parent="."]
+script = ExtResource("4_id8pd")
+
+[node name="SimplePartyVisualizer" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+script = ExtResource("5_oj1a8")
+
+[node name="SimpleCombatPreviewVisualizer" type="Label" parent="."]
+offset_left = 305.0
+offset_right = 345.0
+offset_bottom = 23.0
+script = ExtResource("6_siuuk")
+
+[connection signal="word_changed" from="TextController" to="SimpleTextVisualizer" method="_on_word_changed"]
+[connection signal="word_changed" from="TextController" to="PartyController" method="_on_word_changed"]
+[connection signal="party_changed" from="PartyController" to="SimplePartyVisualizer" method="_on_party_changed"]
+[connection signal="party_changed" from="PartyController" to="SimpleCombatPreviewVisualizer" method="_on_party_changed"]
