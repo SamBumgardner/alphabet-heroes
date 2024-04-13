@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://hybadqqg72n5"]
 
-[ext_resource type="Script" path="res://start_menu/back_to_start_menu_button/BackToStartMenuButton.gd" id="1_rehh2"]
-[ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://fonts/normal_font_theme.tres" id="2_oxqip"]
+[ext_resource type="Script" path="res://src/back_to_start_menu_button/BackToStartMenuButton.gd" id="1_rehh2"]
+[ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="2_oxqip"]
 
 [node name="BackToStartMenuButton" type="Control"]
 layout_direction = 3
