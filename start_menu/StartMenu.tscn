@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://cckjypba5jdnl"]
+
+[ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://fonts/normal_font_theme.tres" id="1_toiww"]
+[ext_resource type="Theme" uid="uid://c76ovc86ky5qb" path="res://fonts/start_menu_title_font_theme.tres" id="3_3syjn"]
+[ext_resource type="Theme" uid="uid://cio67ny2audx2" path="res://fonts/start_menu_sub_title_font_theme.tres" id="4_0np53"]
+[ext_resource type="Script" path="res://start_menu/StartMenu.gd" id="5"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_toiww")
+script = ExtResource("5")
+
+[node name="TitleControlsMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -277.5
+offset_top = -96.5
+offset_right = 277.5
+offset_bottom = 96.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Padding8px" type="MarginContainer" parent="TitleControlsMarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TitleControlsRows" type="VBoxContainer" parent="TitleControlsMarginContainer/Padding8px"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="TitleControlsMarginContainer/Padding8px/TitleControlsRows"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_3syjn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubTitle" type="Label" parent="TitleControlsMarginContainer/Padding8px/TitleControlsRows"]
+layout_mode = 2
+theme = ExtResource("4_0np53")
+text = "Ludum Dare 55 Game Jam Entry"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonRows" type="VBoxContainer" parent="TitleControlsMarginContainer/Padding8px/TitleControlsRows"]
+layout_mode = 2
+size_flags_horizontal = 5
+theme_override_constants/separation = 6
+
+[node name="StartButton" type="Button" parent="TitleControlsMarginContainer/Padding8px/TitleControlsRows/ButtonRows"]
+layout_mode = 2
+text = "Start"
+
+[node name="CreditsButton" type="MenuButton" parent="TitleControlsMarginContainer/Padding8px/TitleControlsRows/ButtonRows"]
+layout_mode = 2
+focus_mode = 2
+text = "Credits"
+flat = false
+item_count = 4
+popup/item_0/text = "Sam Bumgardner"
+popup/item_0/id = 0
+popup/item_1/text = "Noah Bumgardner"
+popup/item_1/id = 1
+popup/item_2/text = "Tom Bumgardner"
+popup/item_2/id = 2
+popup/item_3/text = "Roboto Font by Christian Robertson"
+popup/item_3/id = 3
+
+[node name="QuitButton" type="Button" parent="TitleControlsMarginContainer/Padding8px/TitleControlsRows/ButtonRows"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="TitleControlsMarginContainer/Padding8px/TitleControlsRows/ButtonRows/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="TitleControlsMarginContainer/Padding8px/TitleControlsRows/ButtonRows/QuitButton" to="." method="_on_quit_button_pressed"]

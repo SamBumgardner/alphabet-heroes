@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcxndlanc4xko"]
+
+[ext_resource type="Script" path="res://gameplay/Gameplay.gd" id="1_fe8ca"]
+[ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://start_menu/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
+
+[node name="Gameplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fe8ca")
+
+[node name="BackToStartMenuButton" parent="." instance=ExtResource("2_66iqr")]
+layout_direction = 0
+layout_mode = 1
