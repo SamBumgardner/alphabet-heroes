@@ -3,10 +3,14 @@ class_name Hero extends RefCounted
 var letter : String
 var job : Job
 
+func _init(letter_in:String, job_in:Job):
+    letter = letter_in
+    job = job_in
+
 enum Job {
-    PEASANT = 0,
-    WARRIOR = 1,
-    KNIGHT = 2,
-    MAGE = 3,
-    PRIEST = 4
+    WARRIOR = 0,
+    KNIGHT = 1,
+    MAGE = 2,
+    PRIEST = 3,
+    PEASANT = 4,
 }
