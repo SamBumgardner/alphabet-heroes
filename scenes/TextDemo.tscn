@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://7ppfouu8wanf"]
+
+[ext_resource type="Script" path="res://src/TextController.gd" id="1_cafyk"]
+
+[node name="TextDemo" type="Node2D"]
+
+[node name="TextController" type="Node" parent="."]
+script = ExtResource("1_cafyk")
