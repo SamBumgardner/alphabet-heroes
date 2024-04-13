@@ -20,6 +20,7 @@ script = ExtResource("1_171lj")
 max_letters = 10
 
 [node name="SimpleTextVisualizer" type="Label" parent="."]
+layout_mode = 0
 offset_left = 328.0
 offset_top = 160.0
 offset_right = 378.0
@@ -38,6 +39,7 @@ hero_repository = NodePath("../HeroRepository")
 script = ExtResource("4_id8pd")
 
 [node name="SimplePartyVisualizer" type="Label" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -46,6 +48,7 @@ text = "Party:"
 script = ExtResource("5_oj1a8")
 
 [node name="SimpleCombatPreviewVisualizer" type="Label" parent="."]
+layout_mode = 0
 offset_left = 305.0
 offset_right = 345.0
 offset_bottom = 23.0
@@ -55,6 +58,7 @@ text = "Combat Preview:"
 script = ExtResource("6_siuuk")
 
 [node name="Button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 486.0
 offset_top = 296.0
 offset_right = 689.0

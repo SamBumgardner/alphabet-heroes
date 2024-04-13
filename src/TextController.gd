@@ -16,7 +16,8 @@ static var alpha_regex = RegEx.create_from_string("[A-Z]")
 
 func _unhandled_key_input(event:InputEvent):
 	if event.is_pressed():
-		var event_text = event.as_text()
+		var event_text_with_modifiers = event.as_text().split("+")
+		var event_text = event_text_with_modifiers[event_text_with_modifiers.size() - 1]
 		if event_text == "Backspace":
 			try_backspace_letter()
 			viewport.set_input_as_handled()
