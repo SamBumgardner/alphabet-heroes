@@ -44,7 +44,15 @@ offset_right = 345.0
 offset_bottom = 23.0
 script = ExtResource("6_siuuk")
 
+[node name="Button" type="Button" parent="."]
+offset_left = 486.0
+offset_top = 296.0
+offset_right = 689.0
+offset_bottom = 435.0
+text = "Summon new heroes!"
+
 [connection signal="word_changed" from="TextController" to="SimpleTextVisualizer" method="_on_word_changed"]
 [connection signal="word_changed" from="TextController" to="PartyController" method="_on_word_changed"]
 [connection signal="party_changed" from="PartyController" to="SimplePartyVisualizer" method="_on_party_changed"]
 [connection signal="party_changed" from="PartyController" to="SimpleCombatPreviewVisualizer" method="_on_party_changed"]
+[connection signal="pressed" from="Button" to="HeroRepository" method="generate_heroes"]
