@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dltgtmy7ux33w"]
+[gd_scene load_steps=8 format=3 uid="uid://dltgtmy7ux33w"]
 
 [ext_resource type="Script" path="res://src/TextController.gd" id="1_171lj"]
 [ext_resource type="Script" path="res://demos/text-input/SimpleTextVisualizer.gd" id="2_rtf72"]
@@ -6,8 +6,14 @@
 [ext_resource type="Script" path="res://src/heroes/HeroRepository.gd" id="4_id8pd"]
 [ext_resource type="Script" path="res://demos/party-controller/SimplePartyVisualizer.gd" id="5_oj1a8"]
 [ext_resource type="Script" path="res://demos/party-controller/SimpleCombatPreviewVisualizer.gd" id="6_siuuk"]
+[ext_resource type="Script" path="res://demos/party-controller/HeroRepositoryVisualizer.gd" id="7_u4nuq"]
 
-[node name="PartyControllerDemo" type="Node2D"]
+[node name="PartyControllerDemo" type="Control"]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 600.0
 
 [node name="TextController" type="Node" parent="."]
 script = ExtResource("1_171lj")
@@ -51,8 +57,57 @@ offset_right = 689.0
 offset_bottom = 435.0
 text = "Summon new heroes!"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 50
+
+[node name="HeroRepositoryVisualizer" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+script = ExtResource("7_u4nuq")
+
+[node name="HeroRepositoryVisualizer2" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+script = ExtResource("7_u4nuq")
+job_to_display = 1
+
+[node name="HeroRepositoryVisualizer3" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+script = ExtResource("7_u4nuq")
+job_to_display = 2
+
+[node name="HeroRepositoryVisualizer4" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+script = ExtResource("7_u4nuq")
+job_to_display = 3
+
 [connection signal="word_changed" from="TextController" to="SimpleTextVisualizer" method="_on_word_changed"]
 [connection signal="word_changed" from="TextController" to="PartyController" method="_on_word_changed"]
 [connection signal="party_changed" from="PartyController" to="SimplePartyVisualizer" method="_on_party_changed"]
 [connection signal="party_changed" from="PartyController" to="SimpleCombatPreviewVisualizer" method="_on_party_changed"]
+[connection signal="hero_repository_contents_changed" from="HeroRepository" to="HBoxContainer/HeroRepositoryVisualizer" method="_on_hero_repository_contents_changed"]
+[connection signal="hero_repository_contents_changed" from="HeroRepository" to="HBoxContainer/HeroRepositoryVisualizer2" method="_on_hero_repository_contents_changed"]
+[connection signal="hero_repository_contents_changed" from="HeroRepository" to="HBoxContainer/HeroRepositoryVisualizer3" method="_on_hero_repository_contents_changed"]
+[connection signal="hero_repository_contents_changed" from="HeroRepository" to="HBoxContainer/HeroRepositoryVisualizer4" method="_on_hero_repository_contents_changed"]
 [connection signal="pressed" from="Button" to="HeroRepository" method="generate_heroes"]

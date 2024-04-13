@@ -35,7 +35,6 @@ func get_heroes(letters:String) -> Array:
 	var processed_letters = ""
 	for letter in letters:
 		var hero : Hero = null
-		print(_repository)
 		if not processed_letters.contains(letter):
 			for job in range(_repository.size()):
 				var dict = _repository[job]
