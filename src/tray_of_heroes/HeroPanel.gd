@@ -13,7 +13,6 @@ func _ready():
 	print(job_to_display)
 	print(hero_class_name)
 	label_of_job.text = _build_hero_class_name_label()
-	pass # Replace with function body.
 
 func _build_hero_class_name_label() -> String:
 	return (
