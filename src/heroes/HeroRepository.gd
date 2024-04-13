@@ -1,4 +1,4 @@
-class_name HeroRepository extends RefCounted
+class_name HeroRepository extends Node
 
 signal hero_repository_contents_changed(current_repository)
 
