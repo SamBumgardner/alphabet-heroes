@@ -10,4 +10,11 @@ Team members include:
 - Sam Bumgardner
 - Tom Bumgardner
 
-The _Roboto_ font was created by Christian Robertson.
+### Attributions
+
+Open source resources used:
+
+- [ENABLE](https://norvig.com/ngrams/enable1.txt) word list from the public domain.
+- [Roboto](https://fonts.google.com/specimen/Roboto) font by Christian Robertson.
+
+Coded using the [Godot](https://godotengine.org/) game engine.
