@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=10 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
 [ext_resource type="PackedScene" uid="uid://bv02y4o3plw5q" path="res://src/developer_only_navigation/DeveloperOnlyNavigation.tscn" id="3_6xc6h"]
 [ext_resource type="PackedScene" uid="uid://oyd68ql208nv" path="res://src/tray_of_heroes/TrayOfHeroes.tscn" id="4_vlgye"]
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="5_hjbl1"]
+[ext_resource type="Script" path="res://src/TextController.gd" id="6_dfxbv"]
+[ext_resource type="Script" path="res://src/heroes/PartyController.gd" id="7_vb18x"]
+[ext_resource type="Script" path="res://src/heroes/HeroRepository.gd" id="8_uko4w"]
+[ext_resource type="Script" path="res://demos/text-input/SimpleTextVisualizer.gd" id="9_tevq5"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -40,3 +44,28 @@ grow_vertical = 2
 theme = ExtResource("5_hjbl1")
 text = "Summon New
 Heroes"
+
+[node name="TextController" type="Node" parent="."]
+script = ExtResource("6_dfxbv")
+max_letters = 10
+
+[node name="PartyController" type="Node" parent="."]
+script = ExtResource("7_vb18x")
+
+[node name="HeroRepository" type="Node" parent="."]
+script = ExtResource("8_uko4w")
+
+[node name="SimpleTextVisualizer" type="Label" parent="."]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 160.0
+offset_right = 378.0
+offset_bottom = 183.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 48
+script = ExtResource("9_tevq5")
+
+[connection signal="pressed" from="SummonNewHeroesButton" to="HeroRepository" method="generate_heroes"]
+[connection signal="hero_repository_contents_changed" from="HeroRepository" to="TrayOfHeroes" method="_on_hero_repository_hero_repository_contents_changed"]
