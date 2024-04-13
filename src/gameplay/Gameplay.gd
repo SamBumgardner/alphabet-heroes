@@ -4,6 +4,3 @@ extends Control
 
 func _ready():
 	database.reset_values()
-
-func _process(delta):
-	pass

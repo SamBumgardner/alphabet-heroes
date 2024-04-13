@@ -35,3 +35,8 @@ layout_mode = 2
 [node name="LabelOfJob" type="Label" parent="MarginContainer/HBoxContainer/HeroStatistics"]
 layout_mode = 2
 text = "Peasant:"
+
+[node name="HeroesAsLetterNames" type="RichTextLabel" parent="MarginContainer/HBoxContainer/HeroStatistics"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "A, B, C, D"
