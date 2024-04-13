@@ -7,21 +7,18 @@ extends PanelContainer
 @onready var label_of_job : Label = (
 	$MarginContainer/HBoxContainer/HeroStatistics/LabelOfJob
 )
-@onready var portrait : TextureRect = (
+@onready var hero_portrait : TextureRect = (
 	$MarginContainer/HBoxContainer/HeroPortrait
 )
 
-var hero_class_name : String
-
 func _ready():
-	hero_class_name = Hero.Job.keys()[job_to_display]
-	print(job_to_display)
-	print(hero_class_name)
-	label_of_job.text = _build_hero_class_name_label()
+	var hero_class_name : String = Hero.Job.keys()[job_to_display]
 
-	portrait.texture = portrait_to_display
+	label_of_job.text = _build_hero_class_name_label(hero_class_name)
 
-func _build_hero_class_name_label() -> String:
+	hero_portrait.texture = portrait_to_display
+
+func _build_hero_class_name_label(hero_class_name: String) -> String:
 	return (
 		hero_class_name.to_pascal_case()
 		+ ":"
