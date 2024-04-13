@@ -44,7 +44,7 @@ func apply_healing(healing:int):
 		return
 	
 	var old_health = current_health
-	current_health += healing
+	current_health += min(healing, max_health - old_health)
 	healed.emit(old_health, current_health)
 
 # abstract method, child classes should decide what happens when defeated

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6m2yqgfhvvmp"]
+
+[ext_resource type="PackedScene" uid="uid://dltgtmy7ux33w" path="res://demos/party-controller/PartyControllerDemo.tscn" id="1_egwoy"]
+[ext_resource type="Script" path="res://src/combat/Enemy.gd" id="2_hsufp"]
+[ext_resource type="Script" path="res://src/combat/Player.gd" id="3_p801p"]
+
+[node name="PartyControllerDemo" instance=ExtResource("1_egwoy")]
+
+[node name="Enemy" type="Node" parent="." index="8"]
+script = ExtResource("2_hsufp")
+
+[node name="Player" type="Node" parent="." index="9"]
+script = ExtResource("3_p801p")
+
+[connection signal="word_activated" from="TextController" to="PartyController" method="_on_word_activated"]
+[connection signal="party_activated" from="PartyController" to="Enemy" method="_on_party_activated"]
+[connection signal="party_activated" from="PartyController" to="Player" method="_on_party_activated"]
