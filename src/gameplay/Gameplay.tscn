@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bcxndlanc4xko"]
 
-[ext_resource type="Script" path="res://gameplay/Gameplay.gd" id="1_fe8ca"]
-[ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://start_menu/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
+[ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
+[ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3

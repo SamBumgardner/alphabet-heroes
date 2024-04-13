@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cckjypba5jdnl"]
 
-[ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://fonts/normal_font_theme.tres" id="1_toiww"]
-[ext_resource type="Theme" uid="uid://c76ovc86ky5qb" path="res://fonts/start_menu_title_font_theme.tres" id="3_3syjn"]
-[ext_resource type="Theme" uid="uid://cio67ny2audx2" path="res://fonts/start_menu_sub_title_font_theme.tres" id="4_0np53"]
-[ext_resource type="Script" path="res://start_menu/StartMenu.gd" id="5"]
+[ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_toiww"]
+[ext_resource type="Theme" uid="uid://c76ovc86ky5qb" path="res://assets/fonts/start_menu_title_font_theme.tres" id="3_3syjn"]
+[ext_resource type="Theme" uid="uid://cio67ny2audx2" path="res://assets/fonts/start_menu_sub_title_font_theme.tres" id="4_0np53"]
+[ext_resource type="Script" path="res://src/start_menu/StartMenu.gd" id="5"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
