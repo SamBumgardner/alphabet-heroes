@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=4 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
+[ext_resource type="PackedScene" uid="uid://bv02y4o3plw5q" path="res://src/developer_only_navigation/DeveloperOnlyNavigation.tscn" id="3_6xc6h"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -11,6 +12,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fe8ca")
+
+[node name="DeveloperOnlyNavigation" parent="." instance=ExtResource("3_6xc6h")]
+layout_mode = 1
 
 [node name="BackToStartMenuButton" parent="." instance=ExtResource("2_66iqr")]
 layout_direction = 0

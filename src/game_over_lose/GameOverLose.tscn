@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxf0jw3num74o"]
+
+[ext_resource type="Theme" uid="uid://c76ovc86ky5qb" path="res://assets/fonts/start_menu_title_font_theme.tres" id="1_1vpuw"]
+[ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="1_wyp61"]
+[ext_resource type="PackedScene" uid="uid://eanx8lpdpjr4" path="res://src/game_over_statistics/GameOverStatistics.tscn" id="2_6s5qo"]
+
+[node name="GameOverLose" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Announcement" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -322.5
+offset_right = 322.5
+offset_bottom = 85.0
+grow_horizontal = 2
+theme = ExtResource("1_1vpuw")
+text = "Too Bad! Try Again?"
+
+[node name="GameOverStatistics" parent="." instance=ExtResource("2_6s5qo")]
+layout_mode = 1
+
+[node name="BackToStartMenuButton" parent="." instance=ExtResource("1_wyp61")]
+layout_direction = 0
+layout_mode = 1
