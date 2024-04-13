@@ -5,10 +5,10 @@ extends Control
 @export var portrait_to_display : CompressedTexture2D
 
 @onready var label_of_job : Label = (
-	$MarginContainer/HBoxContainer/HeroStatistics/LabelOfJob
+	$PanelContainer/MarginContainer/HBoxContainer/HeroStatistics/LabelOfJob
 )
 @onready var hero_portrait : TextureRect = (
-	$MarginContainer/HBoxContainer/HeroPortrait
+	$PanelContainer/MarginContainer/HBoxContainer/HeroPortrait
 )
 
 func _ready():
