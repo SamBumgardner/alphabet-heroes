@@ -1,4 +1,4 @@
-extends Node
+class_name TextController extends Node
 
 static var alpha_regex = RegEx.create_from_string("[A-Z]")
 
@@ -23,15 +23,17 @@ func _unhandled_key_input(event:InputEvent):
 				send_word()
 	viewport.set_input_as_handled()
 
-
 func try_append_letter(char_to_append : String) -> String:
 	if current_word.length() < max_letters:
 		current_word += char_to_append
 	return current_word
 
 func send_word():
-	print("sending word %s to battle" % current_word)
-	current_word = ""
+	if TextValidator.is_valid(current_word):
+		print("sending word %s to battle" % current_word)
+		current_word = ""
+	else:
+		print("tried to send, but %s is not a valid word" % current_word)
 
 func try_pop_letter():
 	current_word = current_word.substr(0, current_word.length() - 1)
