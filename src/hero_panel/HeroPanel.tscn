@@ -7,11 +7,7 @@
 
 [node name="HeroPanel" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 theme = ExtResource("1_lua0a")
 script = ExtResource("1_0kmgj")
 portrait_to_display = ExtResource("2_77xvi")
