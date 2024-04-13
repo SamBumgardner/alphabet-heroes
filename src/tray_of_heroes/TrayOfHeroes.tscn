@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://oyd68ql208nv"]
+
+[ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_vu46n"]
+[ext_resource type="Texture2D" uid="uid://s53eonie54i8" path="res://assets/art/Mage_128x128.png" id="3_kjwg4"]
+[ext_resource type="Texture2D" uid="uid://skraovlbkvh8" path="res://assets/art/Knight_128x128.png" id="3_uyr2j"]
+[ext_resource type="Texture2D" uid="uid://4drt8tdciyox" path="res://assets/art/Priest_128x128.png" id="5_5lri7"]
+[ext_resource type="PackedScene" uid="uid://bq3nvxvnxfek4" path="res://src/hero_panel/HeroPanel.tscn" id="5_vshlj"]
+
+[node name="TrayOfHeroes" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_vu46n")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -136.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ColumnsOfPanels" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HeroPanelWarrior" parent="MarginContainer/ColumnsOfPanels" instance=ExtResource("5_vshlj")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HeroPanelKnight" parent="MarginContainer/ColumnsOfPanels" instance=ExtResource("5_vshlj")]
+layout_mode = 2
+size_flags_horizontal = 3
+job_to_display = 1
+portrait_to_display = ExtResource("3_uyr2j")
+
+[node name="HeroPanelMage" parent="MarginContainer/ColumnsOfPanels" instance=ExtResource("5_vshlj")]
+layout_mode = 2
+size_flags_horizontal = 3
+job_to_display = 2
+portrait_to_display = ExtResource("3_kjwg4")
+
+[node name="HeroPanelPriest" parent="MarginContainer/ColumnsOfPanels" instance=ExtResource("5_vshlj")]
+layout_mode = 2
+size_flags_horizontal = 3
+job_to_display = 3
+portrait_to_display = ExtResource("5_5lri7")
