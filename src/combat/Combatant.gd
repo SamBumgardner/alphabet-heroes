@@ -4,6 +4,7 @@ signal hurt(previous_health:int, new_health:int)
 signal healed(previous_health:int, new_health:int)
 signal block_increased(previous_block:int, new_block:int)
 signal block_decreased(previous_block:int, new_block:int)
+signal block_removed(previous_block:int, new_block:int)
 
 @export var max_health : int = 50
 @export var current_health : int = 50
@@ -37,6 +38,14 @@ func add_block(additional_block:int):
 	var old_block = current_block
 	current_block += additional_block
 	block_increased.emit(old_block, current_block)
+
+func remove_block():
+	if current_block <= 0:
+		return
+	
+	var old_block = current_block
+	current_block = 0
+	block_removed.emit(old_block, current_block)
 
 # emit healed
 func apply_healing(healing:int):
