@@ -1,9 +1,7 @@
 # Alphabet Heroes
-
 A game created for Ludum Dare 55 - a family affair.
 
 ## Credits
-
 Team members include:
 
 - Noah Bumgardner
@@ -11,7 +9,6 @@ Team members include:
 - Tom Bumgardner
 
 ### Attributions
-
 Open source resources used:
 
 - [ENABLE](https://norvig.com/ngrams/enable1.txt) word list from the public domain.
