@@ -15,6 +15,10 @@ run/main_scene="res://src/start_menu/StartMenu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Database="*res://assets/data/database.gd"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
