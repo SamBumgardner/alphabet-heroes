@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://demos/party-controller/HeroRepositoryVisualizer.gd" id="1_d1l2h"]
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_vu46n"]
-[ext_resource type="Script" path="res://src/tray_of_heroes/HeroPanel.gd" id="2_fa703"]
+[ext_resource type="Script" path="res://src/hero_panel/HeroPanel.gd" id="2_fa703"]
 [ext_resource type="Texture2D" uid="uid://bomytq1jpagf4" path="res://assets/art/Warrior_128x128.png" id="2_sphn1"]
 
 [node name="TrayOfHeroes" type="Control"]

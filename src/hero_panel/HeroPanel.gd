@@ -1,4 +1,4 @@
-extends PanelContainer
+extends Control
 
 @export var job_to_display : Hero.Job
 
