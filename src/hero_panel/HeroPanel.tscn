@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bq3nvxvnxfek4"]
+[gd_scene load_steps=5 format=3 uid="uid://bq3nvxvnxfek4"]
 
 [ext_resource type="Script" path="res://src/hero_panel/HeroPanel.gd" id="1_0kmgj"]
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_lua0a"]
 [ext_resource type="Texture2D" uid="uid://bomytq1jpagf4" path="res://assets/art/Warrior_128x128.png" id="2_77xvi"]
+[ext_resource type="Script" path="res://demos/party-controller/HeroRepositoryVisualizer.gd" id="3_ft478"]
 
 [node name="HeroPanel" type="Control"]
 layout_mode = 3
@@ -42,3 +43,24 @@ layout_mode = 2
 [node name="LabelOfJob" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/HeroStatistics"]
 layout_mode = 2
 text = "Peasant:"
+
+[node name="HeroRepositoryVisualizerWarrior" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/HeroStatistics"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+script = ExtResource("3_ft478")
+
+[node name="ItemList" type="ItemList" parent="PanelContainer/MarginContainer/HBoxContainer/HeroStatistics"]
+visible = false
+layout_mode = 2
+auto_height = true
+item_count = 4
+max_columns = 3
+same_column_width = true
+item_0/text = "A"
+item_1/text = "B"
+item_2/text = "C"
+item_3/text = "D"
