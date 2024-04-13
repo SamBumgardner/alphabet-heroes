@@ -29,6 +29,7 @@ layout_mode = 2
 [node name="HeroPanelWarrior" type="PanelContainer" parent="MarginContainer/ColumnsOfPanels"]
 layout_mode = 2
 script = ExtResource("2_fa703")
+portrait_to_display = ExtResource("2_sphn1")
 
 [node name="Panel" type="Panel" parent="MarginContainer/ColumnsOfPanels/HeroPanelWarrior"]
 layout_mode = 2
@@ -44,7 +45,6 @@ layout_mode = 2
 [node name="HeroPortrait" type="TextureRect" parent="MarginContainer/ColumnsOfPanels/HeroPanelWarrior/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
-texture = ExtResource("2_sphn1")
 stretch_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/ColumnsOfPanels/HeroPanelWarrior/MarginContainer/HBoxContainer"]
@@ -55,7 +55,6 @@ layout_mode = 2
 
 [node name="LabelOfJob" type="Label" parent="MarginContainer/ColumnsOfPanels/HeroPanelWarrior/MarginContainer/HBoxContainer/HeroStatistics"]
 layout_mode = 2
-text = "Warrior:"
 
 [node name="HeroRepositoryVisualizerWarrior" type="Label" parent="MarginContainer/ColumnsOfPanels/HeroPanelWarrior/MarginContainer/HBoxContainer/HeroStatistics"]
 visible = false
