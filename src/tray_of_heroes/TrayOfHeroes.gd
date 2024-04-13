@@ -1,5 +1,7 @@
 extends Control
 
+@onready var columns_of_panels = $MarginContainer/ColumnsOfPanels
+
 var hero_jobs_to_display = [
 	Hero.Job.WARRIOR,
 	Hero.Job.KNIGHT,
@@ -27,4 +29,17 @@ func _on_hero_repository_hero_repository_contents_changed(current_repository):
 			hero_job,
 			" has heroes: ",
 			debug_text
+		)
+
+	var panel_list = columns_of_panels.get_children()
+
+	for panel in panel_list:
+		var heroes_as_letter_list = current_repository[
+			panel.job_to_display
+		].keys()
+		print(
+			"TrayOfHeroes heard that column ",
+			panel,
+			" has heroes: ",
+			heroes_as_letter_list
 		)
