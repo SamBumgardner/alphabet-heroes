@@ -9,7 +9,7 @@ signal block_decreased(previous_block:int, new_block:int)
 @export var current_health : int = 50
 @export var current_block : int = 0
 
-# can emit block_decreased, hurt signals
+# emit block_decreased, hurt, trigger defeated logic
 func apply_damage(damage:int, is_magic:bool):
 	if damage <= 0:
 		return
@@ -25,7 +25,11 @@ func apply_damage(damage:int, is_magic:bool):
 		var old_health = current_health
 		current_health -= unmitigated_damage
 		hurt.emit(old_health, current_health)
+	
+	if current_health <= 0:
+		_defeated()
 
+# emit block_increased
 func add_block(additional_block:int):
 	if additional_block <= 0:
 		return
@@ -34,6 +38,7 @@ func add_block(additional_block:int):
 	current_block += additional_block
 	block_increased.emit(old_block, current_block)
 
+# emit healed
 func apply_healing(healing:int):
 	if healing <= 0:
 		return
@@ -41,3 +46,10 @@ func apply_healing(healing:int):
 	var old_health = current_health
 	current_health += healing
 	healed.emit(old_health, current_health)
+
+# abstract method, child classes should decide what happens when defeated
+func _defeated():
+	pass
+
+func _to_string():
+	return "Health: %s/%s, Block: %s" % [current_health, max_health, current_block]
