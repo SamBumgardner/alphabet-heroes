@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=6 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
 [ext_resource type="PackedScene" uid="uid://bv02y4o3plw5q" path="res://src/developer_only_navigation/DeveloperOnlyNavigation.tscn" id="3_6xc6h"]
 [ext_resource type="PackedScene" uid="uid://oyd68ql208nv" path="res://src/tray_of_heroes/TrayOfHeroes.tscn" id="4_vlgye"]
+[ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="5_hjbl1"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -23,3 +24,19 @@ layout_mode = 1
 [node name="BackToStartMenuButton" parent="." instance=ExtResource("2_66iqr")]
 layout_direction = 0
 layout_mode = 1
+
+[node name="SummonNewHeroesButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -4.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("5_hjbl1")
+text = "Summon New
+Heroes"
