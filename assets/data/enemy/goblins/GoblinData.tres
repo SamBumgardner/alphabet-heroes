@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://b4bkv68mpkiho"]
+
+[ext_resource type="Script" path="res://src/combat/enemy/EnemyData.gd" id="1_ebfjx"]
+[ext_resource type="Script" path="res://assets/data/enemy/goblins/GoblinActionSelector.gd" id="1_ui3kw"]
+
+[resource]
+script = ExtResource("1_ebfjx")
+name = "Group of Goblins"
+max_health = 50
+action_selector_class = ExtResource("1_ui3kw")

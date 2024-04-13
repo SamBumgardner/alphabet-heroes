@@ -7,6 +7,11 @@ func _on_party_activated(party:Party):
 	apply_healing(party.combat_totals[CombatValues.Values.HEAL])
 	print(self)
 
+func _on_enemy_activated(enemy_action:EnemyAction):
+	apply_damage(enemy_action.get_combat_totals()[CombatValues.Values.ATTACK], false)
+	apply_damage(enemy_action.get_combat_totals()[CombatValues.Values.MAGIC], true)
+	print(self)
+
 func _defeated():
 	player_defeated.emit()
 
