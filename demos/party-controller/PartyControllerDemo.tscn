@@ -55,6 +55,7 @@ offset_left = 486.0
 offset_top = 296.0
 offset_right = 689.0
 offset_bottom = 435.0
+focus_mode = 0
 text = "Summon new heroes!"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -104,6 +105,7 @@ job_to_display = 3
 
 [connection signal="word_changed" from="TextController" to="SimpleTextVisualizer" method="_on_word_changed"]
 [connection signal="word_changed" from="TextController" to="PartyController" method="_on_word_changed"]
+[connection signal="word_consumed" from="TextController" to="HeroRepository" method="remove"]
 [connection signal="party_changed" from="PartyController" to="SimplePartyVisualizer" method="_on_party_changed"]
 [connection signal="party_changed" from="PartyController" to="SimpleCombatPreviewVisualizer" method="_on_party_changed"]
 [connection signal="hero_repository_contents_changed" from="HeroRepository" to="HBoxContainer/HeroRepositoryVisualizer" method="_on_hero_repository_contents_changed"]
