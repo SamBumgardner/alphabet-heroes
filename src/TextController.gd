@@ -1,11 +1,17 @@
 class_name TextController extends Node
 
+signal word_changed(new_word)
+
 static var alpha_regex = RegEx.create_from_string("[A-Z]")
 
 @onready var viewport = get_viewport()
 
 @export var max_letters:int = 5
-@export var current_word:String = ""
+@export var current_word:String = "":
+	set(value):
+		current_word = value
+		if is_inside_tree():
+			word_changed.emit(current_word)
 
 func _unhandled_key_input(event:InputEvent):
 	if event.is_pressed():
@@ -13,7 +19,6 @@ func _unhandled_key_input(event:InputEvent):
 		if event_text == "Backspace":
 			print("Backspace key was pressed!")
 			try_pop_letter()
-			print(current_word)
 		elif not event.is_echo():
 			if event_text.length() == 1 and alpha_regex.search(event_text):
 				try_append_letter(event_text)
