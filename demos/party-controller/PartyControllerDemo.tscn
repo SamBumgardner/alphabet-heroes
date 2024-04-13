@@ -66,17 +66,25 @@ offset_bottom = 435.0
 focus_mode = 0
 text = "Summon new heroes!"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 580.0
+offset_right = 114.0
+offset_bottom = 608.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 50
 
-[node name="HeroRepositoryVisualizer" type="Label" parent="HBoxContainer"]
+[node name="HeroRepositoryVisualizer" type="Label" parent="Control/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -84,7 +92,7 @@ theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 20
 script = ExtResource("7_u4nuq")
 
-[node name="HeroRepositoryVisualizer2" type="Label" parent="HBoxContainer"]
+[node name="HeroRepositoryVisualizer2" type="Label" parent="Control/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -93,7 +101,7 @@ theme_override_font_sizes/font_size = 20
 script = ExtResource("7_u4nuq")
 job_to_display = 1
 
-[node name="HeroRepositoryVisualizer3" type="Label" parent="HBoxContainer"]
+[node name="HeroRepositoryVisualizer3" type="Label" parent="Control/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -102,7 +110,7 @@ theme_override_font_sizes/font_size = 20
 script = ExtResource("7_u4nuq")
 job_to_display = 2
 
-[node name="HeroRepositoryVisualizer4" type="Label" parent="HBoxContainer"]
+[node name="HeroRepositoryVisualizer4" type="Label" parent="Control/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -116,8 +124,8 @@ job_to_display = 3
 [connection signal="word_consumed" from="TextController" to="HeroRepository" method="remove"]
 [connection signal="party_changed" from="PartyController" to="SimplePartyVisualizer" method="_on_party_changed"]
 [connection signal="party_changed" from="PartyController" to="SimpleCombatPreviewVisualizer" method="_on_party_changed"]
-[connection signal="hero_repository_contents_changed" from="HeroRepository" to="HBoxContainer/HeroRepositoryVisualizer" method="_on_hero_repository_contents_changed"]
-[connection signal="hero_repository_contents_changed" from="HeroRepository" to="HBoxContainer/HeroRepositoryVisualizer2" method="_on_hero_repository_contents_changed"]
-[connection signal="hero_repository_contents_changed" from="HeroRepository" to="HBoxContainer/HeroRepositoryVisualizer3" method="_on_hero_repository_contents_changed"]
-[connection signal="hero_repository_contents_changed" from="HeroRepository" to="HBoxContainer/HeroRepositoryVisualizer4" method="_on_hero_repository_contents_changed"]
+[connection signal="hero_repository_contents_changed" from="HeroRepository" to="Control/HBoxContainer/HeroRepositoryVisualizer" method="_on_hero_repository_contents_changed"]
+[connection signal="hero_repository_contents_changed" from="HeroRepository" to="Control/HBoxContainer/HeroRepositoryVisualizer2" method="_on_hero_repository_contents_changed"]
+[connection signal="hero_repository_contents_changed" from="HeroRepository" to="Control/HBoxContainer/HeroRepositoryVisualizer3" method="_on_hero_repository_contents_changed"]
+[connection signal="hero_repository_contents_changed" from="HeroRepository" to="Control/HBoxContainer/HeroRepositoryVisualizer4" method="_on_hero_repository_contents_changed"]
 [connection signal="pressed" from="Button" to="HeroRepository" method="generate_heroes"]

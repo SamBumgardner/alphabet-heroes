@@ -10,5 +10,3 @@ func _on_hero_repository_contents_changed(current_repository):
 	text = "%s:\n" % Hero.Job.keys()[job_to_display]
 	for letter in letter_list:
 		text += "%s, " % letter
-	if (letter_list as Array).is_empty():
-		text += " "
