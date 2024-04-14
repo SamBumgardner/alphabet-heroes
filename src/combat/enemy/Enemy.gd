@@ -25,7 +25,7 @@ func _on_party_activated(party:Party):
 	apply_damage(party.combat_totals[CombatValues.Values.MAGIC], true)
 	print(self)
 	
-	# temp code to trigger enemy response:
+func _on_enemy_impact(_duration:float):
 	_perform_combat_action.call_deferred()
 
 func _on_enemy_activated(enemy_action:EnemyAction):
@@ -36,6 +36,8 @@ func _perform_combat_action():
 	print("Performing action ", current_action)
 	enemy_activated.emit(current_action)
 	_on_enemy_activated(current_action)
+
+func _on_combat_finished():
 	current_action = action_selector.get_next_action()
 	action_changed.emit(current_action)
 

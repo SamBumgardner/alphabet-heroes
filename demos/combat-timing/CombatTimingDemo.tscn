@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://be1dxpeng5d1p"]
+
+[ext_resource type="PackedScene" uid="uid://b6m2yqgfhvvmp" path="res://demos/combat-logic/CombatLogicDemo.tscn" id="1_08gcm"]
+[ext_resource type="Script" path="res://src/combat/CombatSequencer.gd" id="2_yapv5"]
+
+[node name="CombatTimingDemo" instance=ExtResource("1_08gcm")]
+
+[node name="CombatSequencer" type="Node" parent="." index="0"]
+script = ExtResource("2_yapv5")
+
+[connection signal="combat_finished" from="CombatSequencer" to="TextController" method="_on_combat_finished"]
+[connection signal="combat_finished" from="CombatSequencer" to="Enemy" method="_on_combat_finished"]
+[connection signal="combat_finished" from="CombatSequencer" to="Player" method="_on_combat_finished"]
+[connection signal="combat_started" from="CombatSequencer" to="TextController" method="_on_combat_started"]
+[connection signal="enemy_impact" from="CombatSequencer" to="Enemy" method="_on_enemy_impact"]
+[connection signal="player_impact" from="CombatSequencer" to="TextController" method="_on_player_impact"]
+[connection signal="word_submitted" from="TextController" to="CombatSequencer" method="_on_word_submitted"]
+[connection signal="party_activated" from="PartyController" to="Enemy" method="_on_party_activated"]
+[connection signal="party_activated" from="PartyController" to="Player" method="_on_party_activated"]

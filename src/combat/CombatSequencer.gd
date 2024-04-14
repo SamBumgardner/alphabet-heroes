@@ -9,14 +9,17 @@ signal enemy_impact(duration:float)
 signal gameover_victory(duration:float)
 signal gameover_defeat(duration:float)
 
-var duration_player_windup : float = 1.5
-var duration_player_impact : float = 1.5
+var duration_player_windup : float = .5
+var duration_player_impact : float = 1
 
-var duration_enemy_windup : float = 1.5
-var duration_enemy_impact : float = 1.5
+var duration_enemy_windup : float = .5
+var duration_enemy_impact : float = 1
 
 var duration_gameover_victory : float = 1.5
 var duration_gameover_defeat : float = 1.5
+
+func _on_word_submitted(_word:String):
+	start_player_sequence()
 
 func start_player_sequence():
 	combat_started.emit()
