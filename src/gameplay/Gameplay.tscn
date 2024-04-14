@@ -162,3 +162,4 @@ grow_horizontal = 2
 [connection signal="party_activated" from="PartyController" to="GameOverMonitorStatistics" method="_on_party_controller_party_activated"]
 [connection signal="hero_repository_contents_changed" from="HeroRepository" to="TrayOfHeroes" method="_on_hero_repository_hero_repository_contents_changed"]
 [connection signal="hero_repository_contents_changed" from="HeroRepository" to="GameOverMonitorStatistics" method="_on_hero_repository_hero_repository_contents_changed"]
+[connection signal="enemy_defeated" from="Enemy" to="GameOverMonitorStatistics" method="_on_enemy_enemy_defeated"]

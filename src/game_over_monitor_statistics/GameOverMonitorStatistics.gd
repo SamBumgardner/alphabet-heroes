@@ -70,6 +70,13 @@ func _increase_statistic_peasants_conscripted(word : String) -> void:
 		+ peasants_within_word
 	)
 
+# Increment the number of monsters slain, AKA enemies defeated.
+func _increment_statistic_monsters_slain_count() -> void:
+	database.set_monsters_slain_count(database.monsters_slain_count + 1)
+
+func _on_enemy_enemy_defeated():
+	_increment_statistic_monsters_slain_count()
+
 func _on_hero_repository_hero_repository_contents_changed(current_repository):
 	_increase_statistic_heroes_summoned(current_repository)
 
