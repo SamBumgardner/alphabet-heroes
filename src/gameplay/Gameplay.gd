@@ -40,6 +40,7 @@ func _ready():
 	var tile_text_display = $TileTextDisplay as TileTextDisplay
 	text_controller.word_changed.connect(tile_text_display._set_word)
 	text_controller.word_denied.connect(tile_text_display._color_denied_text)
+	text_controller.word_submitted.connect(tile_text_display._word_submitted_reaction)
 	
 	var summoned_hero_previews = $SummonedHeroPreviews as SummonedHeroPreviews
 	party_controller.party_changed.connect(summoned_hero_previews._on_party_changed)

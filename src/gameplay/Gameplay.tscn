@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://src/display/enemy/EnemyDisplay.gd" id="14_y1tmu"]
 [ext_resource type="PackedScene" uid="uid://d3pdnnecfo71e" path="res://src/display/combat_preview/CombatPreview.tscn" id="17_kwces"]
 [ext_resource type="Texture2D" uid="uid://sv36d283ay2o" path="res://assets/art/player.jpg" id="18_f1reu"]
-[ext_resource type="SpriteFrames" uid="uid://veun1fxpclmp" path="res://assets/art/heroes/combat_sheets/peasant_frames.tres" id="19_4w5oh"]
+[ext_resource type="SpriteFrames" uid="uid://veun1fxpclmp" path="res://assets/art/heroes/peasant_frames.tres" id="19_4w5oh"]
 [ext_resource type="PackedScene" uid="uid://ct2ln3f73kx8k" path="res://src/display/summoned_heroes/SummonedHeroPreviews.tscn" id="19_sv48p"]
 [ext_resource type="PackedScene" uid="uid://cqv757c3cshe4" path="res://src/display/typed_word/TileTextDisplay.tscn" id="20_xgcmq"]
 
@@ -163,6 +163,7 @@ layout_mode = 1
 [node name="SummonedHero" type="AnimatedSprite2D" parent="AnimatedHeroes"]
 visible = false
 sprite_frames = ExtResource("19_4w5oh")
+animation = &"summon"
 
 [node name="SummonedHero2" type="AnimatedSprite2D" parent="AnimatedHeroes"]
 visible = false

@@ -33,6 +33,11 @@ func _set_word(new_word:String):
 		tile.label.modulate = Color.WHITE
 		i += 1
 
+# Color accepted word green to signal start of combat
+func _word_submitted_reaction(_word:String):
+	for tile : LetterTile in letter_tiles:
+		tile.label.modulate = Color.GREEN
+
 # Color the denied word red for user feedback.
 func _color_denied_text(_word:String):
 	for tile : LetterTile in letter_tiles:
