@@ -8,8 +8,26 @@ var hero_repository_previous : Array
 func _ready():
 	hero_repository_previous = []
 
-func _on_hero_repository_hero_repository_contents_changed(current_repository):
-	_increase_statistic_heroes_summoned(current_repository)
+# Count how many peasants are in a word.
+# Partially copied from HeroRepository method _get_heroes.
+# To Do: Replace for DRY code principles.
+func _count_peasants(letters : String) -> int:
+	var result = 0
+	var processed_letters = ""
+	for letter in letters:
+		var hero : Hero = null
+		if not processed_letters.contains(letter):
+			for job in range(hero_repository_previous.size()):
+				var dict = hero_repository_previous[job]
+				if dict.has(letter):
+					hero = Hero.new(letter, job)
+					break;
+		if hero == null:
+			result += 1
+			hero = Hero.new(letter, Hero.Job.PEASANT)
+		processed_letters += letter
+
+	return result
 
 # Count the increase in available heroes for each column, ignoring decreases.
 func _increase_statistic_heroes_summoned(current_repository : Array) -> void:
@@ -45,9 +63,6 @@ func _increase_statistic_heroes_summoned(current_repository : Array) -> void:
 		+ heroes_summoned_count_increase
 	)
 
-func _on_text_controller_word_submitted(word):
-	_increase_statistic_peasants_conscripted(word)
-
 func _increase_statistic_peasants_conscripted(word : String) -> void:
 	var peasants_within_word = _count_peasants(word)
 	database.set_peasants_conscripted_count(
@@ -55,23 +70,8 @@ func _increase_statistic_peasants_conscripted(word : String) -> void:
 		+ peasants_within_word
 	)
 
-# Count how many peasants are in a word.
-# Partially copied from HeroRepository method _get_heroes.
-# To Do: Replace for DRY code principles.
-func _count_peasants(letters : String) -> int:
-	var result = 0
-	var processed_letters = ""
-	for letter in letters:
-		var hero : Hero = null
-		if not processed_letters.contains(letter):
-			for job in range(hero_repository_previous.size()):
-				var dict = hero_repository_previous[job]
-				if dict.has(letter):
-					hero = Hero.new(letter, job)
-					break;
-		if hero == null:
-			result += 1
-			hero = Hero.new(letter, Hero.Job.PEASANT)
-		processed_letters += letter
+func _on_hero_repository_hero_repository_contents_changed(current_repository):
+	_increase_statistic_heroes_summoned(current_repository)
 
-	return result
+func _on_text_controller_word_submitted(word):
+	_increase_statistic_peasants_conscripted(word)
