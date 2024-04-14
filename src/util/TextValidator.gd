@@ -1,4 +1,4 @@
-class_name TextValidator extends RefCounted
+extends Node
 
 const DICTIONARY_FILEPATH : String = "res://assets/data/enable1.txt"
 
