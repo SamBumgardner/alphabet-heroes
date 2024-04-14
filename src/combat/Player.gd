@@ -11,7 +11,8 @@ func _on_enemy_activated(enemy_action:EnemyAction):
 	apply_damage(enemy_action.get_combat_totals()[CombatValues.Values.ATTACK], false)
 	apply_damage(enemy_action.get_combat_totals()[CombatValues.Values.MAGIC], true)
 	print(self)
-	# temp code, should be triggered at the right during combat sequencing.
+
+func _on_combat_finished():
 	remove_block.call_deferred()
 
 func _defeated():
