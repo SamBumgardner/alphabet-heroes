@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=21 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://src/heroes/PartyController.gd" id="7_vb18x"]
 [ext_resource type="Script" path="res://src/heroes/HeroRepository.gd" id="8_uko4w"]
 [ext_resource type="Script" path="res://demos/text-input/SimpleTextVisualizer.gd" id="9_tevq5"]
-[ext_resource type="Theme" path="res://assets/fonts/spelling_monospace_font_theme.tres" id="9_x8mte"]
+[ext_resource type="Theme" uid="uid://dg6ea4vwhuquo" path="res://assets/fonts/spelling_monospace_font_theme.tres" id="9_x8mte"]
 [ext_resource type="Script" path="res://src/combat/enemy/Enemy.gd" id="12_mx65p"]
 [ext_resource type="Resource" uid="uid://bp23cxel76cpd" path="res://assets/data/enemy/rat_swarm/RatSwarmData.tres" id="13_4stoj"]
 [ext_resource type="Texture2D" uid="uid://c6kwxcdkcsvu6" path="res://assets/art/enemy/Goblins_256x256.png" id="13_i2a36"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://src/display/enemy/EnemyDisplay.gd" id="14_y1tmu"]
 [ext_resource type="PackedScene" uid="uid://d3pdnnecfo71e" path="res://src/display/combat_preview/CombatPreview.tscn" id="17_kwces"]
 [ext_resource type="Texture2D" uid="uid://sv36d283ay2o" path="res://assets/art/player.jpg" id="18_f1reu"]
+[ext_resource type="PackedScene" uid="uid://c6qrbk6hrtpc" path="res://src/game_over_monitor_statistics/GameOverMonitorStatistics.tscn" id="20_0e82c"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -76,6 +77,8 @@ hero_repository = NodePath("../HeroRepository")
 
 [node name="HeroRepository" type="Node" parent="."]
 script = ExtResource("8_uko4w")
+
+[node name="GameOverMonitorStatistics" parent="." instance=ExtResource("20_0e82c")]
 
 [node name="SimpleTextVisualizer" type="Label" parent="."]
 layout_mode = 0
@@ -164,3 +167,4 @@ combatant = NodePath("../../Player")
 [connection signal="word_consumed" from="TextController" to="HeroRepository" method="remove"]
 [connection signal="word_denied" from="TextController" to="SimpleTextVisualizer" method="_on_text_controller_word_denied"]
 [connection signal="hero_repository_contents_changed" from="HeroRepository" to="TrayOfHeroes" method="_on_hero_repository_hero_repository_contents_changed"]
+[connection signal="hero_repository_contents_changed" from="HeroRepository" to="GameOverMonitorStatistics" method="_on_hero_repository_hero_repository_contents_changed"]
