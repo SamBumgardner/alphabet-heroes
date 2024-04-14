@@ -21,6 +21,7 @@ func init_combatant(new_combatant):
 	combatant.hurt.connect(_on_hurt)
 	combatant.block_increased.connect(_on_block_increased)
 	combatant.block_decreased.connect(_on_block_decreased)
+	combatant.block_removed.connect(_on_block_decreased)
 	_on_hurt(combatant.current_health, combatant.max_health, true)
 	_on_block_increased(0, combatant.current_block)
 
