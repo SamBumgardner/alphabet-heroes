@@ -19,5 +19,5 @@ static func create_dictionary() -> Dictionary:
 	
 	return word_dict
 
-static func is_valid(word:String) -> bool:
+func is_valid(word:String) -> bool:
 	return valid_words.has(word.to_lower()) 

@@ -1,6 +1,7 @@
 class_name TextController extends Node
 
 signal word_changed(new_word)
+signal word_submitted(word)
 signal word_activated(word)
 signal word_consumed(word)
 signal word_denied(word)
@@ -16,8 +17,10 @@ static var alpha_regex = RegEx.create_from_string("[A-Z]")
 		if is_inside_tree():
 			word_changed.emit(current_word)
 
+var in_combat:bool = false
+
 func _unhandled_key_input(event:InputEvent):
-	if event.is_pressed():
+	if event.is_pressed() && not in_combat:
 		var event_text_with_modifiers = event.as_text().split("+")
 		var event_text = event_text_with_modifiers[event_text_with_modifiers.size() - 1]
 		if event_text == "Backspace":
@@ -31,6 +34,9 @@ func _unhandled_key_input(event:InputEvent):
 				send_word()
 				viewport.set_input_as_handled()
 
+func try_backspace_letter():
+	current_word = current_word.substr(0, current_word.length() - 1)
+
 func try_append_letter(char_to_append : String) -> String:
 	if current_word.length() < max_letters:
 		current_word += char_to_append
@@ -39,12 +45,19 @@ func try_append_letter(char_to_append : String) -> String:
 func send_word():
 	if TextValidator.is_valid(current_word):
 		print("sending word %s to battle!" % current_word)
-		word_activated.emit(current_word)
-		word_consumed.emit(current_word)
-		current_word = ""
+		word_submitted.emit(current_word)
 	else:
 		word_denied.emit(current_word)
 		print("tried to start the battle, but %s is not a valid word" % current_word)
 
-func try_backspace_letter():
-	current_word = current_word.substr(0, current_word.length() - 1)
+# combat timing
+func _on_combat_started():
+	in_combat = true
+
+func _on_player_impact(_duration:float):
+	word_activated.emit(current_word)
+	word_consumed.emit(current_word)
+
+func _on_combat_finished():
+	current_word = ""
+	in_combat = false
