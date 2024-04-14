@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://kkinuu2uyh6b"]
+
+[ext_resource type="Script" path="res://src/display/combat_preview/CombatValueIcon.gd" id="1_6j5t2"]
+[ext_resource type="Texture2D" uid="uid://cibni73b2oa5m" path="res://assets/art/ui/ATTACK_icon_64x64.png" id="2_t3yvj"]
+
+[node name="CombatValueIcon" type="MarginContainer"]
+script = ExtResource("1_6j5t2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_t3yvj")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+text = "10
+"
+horizontal_alignment = 2
+vertical_alignment = 2
