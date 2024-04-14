@@ -30,9 +30,9 @@ func _on_enemy_defeated():
 	enemy_defeated = true
 
 func _on_word_submitted(_word:String):
-	start_player_sequence()
+	start_combat_sequence()
 
-func start_player_sequence():
+func start_combat_sequence():
 	combat_started.emit()
 	player_windup.emit(duration_player_windup)
 
