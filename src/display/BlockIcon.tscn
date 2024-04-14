@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://jedubhp5ulyv" path="res://assets/art/ui/BLOCK_icon_64x64.png" id="1_2d2ud"]
 [ext_resource type="Script" path="res://src/display/BlockIcon.gd" id="2_g4ay0"]
-[ext_resource type="Theme" path="res://assets/fonts/spelling_monospace_font_theme.tres" id="3_xvcdb"]
+[ext_resource type="Theme" uid="uid://d2lmihmptd82a" path="res://assets/fonts/spelling_monospace_font_theme.tres" id="3_xvcdb"]
 
 [node name="BlockIcon" type="TextureRect"]
 anchors_preset = 4
@@ -28,5 +28,6 @@ grow_vertical = 2
 theme = ExtResource("3_xvcdb")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
 text = "123"
 horizontal_alignment = 1

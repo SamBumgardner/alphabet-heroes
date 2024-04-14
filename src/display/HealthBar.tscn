@@ -69,7 +69,6 @@ axis_stretch_vertical = 1
 
 [node name="BlockIcon" parent="VBoxContainer/ChaseBar" instance=ExtResource("4_31vk6")]
 layout_mode = 1
-anchors_preset = 4
 offset_left = -20.0
 grow_horizontal = 1
 
