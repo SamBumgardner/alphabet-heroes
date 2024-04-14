@@ -41,6 +41,10 @@ func _ready():
 	text_controller.word_changed.connect(tile_text_display._set_word)
 	text_controller.word_denied.connect(tile_text_display._color_denied_text)
 	
+	var summoned_hero_previews = $SummonedHeroPreviews as SummonedHeroPreviews
+	party_controller.party_changed.connect(summoned_hero_previews._on_party_changed)
+	combat_sequencer.player_windup.connect(summoned_hero_previews._on_player_windup)
+	
 	# short-term game over handling:
 	var developer_only_navigation = $DeveloperOnlyNavigation
 	combat_sequencer.gameover_victory_finished.connect(
