@@ -30,11 +30,6 @@ grow_vertical = 0
 
 [node name="DeveloperOnlyNavigation" parent="." instance=ExtResource("3_6xc6h")]
 layout_mode = 1
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="BackToStartMenuButton" parent="." instance=ExtResource("2_66iqr")]
 layout_direction = 0
@@ -79,4 +74,6 @@ theme_override_font_sizes/font_size = 48
 script = ExtResource("9_tevq5")
 
 [connection signal="pressed" from="SummonNewHeroesButton" to="HeroRepository" method="generate_heroes"]
+[connection signal="word_changed" from="TextController" to="SimpleTextVisualizer" method="_on_word_changed"]
+[connection signal="word_consumed" from="TextController" to="HeroRepository" method="remove"]
 [connection signal="hero_repository_contents_changed" from="HeroRepository" to="TrayOfHeroes" method="_on_hero_repository_hero_repository_contents_changed"]
