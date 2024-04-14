@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/hero_panel/HeroPanel.gd" id="1_0kmgj"]
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_lua0a"]
-[ext_resource type="Texture2D" uid="uid://bomytq1jpagf4" path="res://assets/art/Warrior_128x128.png" id="2_77xvi"]
+[ext_resource type="Texture2D" uid="uid://bomytq1jpagf4" path="res://assets/art/heroes/portraits/Warrior_128x128.png" id="2_77xvi"]
 
 [node name="HeroPanelContainer" type="PanelContainer"]
 theme = ExtResource("1_lua0a")

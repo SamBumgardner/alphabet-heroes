@@ -11,7 +11,7 @@ signal gameover_victory_finished(duration:float)
 signal gameover_defeat_started(duration:float)
 signal gameover_defeat_finished(duration:float)
 
-var duration_player_windup : float = .5
+var duration_player_windup : float = 2
 var duration_player_impact : float = 1
 
 var duration_enemy_windup : float = .5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=25 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://src/combat/CombatSequencer.gd" id="6_13qwi"]
 [ext_resource type="Script" path="res://src/TextController.gd" id="6_dfxbv"]
 [ext_resource type="Script" path="res://src/heroes/PartyController.gd" id="7_vb18x"]
+[ext_resource type="PackedScene" uid="uid://c6qrbk6hrtpc" path="res://src/game_over_monitor_statistics/GameOverMonitorStatistics.tscn" id="7_y431v"]
 [ext_resource type="Script" path="res://src/heroes/HeroRepository.gd" id="8_uko4w"]
 [ext_resource type="Script" path="res://src/combat/enemy/Enemy.gd" id="12_mx65p"]
 [ext_resource type="Resource" uid="uid://bp23cxel76cpd" path="res://assets/data/enemy/rat_swarm/RatSwarmData.tres" id="13_4stoj"]
@@ -19,7 +20,10 @@
 [ext_resource type="Script" path="res://src/display/enemy/EnemyDisplay.gd" id="14_y1tmu"]
 [ext_resource type="PackedScene" uid="uid://d3pdnnecfo71e" path="res://src/display/combat_preview/CombatPreview.tscn" id="17_kwces"]
 [ext_resource type="Texture2D" uid="uid://sv36d283ay2o" path="res://assets/art/player.jpg" id="18_f1reu"]
+[ext_resource type="PackedScene" uid="uid://ct2ln3f73kx8k" path="res://src/display/summoned_heroes/SummonedHeroPreviews.tscn" id="19_sv48p"]
+[ext_resource type="Script" path="res://src/display/summoned_heroes/AnimatedHeroDisplayer.gd" id="20_5hje4"]
 [ext_resource type="PackedScene" uid="uid://cqv757c3cshe4" path="res://src/display/typed_word/TileTextDisplay.tscn" id="20_xgcmq"]
+[ext_resource type="PackedScene" uid="uid://bwp1rm1mjnafi" path="res://src/display/summoned_heroes/SummonedHero.tscn" id="21_onhpi"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -77,6 +81,8 @@ Heroes"
 
 [node name="CombatSequencer" type="Node" parent="."]
 script = ExtResource("6_13qwi")
+
+[node name="GameOverMonitorStatistics" parent="." instance=ExtResource("7_y431v")]
 
 [node name="TextController" type="Node" parent="."]
 script = ExtResource("6_dfxbv")
@@ -166,6 +172,38 @@ anchor_right = 0.45
 anchor_bottom = 0.45
 grow_horizontal = 2
 
+[node name="SummonedHeroPreviews" parent="." instance=ExtResource("19_sv48p")]
+layout_mode = 1
+
+[node name="AnimatedHeroDisplayer" type="Node" parent="."]
+script = ExtResource("20_5hje4")
+charge_destination = Vector2(939, 282)
+
+[node name="SummonedHero" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+scale = Vector2(1.15, 1.15)
+
+[node name="SummonedHero2" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+
+[node name="SummonedHero3" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+
+[node name="SummonedHero4" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+
+[node name="SummonedHero5" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+
+[node name="SummonedHero6" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+
+[node name="SummonedHero7" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+
+[node name="SummonedHero8" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+
+[node name="SummonedHero9" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+
+[node name="SummonedHero10" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+
 [connection signal="pressed" from="SummonNewHeroesButton" to="HeroRepository" method="generate_heroes"]
 [connection signal="word_consumed" from="TextController" to="HeroRepository" method="remove"]
+[connection signal="word_submitted" from="TextController" to="GameOverMonitorStatistics" method="_on_text_controller_word_submitted"]
+[connection signal="party_activated" from="PartyController" to="GameOverMonitorStatistics" method="_on_party_controller_party_activated"]
 [connection signal="hero_repository_contents_changed" from="HeroRepository" to="TrayOfHeroes" method="_on_hero_repository_hero_repository_contents_changed"]
+[connection signal="hero_repository_contents_changed" from="HeroRepository" to="GameOverMonitorStatistics" method="_on_hero_repository_hero_repository_contents_changed"]
+[connection signal="enemy_defeated" from="Enemy" to="GameOverMonitorStatistics" method="_on_enemy_enemy_defeated"]
