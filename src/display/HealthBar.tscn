@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cy6mn63arb02j"]
+[gd_scene load_steps=9 format=3 uid="uid://cy6mn63arb02j"]
 
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_8vu6e"]
 [ext_resource type="Script" path="res://src/display/HealthBar.gd" id="1_37kk7"]
 [ext_resource type="Texture2D" uid="uid://bgxma3npk0foe" path="res://assets/art/ui/health_bar_border.png" id="2_sqtnc"]
+[ext_resource type="PackedScene" uid="uid://cwp37vhuqicll" path="res://src/display/BlockIcon.tscn" id="4_31vk6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmba1"]
 bg_color = Color(0, 0, 0, 1)
@@ -65,6 +66,12 @@ patch_margin_right = 10
 patch_margin_bottom = 10
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
+
+[node name="BlockIcon" parent="VBoxContainer/ChaseBar" instance=ExtResource("4_31vk6")]
+layout_mode = 1
+anchors_preset = 4
+offset_left = -20.0
+grow_horizontal = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2

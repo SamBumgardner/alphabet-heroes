@@ -6,6 +6,7 @@ class_name HealthBar extends MarginContainer
 @onready var chase_bar : ProgressBar = $VBoxContainer/ChaseBar
 @onready var value_bar : ProgressBar = $VBoxContainer/ChaseBar/ValueBar
 @onready var label : Label = $VBoxContainer/Label
+@onready var block_icon : BlockIcon = $VBoxContainer/ChaseBar/BlockIcon
 @onready var start_position : Vector2 = position
 
 var chase_tween : Tween
@@ -18,7 +19,10 @@ func _ready():
 
 func init_combatant(new_combatant):
 	combatant.hurt.connect(_on_hurt)
+	combatant.block_increased.connect(_on_block_increased)
+	combatant.block_decreased.connect(_on_block_decreased)
 	_on_hurt(combatant.current_health, combatant.max_health, true)
+	_on_block_increased(0, combatant.current_block)
 
 func _on_hurt(_old_health : float, health : float, is_setup : bool = false):
 	#chase_bar.value = value_bar.value # Comment this out if you want to have the orange bar keep extending as you do multiple hits.
@@ -42,6 +46,12 @@ func _on_hurt(_old_health : float, health : float, is_setup : bool = false):
 		text_shake_tween = create_tween()
 		text_shake_tween.tween_method(shake_bar, 0, 0, .1)
 		text_shake_tween.tween_property(self, "position", start_position, 0)
+
+func _on_block_increased(_previous : int, new_block : int):
+	block_icon.set_block(new_block)
+
+func _on_block_decreased(_previous : int, new_block : int):
+	block_icon.set_block(new_block)
 
 func shake_bar(_value : float):
 	position = start_position + (Vector2.ONE.rotated(randf_range(0, 6.29)) * 5)
