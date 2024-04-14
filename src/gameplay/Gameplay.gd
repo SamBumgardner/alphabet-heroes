@@ -45,7 +45,15 @@ func _ready():
 	var summoned_hero_previews = $SummonedHeroPreviews as SummonedHeroPreviews
 	party_controller.party_changed.connect(summoned_hero_previews._on_party_changed)
 	combat_sequencer.player_windup.connect(summoned_hero_previews._on_player_windup)
-	
+
+	var animated_hero_displayer = $AnimatedHeroDisplayer as AnimatedHeroDisplayer
+	party_controller.party_changed.connect(animated_hero_displayer._on_party_changed)
+	summoned_hero_previews.summon_hero_positions.connect(
+		animated_hero_displayer._on_summon_hero_positions
+	)
+	combat_sequencer.player_windup.connect(animated_hero_displayer._on_player_windup)
+	combat_sequencer.player_impact.connect(animated_hero_displayer._on_player_impact)
+
 	# short-term game over handling:
 	var developer_only_navigation = $DeveloperOnlyNavigation
 	combat_sequencer.gameover_victory_finished.connect(

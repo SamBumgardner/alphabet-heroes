@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dt6qcnmo0xomt" path="res://icon.svg" id="1_kbhjw"]
 
 [node name="HeroPreview" type="TextureRect"]
-modulate = Color(1, 1, 1, 0.705882)
+modulate = Color(1, 1, 1, 0.588235)
 custom_minimum_size = Vector2(48, 64)
 size_flags_vertical = 8
 texture = ExtResource("1_kbhjw")

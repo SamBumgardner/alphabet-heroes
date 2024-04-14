@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwp1rm1mjnafi"]
+
+[ext_resource type="SpriteFrames" uid="uid://veun1fxpclmp" path="res://assets/art/heroes/peasant_frames.tres" id="1_mt8k6"]
+
+[node name="SummonedHero" type="AnimatedSprite2D"]
+visible = false
+sprite_frames = ExtResource("1_mt8k6")
+animation = &"summon"
+frame = 7
+frame_progress = 1.0
+centered = false

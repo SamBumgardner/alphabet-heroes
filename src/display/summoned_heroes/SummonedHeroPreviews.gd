@@ -36,5 +36,5 @@ func _get_visible_preview_positions() -> Array:
 	var result = []
 	for hero_preview : TextureRect in hero_previews:
 		if hero_preview.visible:
-			result.append(hero_preview.position)
+			result.append(hero_preview.global_position)
 	return result
