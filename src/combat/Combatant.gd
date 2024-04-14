@@ -26,9 +26,8 @@ func apply_damage(damage:int, is_magic:bool):
 		var old_health = current_health
 		current_health -= unmitigated_damage
 		hurt.emit(old_health, current_health)
-	
-	if current_health <= 0:
-		_defeated()
+		if old_health > 0 and current_health <= 0:
+			_defeated()
 
 # emit block_increased
 func add_block(additional_block:int):
