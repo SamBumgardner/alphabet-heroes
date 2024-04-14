@@ -13,10 +13,11 @@ func _on_summon_hero_positions(summon_positions:Array):
 		return
 	
 	for i in range(animatable_heroes.size()):
-		var animatable_hero = animatable_heroes[i] as AnimatedSprite2D
+		var animatable_hero = animatable_heroes[i] as SummonedHero
 		if i < summon_positions.size():
 			animatable_hero.show()
 			animatable_hero.global_position = summon_positions[i]
+			animatable_hero.switch_graphic(_current_party.heroes[i].job)
 			animatable_hero.play("summon")
 		else:
 			animatable_hero.hide()
