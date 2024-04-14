@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=18 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c6kwxcdkcsvu6" path="res://assets/art/enemy/Goblins_256x256.png" id="13_i2a36"]
 [ext_resource type="PackedScene" uid="uid://cy6mn63arb02j" path="res://src/display/HealthBar.tscn" id="14_q3t14"]
 [ext_resource type="Script" path="res://src/display/enemy/EnemyDisplay.gd" id="14_y1tmu"]
+[ext_resource type="PackedScene" uid="uid://d3pdnnecfo71e" path="res://src/display/combat_preview/CombatPreview.tscn" id="17_kwces"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -115,6 +116,14 @@ horizontal_alignment = 1
 [node name="HealthBar" parent="EnemyDisplay" node_paths=PackedStringArray("combatant") instance=ExtResource("14_q3t14")]
 layout_mode = 2
 combatant = NodePath("../../Enemy")
+
+[node name="PlayerCombatPreview" parent="." instance=ExtResource("17_kwces")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.2
+anchor_right = 0.3
+anchor_bottom = 0.2
 
 [connection signal="pressed" from="SummonNewHeroesButton" to="HeroRepository" method="generate_heroes"]
 [connection signal="word_changed" from="TextController" to="SimpleTextVisualizer" method="_on_word_changed"]

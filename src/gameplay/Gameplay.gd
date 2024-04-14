@@ -20,3 +20,6 @@ func _ready():
 	text_controller.word_changed.connect(party_controller._on_word_changed)
 	text_controller.word_activated.connect(party_controller._on_word_activated)
 	
+	var player_combat_preview = $PlayerCombatPreview as CombatPreview
+	party_controller.party_changed.connect(player_combat_preview._on_party_changed)
+	
