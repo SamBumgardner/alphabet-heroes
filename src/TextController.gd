@@ -4,6 +4,7 @@ signal word_changed(new_word)
 signal word_submitted(word)
 signal word_activated(word)
 signal word_consumed(word)
+signal word_denied(word)
 
 static var alpha_regex = RegEx.create_from_string("[A-Z]")
 
@@ -46,6 +47,7 @@ func send_word():
 		print("sending word %s to battle!" % current_word)
 		word_submitted.emit(current_word)
 	else:
+		word_denied.emit(current_word)
 		print("tried to start the battle, but %s is not a valid word" % current_word)
 
 # combat timing

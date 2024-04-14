@@ -83,4 +83,5 @@ script = ExtResource("9_tevq5")
 [connection signal="pressed" from="SummonNewHeroesButton" to="HeroRepository" method="generate_heroes"]
 [connection signal="word_changed" from="TextController" to="SimpleTextVisualizer" method="_on_word_changed"]
 [connection signal="word_consumed" from="TextController" to="HeroRepository" method="remove"]
+[connection signal="word_denied" from="TextController" to="SimpleTextVisualizer" method="_on_text_controller_word_denied"]
 [connection signal="hero_repository_contents_changed" from="HeroRepository" to="TrayOfHeroes" method="_on_hero_repository_hero_repository_contents_changed"]
