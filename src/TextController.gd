@@ -1,6 +1,7 @@
 class_name TextController extends Node
 
 signal word_changed(new_word)
+signal word_activated(word)
 signal word_consumed(word)
 
 static var alpha_regex = RegEx.create_from_string("[A-Z]")
@@ -37,6 +38,7 @@ func try_append_letter(char_to_append : String) -> String:
 func send_word():
 	if TextValidator.is_valid(current_word):
 		print("sending word %s to battle!" % current_word)
+		word_activated.emit(current_word)
 		word_consumed.emit(current_word)
 		current_word = ""
 	else:

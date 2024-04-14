@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6m2yqgfhvvmp"]
+
+[ext_resource type="PackedScene" uid="uid://dltgtmy7ux33w" path="res://demos/party-controller/PartyControllerDemo.tscn" id="1_cs5cw"]
+[ext_resource type="Script" path="res://src/combat/enemy/Enemy.gd" id="2_2eays"]
+[ext_resource type="Resource" uid="uid://b4bkv68mpkiho" path="res://assets/data/enemy/goblins/GoblinData.tres" id="3_onwjp"]
+[ext_resource type="Script" path="res://src/combat/Player.gd" id="4_tiknu"]
+[ext_resource type="Script" path="res://demos/combat-logic/SimplePlayerHealthDisplay.gd" id="5_bv7fx"]
+[ext_resource type="Script" path="res://demos/combat-logic/SimplePlayerBlockDisplay.gd" id="6_uulhu"]
+[ext_resource type="Script" path="res://demos/combat-logic/SimpleEnemyPreviewVisualizer.gd" id="7_ytaj0"]
+
+[node name="CombatLogicDemo" instance=ExtResource("1_cs5cw")]
+
+[node name="Enemy" type="Node" parent="." index="8"]
+script = ExtResource("2_2eays")
+enemy_data = ExtResource("3_onwjp")
+
+[node name="Player" type="Node" parent="." index="9"]
+script = ExtResource("4_tiknu")
+
+[node name="SimplePlayerHealthDisplay" type="Label" parent="." index="10"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 312.0
+offset_right = 127.0
+offset_bottom = 335.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Health:"
+script = ExtResource("5_bv7fx")
+
+[node name="SimplePlayerBlockDisplay" type="Label" parent="." index="11"]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 309.0
+offset_right = 265.0
+offset_bottom = 332.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Block:"
+script = ExtResource("6_uulhu")
+
+[node name="SimpleEnemyHealthDisplay" type="Label" parent="." index="12"]
+layout_mode = 0
+offset_left = 834.0
+offset_top = 261.0
+offset_right = 890.0
+offset_bottom = 284.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Health:"
+script = ExtResource("5_bv7fx")
+
+[node name="SimpleEnemyBlockDisplay" type="Label" parent="." index="13"]
+layout_mode = 0
+offset_left = 972.0
+offset_top = 258.0
+offset_right = 1028.0
+offset_bottom = 281.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Block:"
+script = ExtResource("6_uulhu")
+
+[node name="SimpleEnemyPreviewVisualizer" type="Label" parent="." index="14"]
+layout_mode = 0
+offset_left = 801.0
+offset_right = 932.0
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Enemy Preview:"
+script = ExtResource("7_ytaj0")
+
+[connection signal="word_activated" from="TextController" to="PartyController" method="_on_word_activated"]
+[connection signal="party_activated" from="PartyController" to="Enemy" method="_on_party_activated"]
+[connection signal="party_activated" from="PartyController" to="Player" method="_on_party_activated"]
+[connection signal="action_changed" from="Enemy" to="SimpleEnemyPreviewVisualizer" method="_on_action_changed"]
+[connection signal="block_decreased" from="Enemy" to="SimpleEnemyBlockDisplay" method="_on_block_decreased"]
+[connection signal="block_increased" from="Enemy" to="SimpleEnemyBlockDisplay" method="_on_block_increased"]
+[connection signal="enemy_activated" from="Enemy" to="Player" method="_on_enemy_activated"]
+[connection signal="healed" from="Enemy" to="SimpleEnemyHealthDisplay" method="_on_healed"]
+[connection signal="hurt" from="Enemy" to="SimpleEnemyHealthDisplay" method="_on_hurt"]
+[connection signal="block_decreased" from="Player" to="SimplePlayerBlockDisplay" method="_on_block_decreased"]
+[connection signal="block_increased" from="Player" to="SimplePlayerBlockDisplay" method="_on_block_increased"]
+[connection signal="block_removed" from="Player" to="SimplePlayerBlockDisplay" method="_on_block_decreased"]
+[connection signal="healed" from="Player" to="SimplePlayerHealthDisplay" method="_on_healed"]
+[connection signal="hurt" from="Player" to="SimplePlayerHealthDisplay" method="_on_hurt"]
