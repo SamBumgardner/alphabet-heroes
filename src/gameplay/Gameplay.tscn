@@ -125,6 +125,14 @@ anchor_top = 0.2
 anchor_right = 0.3
 anchor_bottom = 0.2
 
+[node name="EnemyCombatPreview" parent="." instance=ExtResource("17_kwces")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7
+anchor_top = 0.2
+anchor_right = 0.7
+anchor_bottom = 0.2
+
 [connection signal="pressed" from="SummonNewHeroesButton" to="HeroRepository" method="generate_heroes"]
 [connection signal="word_changed" from="TextController" to="SimpleTextVisualizer" method="_on_word_changed"]
 [connection signal="word_consumed" from="TextController" to="HeroRepository" method="remove"]
