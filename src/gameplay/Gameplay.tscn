@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=19 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cy6mn63arb02j" path="res://src/display/HealthBar.tscn" id="14_q3t14"]
 [ext_resource type="Script" path="res://src/display/enemy/EnemyDisplay.gd" id="14_y1tmu"]
 [ext_resource type="PackedScene" uid="uid://d3pdnnecfo71e" path="res://src/display/combat_preview/CombatPreview.tscn" id="17_kwces"]
+[ext_resource type="Texture2D" uid="uid://sv36d283ay2o" path="res://assets/art/player.jpg" id="18_f1reu"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -46,11 +47,11 @@ layout_mode = 1
 
 [node name="SummonNewHeroesButton" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 6
+anchors_preset = -1
 anchor_left = 1.0
-anchor_top = 0.5
+anchor_top = 0.75
 anchor_right = 1.0
-anchor_bottom = 0.5
+anchor_bottom = 0.75
 offset_left = -8.0
 offset_top = -4.0
 offset_bottom = 4.0
@@ -95,9 +96,9 @@ enemy_data = ExtResource("13_4stoj")
 [node name="EnemyDisplay" type="VBoxContainer" parent="." node_paths=PackedStringArray("enemy")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.7
+anchor_left = 0.75
 anchor_top = 0.4
-anchor_right = 0.7
+anchor_right = 0.75
 anchor_bottom = 0.4
 grow_horizontal = 2
 grow_vertical = 2
@@ -120,18 +121,38 @@ combatant = NodePath("../../Enemy")
 [node name="PlayerCombatPreview" parent="." instance=ExtResource("17_kwces")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.3
+anchor_left = 0.35
 anchor_top = 0.2
-anchor_right = 0.3
+anchor_right = 0.35
 anchor_bottom = 0.2
 
 [node name="EnemyCombatPreview" parent="." instance=ExtResource("17_kwces")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.7
+anchor_left = 0.75
 anchor_top = 0.2
-anchor_right = 0.7
+anchor_right = 0.75
 anchor_bottom = 0.2
+
+[node name="PlayerDisplay" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.45
+anchor_right = 0.2
+anchor_bottom = 0.45
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="PlayerDisplay"]
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 2
+texture = ExtResource("18_f1reu")
+expand_mode = 3
+
+[node name="HealthBar" parent="PlayerDisplay" instance=ExtResource("14_q3t14")]
+layout_mode = 2
 
 [connection signal="pressed" from="SummonNewHeroesButton" to="HeroRepository" method="generate_heroes"]
 [connection signal="word_changed" from="TextController" to="SimpleTextVisualizer" method="_on_word_changed"]

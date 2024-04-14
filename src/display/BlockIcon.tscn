@@ -5,7 +5,7 @@
 [ext_resource type="Theme" path="res://assets/fonts/spelling_monospace_font_theme.tres" id="3_xvcdb"]
 
 [node name="BlockIcon" type="TextureRect"]
-anchors_preset = -1
+anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
