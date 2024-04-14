@@ -21,9 +21,20 @@ script = ExtResource("1_fe8ca")
 
 [node name="TrayOfHeroes" parent="." instance=ExtResource("4_vlgye")]
 layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="DeveloperOnlyNavigation" parent="." instance=ExtResource("3_6xc6h")]
 layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="BackToStartMenuButton" parent="." instance=ExtResource("2_66iqr")]
 layout_direction = 0
