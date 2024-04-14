@@ -158,5 +158,7 @@ grow_horizontal = 2
 
 [connection signal="pressed" from="SummonNewHeroesButton" to="HeroRepository" method="generate_heroes"]
 [connection signal="word_consumed" from="TextController" to="HeroRepository" method="remove"]
+[connection signal="word_submitted" from="TextController" to="GameOverMonitorStatistics" method="_on_text_controller_word_submitted"]
+[connection signal="party_activated" from="PartyController" to="GameOverMonitorStatistics" method="_on_party_controller_party_activated"]
 [connection signal="hero_repository_contents_changed" from="HeroRepository" to="TrayOfHeroes" method="_on_hero_repository_hero_repository_contents_changed"]
 [connection signal="hero_repository_contents_changed" from="HeroRepository" to="GameOverMonitorStatistics" method="_on_hero_repository_hero_repository_contents_changed"]
