@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=19 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
@@ -9,8 +9,6 @@
 [ext_resource type="Script" path="res://src/TextController.gd" id="6_dfxbv"]
 [ext_resource type="Script" path="res://src/heroes/PartyController.gd" id="7_vb18x"]
 [ext_resource type="Script" path="res://src/heroes/HeroRepository.gd" id="8_uko4w"]
-[ext_resource type="Script" path="res://demos/text-input/SimpleTextVisualizer.gd" id="9_tevq5"]
-[ext_resource type="Theme" path="res://assets/fonts/spelling_monospace_font_theme.tres" id="9_x8mte"]
 [ext_resource type="Script" path="res://src/combat/enemy/Enemy.gd" id="12_mx65p"]
 [ext_resource type="Resource" uid="uid://bp23cxel76cpd" path="res://assets/data/enemy/rat_swarm/RatSwarmData.tres" id="13_4stoj"]
 [ext_resource type="Texture2D" uid="uid://c6kwxcdkcsvu6" path="res://assets/art/enemy/Goblins_256x256.png" id="13_i2a36"]
@@ -19,6 +17,7 @@
 [ext_resource type="Script" path="res://src/display/enemy/EnemyDisplay.gd" id="14_y1tmu"]
 [ext_resource type="PackedScene" uid="uid://d3pdnnecfo71e" path="res://src/display/combat_preview/CombatPreview.tscn" id="17_kwces"]
 [ext_resource type="Texture2D" uid="uid://sv36d283ay2o" path="res://assets/art/player.jpg" id="18_f1reu"]
+[ext_resource type="PackedScene" uid="uid://cqv757c3cshe4" path="res://src/display/typed_word/TileTextDisplay.tscn" id="20_xgcmq"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -77,19 +76,6 @@ hero_repository = NodePath("../HeroRepository")
 [node name="HeroRepository" type="Node" parent="."]
 script = ExtResource("8_uko4w")
 
-[node name="SimpleTextVisualizer" type="Label" parent="."]
-layout_mode = 0
-offset_left = 328.0
-offset_top = 160.0
-offset_right = 378.0
-offset_bottom = 183.0
-theme = ExtResource("9_x8mte")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 48
-script = ExtResource("9_tevq5")
-
 [node name="Enemy" type="Node" parent="."]
 script = ExtResource("12_mx65p")
 enemy_data = ExtResource("13_4stoj")
@@ -125,9 +111,9 @@ combatant = NodePath("../../Enemy")
 [node name="PlayerCombatPreview" parent="." instance=ExtResource("17_kwces")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.35
+anchor_left = 0.45
 anchor_top = 0.2
-anchor_right = 0.35
+anchor_right = 0.45
 anchor_bottom = 0.2
 
 [node name="EnemyCombatPreview" parent="." instance=ExtResource("17_kwces")]
@@ -159,8 +145,14 @@ expand_mode = 3
 layout_mode = 2
 combatant = NodePath("../../Player")
 
+[node name="TileTextDisplay" parent="." instance=ExtResource("20_xgcmq")]
+layout_mode = 1
+anchor_left = 0.45
+anchor_top = 0.45
+anchor_right = 0.45
+anchor_bottom = 0.45
+grow_horizontal = 2
+
 [connection signal="pressed" from="SummonNewHeroesButton" to="HeroRepository" method="generate_heroes"]
-[connection signal="word_changed" from="TextController" to="SimpleTextVisualizer" method="_on_word_changed"]
 [connection signal="word_consumed" from="TextController" to="HeroRepository" method="remove"]
-[connection signal="word_denied" from="TextController" to="SimpleTextVisualizer" method="_on_text_controller_word_denied"]
 [connection signal="hero_repository_contents_changed" from="HeroRepository" to="TrayOfHeroes" method="_on_hero_repository_hero_repository_contents_changed"]
