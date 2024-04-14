@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4drt8tdciyox"
-path="res://.godot/imported/Priest_128x128.png-3e5921c7bd16b346589f1ac685e8e8cb.ctex"
+uid="uid://cs2fsgxxlolng"
+path="res://.godot/imported/Peasant_Summon.png-d350a5bb245f1dd16db36e11710134e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Priest_128x128.png"
-dest_files=["res://.godot/imported/Priest_128x128.png-3e5921c7bd16b346589f1ac685e8e8cb.ctex"]
+source_file="res://assets/art/heroes/summon_sheets/Peasant_Summon.png"
+dest_files=["res://.godot/imported/Peasant_Summon.png-d350a5bb245f1dd16db36e11710134e6.ctex"]
 
 [params]
 

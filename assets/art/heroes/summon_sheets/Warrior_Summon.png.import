@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://skraovlbkvh8"
-path="res://.godot/imported/Knight_128x128.png-9d91731c6f883379529a83ffa93c12fa.ctex"
+uid="uid://dymfyp5fxtl67"
+path="res://.godot/imported/Warrior_Summon.png-81a20a59a1e6e72fa6d74ab7f7d77bf9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Knight_128x128.png"
-dest_files=["res://.godot/imported/Knight_128x128.png-9d91731c6f883379529a83ffa93c12fa.ctex"]
+source_file="res://assets/art/heroes/summon_sheets/Warrior_Summon.png"
+dest_files=["res://.godot/imported/Warrior_Summon.png-81a20a59a1e6e72fa6d74ab7f7d77bf9.ctex"]
 
 [params]
 

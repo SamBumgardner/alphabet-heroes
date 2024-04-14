@@ -2,9 +2,9 @@
 
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_vu46n"]
 [ext_resource type="Script" path="res://src/tray_of_heroes/TrayOfHeroes.gd" id="2_0a3gd"]
-[ext_resource type="Texture2D" uid="uid://s53eonie54i8" path="res://assets/art/Mage_128x128.png" id="3_kjwg4"]
-[ext_resource type="Texture2D" uid="uid://skraovlbkvh8" path="res://assets/art/Knight_128x128.png" id="3_uyr2j"]
-[ext_resource type="Texture2D" uid="uid://4drt8tdciyox" path="res://assets/art/Priest_128x128.png" id="5_5lri7"]
+[ext_resource type="Texture2D" uid="uid://s53eonie54i8" path="res://assets/art/heroes/portraits/Mage_128x128.png" id="3_kjwg4"]
+[ext_resource type="Texture2D" uid="uid://skraovlbkvh8" path="res://assets/art/heroes/portraits/Knight_128x128.png" id="3_uyr2j"]
+[ext_resource type="Texture2D" uid="uid://4drt8tdciyox" path="res://assets/art/heroes/portraits/Priest_128x128.png" id="5_5lri7"]
 [ext_resource type="PackedScene" uid="uid://bq3nvxvnxfek4" path="res://src/hero_panel/HeroPanel.tscn" id="5_vshlj"]
 
 [node name="TrayOfHeroes" type="Control"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bomytq1jpagf4"
-path="res://.godot/imported/Warrior_128x128.png-00711a263d9ce0dcc79a338bb3afb061.ctex"
+uid="uid://dvx45n83e0y8u"
+path="res://.godot/imported/Warrior_Sheet.png-95d6544e7724888d2562a20e5d39c3a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Warrior_128x128.png"
-dest_files=["res://.godot/imported/Warrior_128x128.png-00711a263d9ce0dcc79a338bb3afb061.ctex"]
+source_file="res://assets/art/heroes/combat_sheets/Warrior_Sheet.png"
+dest_files=["res://.godot/imported/Warrior_Sheet.png-95d6544e7724888d2562a20e5d39c3a1.ctex"]
 
 [params]
 
