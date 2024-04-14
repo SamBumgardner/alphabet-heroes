@@ -13,7 +13,7 @@ func _on_enemy_activated(enemy_action:EnemyAction):
 	print(self)
 
 func _on_combat_finished():
-	remove_block.call_deferred()
+	remove_block()
 
 func _defeated():
 	player_defeated.emit()

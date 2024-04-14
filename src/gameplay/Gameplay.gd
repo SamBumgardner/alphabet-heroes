@@ -29,3 +29,8 @@ func _ready():
 	var enemy_combat_preview = $EnemyCombatPreview as CombatPreview
 	enemy.action_changed.connect(enemy_combat_preview._on_action_changed)
 	enemy_combat_preview._on_action_changed(enemy.current_action)
+	
+	var player = $Player as Player
+	enemy.enemy_activated.connect(player._on_enemy_activated)
+	combat_sequencer.combat_finished.connect(player._on_combat_finished)
+	party_controller.party_activated.connect(player._on_party_activated)
