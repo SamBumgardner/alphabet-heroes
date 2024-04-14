@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=20 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://src/combat/CombatSequencer.gd" id="6_13qwi"]
 [ext_resource type="Script" path="res://src/TextController.gd" id="6_dfxbv"]
 [ext_resource type="Script" path="res://src/heroes/PartyController.gd" id="7_vb18x"]
+[ext_resource type="PackedScene" uid="uid://c6qrbk6hrtpc" path="res://src/game_over_monitor_statistics/GameOverMonitorStatistics.tscn" id="7_y431v"]
 [ext_resource type="Script" path="res://src/heroes/HeroRepository.gd" id="8_uko4w"]
 [ext_resource type="Script" path="res://src/combat/enemy/Enemy.gd" id="12_mx65p"]
 [ext_resource type="Resource" uid="uid://bp23cxel76cpd" path="res://assets/data/enemy/rat_swarm/RatSwarmData.tres" id="13_4stoj"]
@@ -64,6 +65,8 @@ Heroes"
 
 [node name="CombatSequencer" type="Node" parent="."]
 script = ExtResource("6_13qwi")
+
+[node name="GameOverMonitorStatistics" parent="." instance=ExtResource("7_y431v")]
 
 [node name="TextController" type="Node" parent="."]
 script = ExtResource("6_dfxbv")
@@ -155,4 +158,8 @@ grow_horizontal = 2
 
 [connection signal="pressed" from="SummonNewHeroesButton" to="HeroRepository" method="generate_heroes"]
 [connection signal="word_consumed" from="TextController" to="HeroRepository" method="remove"]
+[connection signal="word_submitted" from="TextController" to="GameOverMonitorStatistics" method="_on_text_controller_word_submitted"]
+[connection signal="party_activated" from="PartyController" to="GameOverMonitorStatistics" method="_on_party_controller_party_activated"]
 [connection signal="hero_repository_contents_changed" from="HeroRepository" to="TrayOfHeroes" method="_on_hero_repository_hero_repository_contents_changed"]
+[connection signal="hero_repository_contents_changed" from="HeroRepository" to="GameOverMonitorStatistics" method="_on_hero_repository_hero_repository_contents_changed"]
+[connection signal="enemy_defeated" from="Enemy" to="GameOverMonitorStatistics" method="_on_enemy_enemy_defeated"]
