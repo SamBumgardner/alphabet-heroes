@@ -38,12 +38,20 @@ func _on_player_windup(duration:float):
 		charge_tween.tween_property(
 			summoned_hero, 
 			"global_position", 
-			charge_destination, 
+			charge_destination + _generate_random_vector(), 
 			remaining_duration - fade_out_duration
 		)
-		charge_tween.tween_property(summoned_hero, "modulate", Color.TRANSPARENT, fade_out_duration)
+		charge_tween.tween_property(
+			summoned_hero, 
+			"modulate", 
+			Color.TRANSPARENT, 
+			fade_out_duration
+		)
+
+func _generate_random_vector():
+	return Vector2.ONE.rotated(randf_range(0, 6.29)) * randf_range(0, 50)
 
 func _on_player_impact(duration:float):
 	for node in animatable_heroes:
 		node.hide()
-		
+		node.modulate = Color.WHITE
