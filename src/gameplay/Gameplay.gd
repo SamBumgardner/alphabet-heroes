@@ -12,3 +12,11 @@ func _ready():
 	combat_sequencer.combat_started.connect(text_controller._on_combat_started)
 	combat_sequencer.player_impact.connect(text_controller._on_player_impact)
 	combat_sequencer.combat_finished.connect(text_controller._on_combat_finished)
+	
+	var enemy = $Enemy as Enemy
+	var party_controller = $PartyController as PartyController
+	party_controller.party_activated.connect(enemy._on_party_activated)
+	
+	text_controller.word_changed.connect(party_controller._on_word_changed)
+	text_controller.word_activated.connect(party_controller._on_word_activated)
+	
