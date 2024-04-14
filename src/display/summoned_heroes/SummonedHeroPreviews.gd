@@ -1,5 +1,13 @@
 class_name SummonedHeroPreviews extends HBoxContainer
 
+static var hero_images : Array = [
+	preload("res://assets/art/heroes/single_images/Warrior_Standing.png"),
+	preload("res://assets/art/heroes/single_images/Knight_Standing.png"),
+	preload("res://assets/art/heroes/single_images/Mage_Standing.png"),
+	preload("res://assets/art/heroes/single_images/Priest_Standing.png"),
+	preload("res://assets/art/heroes/single_images/Peasant_Standing.png"),
+]
+
 @onready var hero_previews : Array = get_children()
 
 func _ready():
@@ -10,7 +18,7 @@ func _ready():
 func _on_party_changed(new_party:Party):
 	for i in range(hero_previews.size()):
 		if i < new_party.heroes.size():
-			#change display to match the hero's class
+			hero_previews[i].texture = hero_images[new_party.heroes[i].job]
 			hero_previews[i].show()
 		else:
 			hero_previews[i].hide()
