@@ -3,6 +3,7 @@ class_name TextController extends Node
 signal word_changed(new_word)
 signal word_activated(word)
 signal word_consumed(word)
+signal word_denied(word)
 
 static var alpha_regex = RegEx.create_from_string("[A-Z]")
 
@@ -42,6 +43,7 @@ func send_word():
 		word_consumed.emit(current_word)
 		current_word = ""
 	else:
+		word_denied.emit(current_word)
 		print("tried to start the battle, but %s is not a valid word" % current_word)
 
 func try_backspace_letter():
