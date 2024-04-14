@@ -10,3 +10,5 @@ name = "Rat Swarm"
 max_health = 30
 graphic = ExtResource("2_umhuw")
 action_selector_class = ExtResource("1_3ny3u")
+location_name = "South Forest Depths"
+location_position = Vector2(-553, -2264)
