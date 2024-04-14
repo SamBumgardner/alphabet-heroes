@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=23 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
@@ -18,7 +18,10 @@
 [ext_resource type="Script" path="res://src/display/enemy/EnemyDisplay.gd" id="14_y1tmu"]
 [ext_resource type="PackedScene" uid="uid://d3pdnnecfo71e" path="res://src/display/combat_preview/CombatPreview.tscn" id="17_kwces"]
 [ext_resource type="Texture2D" uid="uid://sv36d283ay2o" path="res://assets/art/player.jpg" id="18_f1reu"]
+[ext_resource type="PackedScene" uid="uid://ct2ln3f73kx8k" path="res://src/display/summoned_heroes/SummonedHeroPreviews.tscn" id="19_sv48p"]
+[ext_resource type="Script" path="res://src/display/summoned_heroes/AnimatedHeroDisplayer.gd" id="20_5hje4"]
 [ext_resource type="PackedScene" uid="uid://cqv757c3cshe4" path="res://src/display/typed_word/TileTextDisplay.tscn" id="20_xgcmq"]
+[ext_resource type="PackedScene" uid="uid://bwp1rm1mjnafi" path="res://src/display/summoned_heroes/SummonedHero.tscn" id="21_onhpi"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -155,6 +158,34 @@ anchor_top = 0.45
 anchor_right = 0.45
 anchor_bottom = 0.45
 grow_horizontal = 2
+
+[node name="SummonedHeroPreviews" parent="." instance=ExtResource("19_sv48p")]
+layout_mode = 1
+
+[node name="AnimatedHeroDisplayer" type="Node" parent="."]
+script = ExtResource("20_5hje4")
+charge_destination = Vector2(939, 282)
+
+[node name="SummonedHero" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+scale = Vector2(1.15, 1.15)
+
+[node name="SummonedHero2" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+
+[node name="SummonedHero3" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+
+[node name="SummonedHero4" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+
+[node name="SummonedHero5" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+
+[node name="SummonedHero6" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+
+[node name="SummonedHero7" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+
+[node name="SummonedHero8" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+
+[node name="SummonedHero9" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+
+[node name="SummonedHero10" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
 
 [connection signal="pressed" from="SummonNewHeroesButton" to="HeroRepository" method="generate_heroes"]
 [connection signal="word_consumed" from="TextController" to="HeroRepository" method="remove"]
