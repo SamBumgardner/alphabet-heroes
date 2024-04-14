@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=21 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
@@ -18,8 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://d3pdnnecfo71e" path="res://src/display/combat_preview/CombatPreview.tscn" id="17_kwces"]
 [ext_resource type="Texture2D" uid="uid://sv36d283ay2o" path="res://assets/art/player.jpg" id="18_f1reu"]
 [ext_resource type="SpriteFrames" uid="uid://veun1fxpclmp" path="res://assets/art/heroes/combat_sheets/peasant_frames.tres" id="19_4w5oh"]
-[ext_resource type="PackedScene" uid="uid://dy2x3f8fvga25" path="res://src/display/summoned_heroes/HeroPreview.tscn" id="19_o8dnw"]
-[ext_resource type="Script" path="res://src/display/summoned_heroes/SummonedHeroPreviews.gd" id="19_shn5v"]
+[ext_resource type="PackedScene" uid="uid://ct2ln3f73kx8k" path="res://src/display/summoned_heroes/SummonedHeroPreviews.tscn" id="19_sv48p"]
 [ext_resource type="PackedScene" uid="uid://cqv757c3cshe4" path="res://src/display/typed_word/TileTextDisplay.tscn" id="20_xgcmq"]
 
 [node name="Gameplay" type="Control"]
@@ -156,55 +155,8 @@ anchor_right = 0.45
 anchor_bottom = 0.45
 grow_horizontal = 2
 
-[node name="SummonedHeroPreviews" type="HBoxContainer" parent="."]
+[node name="SummonedHeroPreviews" parent="." instance=ExtResource("19_sv48p")]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.45
-anchor_top = 0.35
-anchor_right = 0.45
-anchor_bottom = 0.35
-grow_horizontal = 2
-theme_override_constants/separation = 0
-script = ExtResource("19_shn5v")
-
-[node name="HeroPreview" parent="SummonedHeroPreviews" instance=ExtResource("19_o8dnw")]
-layout_mode = 2
-
-[node name="HeroPreview2" parent="SummonedHeroPreviews" instance=ExtResource("19_o8dnw")]
-custom_minimum_size = Vector2(32, 48)
-layout_mode = 2
-
-[node name="HeroPreview3" parent="SummonedHeroPreviews" instance=ExtResource("19_o8dnw")]
-custom_minimum_size = Vector2(32, 48)
-layout_mode = 2
-
-[node name="HeroPreview4" parent="SummonedHeroPreviews" instance=ExtResource("19_o8dnw")]
-custom_minimum_size = Vector2(32, 48)
-layout_mode = 2
-
-[node name="HeroPreview5" parent="SummonedHeroPreviews" instance=ExtResource("19_o8dnw")]
-custom_minimum_size = Vector2(32, 48)
-layout_mode = 2
-
-[node name="HeroPreview6" parent="SummonedHeroPreviews" instance=ExtResource("19_o8dnw")]
-custom_minimum_size = Vector2(32, 48)
-layout_mode = 2
-
-[node name="HeroPreview7" parent="SummonedHeroPreviews" instance=ExtResource("19_o8dnw")]
-custom_minimum_size = Vector2(32, 48)
-layout_mode = 2
-
-[node name="HeroPreview8" parent="SummonedHeroPreviews" instance=ExtResource("19_o8dnw")]
-custom_minimum_size = Vector2(32, 48)
-layout_mode = 2
-
-[node name="HeroPreview9" parent="SummonedHeroPreviews" instance=ExtResource("19_o8dnw")]
-custom_minimum_size = Vector2(32, 48)
-layout_mode = 2
-
-[node name="HeroPreview10" parent="SummonedHeroPreviews" instance=ExtResource("19_o8dnw")]
-custom_minimum_size = Vector2(32, 48)
-layout_mode = 2
 
 [node name="AnimatedHeroes" type="Node" parent="."]
 
