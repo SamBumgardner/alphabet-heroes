@@ -16,6 +16,7 @@ func _ready():
 	var enemy = $Enemy as Enemy
 	combat_sequencer.combat_finished.connect(enemy._on_combat_finished)
 	combat_sequencer.enemy_impact.connect(enemy._on_enemy_impact)
+	enemy.enemy_defeated.connect(combat_sequencer._on_enemy_defeated)
 	
 	var party_controller = $PartyController as PartyController
 	party_controller.party_activated.connect(enemy._on_party_activated)
@@ -34,3 +35,13 @@ func _ready():
 	enemy.enemy_activated.connect(player._on_enemy_activated)
 	combat_sequencer.combat_finished.connect(player._on_combat_finished)
 	party_controller.party_activated.connect(player._on_party_activated)
+	player.player_defeated.connect(combat_sequencer._on_player_defeated)
+	
+	# short-term game over handling:
+	var developer_only_navigation = $DeveloperOnlyNavigation
+	combat_sequencer.gameover_victory_finished.connect(
+		developer_only_navigation._on_win_button_pressed
+	)
+	combat_sequencer.gameover_defeat_finished.connect(
+		developer_only_navigation._on_lose_button_pressed
+	)
