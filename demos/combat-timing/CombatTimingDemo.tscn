@@ -23,7 +23,5 @@ script = ExtResource("2_yapv5")
 [connection signal="gameover_victory_started" from="CombatSequencer" to="SimpleGameOverHandler" method="_on_gameover_victory_started"]
 [connection signal="player_impact" from="CombatSequencer" to="TextController" method="_on_player_impact"]
 [connection signal="word_submitted" from="TextController" to="CombatSequencer" method="_on_word_submitted"]
-[connection signal="party_activated" from="PartyController" to="Enemy" method="_on_party_activated"]
-[connection signal="party_activated" from="PartyController" to="Player" method="_on_party_activated"]
 [connection signal="enemy_defeated" from="Enemy" to="CombatSequencer" method="_on_enemy_defeated"]
 [connection signal="player_defeated" from="Player" to="CombatSequencer" method="_on_player_defeated"]
