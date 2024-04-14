@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=11 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://src/heroes/PartyController.gd" id="7_vb18x"]
 [ext_resource type="Script" path="res://src/heroes/HeroRepository.gd" id="8_uko4w"]
 [ext_resource type="Script" path="res://demos/text-input/SimpleTextVisualizer.gd" id="9_tevq5"]
+[ext_resource type="Theme" uid="uid://dg6ea4vwhuquo" path="res://assets/fonts/spelling_monospace_font_theme.tres" id="9_x8mte"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -68,6 +69,7 @@ offset_left = 328.0
 offset_top = 160.0
 offset_right = 378.0
 offset_bottom = 183.0
+theme = ExtResource("9_x8mte")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
