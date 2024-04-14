@@ -37,6 +37,10 @@ func _ready():
 	party_controller.party_activated.connect(player._on_party_activated)
 	player.player_defeated.connect(combat_sequencer._on_player_defeated)
 	
+	var tile_text_display = $TileTextDisplay as TileTextDisplay
+	text_controller.word_changed.connect(tile_text_display._set_word)
+	text_controller.word_denied.connect(tile_text_display._color_denied_text)
+	
 	# short-term game over handling:
 	var developer_only_navigation = $DeveloperOnlyNavigation
 	combat_sequencer.gameover_victory_finished.connect(

@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b2b37m7se3s4i"]
+
+[ext_resource type="FontFile" uid="uid://vm25smn2n7ea" path="res://assets/fonts/RobotoMono/RobotoMono-Regular.ttf" id="1_51fkx"]
+
+[resource]
+default_font = ExtResource("1_51fkx")
+default_font_size = 64
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 10
