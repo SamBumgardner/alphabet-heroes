@@ -1,6 +1,16 @@
 extends Control
 
+const combat_fade_out_duration = .5
+const travel_fade_in_duration = .5
+const travel_fade_out_duration = .5
+const combat_fade_in_duration = .5
+
 @onready var database = get_node("/root/Database")
+
+@onready var combat_nodes = $CombatNodes as Control
+@onready var travel_nodes = $TravelNodes as Control
+
+@onready var world_map = $CanvasLayer/WorldMap as WorldMap
 
 func _ready():
 	database.reset_values()
@@ -56,9 +66,31 @@ func _ready():
 
 	# short-term game over handling:
 	var developer_only_navigation = $CombatNodes/DeveloperOnlyNavigation
-	combat_sequencer.gameover_victory_finished.connect(
-		developer_only_navigation._on_win_button_pressed
-	)
 	combat_sequencer.gameover_defeat_finished.connect(
 		developer_only_navigation._on_lose_button_pressed
 	)
+	
+	combat_sequencer.gameover_victory_finished.connect(_on_gameover_victory_finished)
+
+func _on_gameover_victory_finished():
+	# if there are no more fights (check database)
+	var next_enemy = preload("res://assets/data/enemy/goblins/GoblinData.tres")
+	
+	if next_enemy == null:
+		var developer_only_navigation = $CombatNodes/DeveloperOnlyNavigation
+		developer_only_navigation._on_win_button_pressed()
+		return
+	
+	travel_nodes.modulate = Color.TRANSPARENT
+	travel_nodes.show()
+	
+	var travel_tween = create_tween()
+	travel_tween.tween_property(combat_nodes, "modulate", Color.TRANSPARENT, combat_fade_out_duration)
+	travel_tween.tween_property(travel_nodes, "modulate", Color.WHITE, travel_fade_in_duration)
+	world_map.add_travel_tween_steps(travel_tween, next_enemy.location_position)
+	# re-intialize combat
+	travel_tween.tween_property(travel_nodes, "modulate", Color.TRANSPARENT, travel_fade_out_duration)
+	travel_tween.tween_property(combat_nodes, "modulate", Color.WHITE, combat_fade_in_duration)
+	# turn on combat again (make emit combat ended)
+	
+	travel_nodes.hide()

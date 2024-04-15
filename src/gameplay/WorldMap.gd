@@ -1,4 +1,4 @@
-extends TextureRect
+class_name WorldMap extends TextureRect
 
 const CAPSTONE_HILLS_POS = Vector2(-3509, -2396)
 const HEARTFELL_WOODS_POS = Vector2(-2435, -1658)
@@ -24,3 +24,8 @@ func _set_new_travel_tween(target_position:Vector2):
 	travel_tween.set_ease(Tween.EASE_IN_OUT)
 	travel_tween.set_trans(Tween.TRANS_CUBIC)
 	travel_tween.tween_property(self, "position", target_position, TRAVEL_TIME)
+
+func add_travel_tween_steps(tween_to_modify:Tween, target_position:Vector2):
+	tween_to_modify.set_ease(Tween.EASE_IN_OUT)
+	tween_to_modify.set_trans(Tween.TRANS_CUBIC)
+	tween_to_modify.tween_property(self, "position", target_position, TRAVEL_TIME)
