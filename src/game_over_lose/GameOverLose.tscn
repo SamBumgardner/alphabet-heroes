@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxf0jw3num74o"]
+[gd_scene load_steps=5 format=3 uid="uid://bxf0jw3num74o"]
 
 [ext_resource type="Theme" uid="uid://c76ovc86ky5qb" path="res://assets/fonts/start_menu_title_font_theme.tres" id="1_1vpuw"]
+[ext_resource type="Texture2D" uid="uid://p0pd8qs61vai" path="res://assets/art/background_game_over_ink.jpg" id="1_pb68d"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="1_wyp61"]
 [ext_resource type="PackedScene" uid="uid://eanx8lpdpjr4" path="res://src/game_over_statistics/GameOverStatistics.tscn" id="2_6s5qo"]
 
@@ -12,6 +13,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pb68d")
+expand_mode = 3
+
 [node name="Announcement" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -22,6 +33,8 @@ offset_right = 322.5
 offset_bottom = 85.0
 grow_horizontal = 2
 theme = ExtResource("1_1vpuw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "Too Bad! Try Again?"
 
 [node name="GameOverStatistics" parent="." instance=ExtResource("2_6s5qo")]

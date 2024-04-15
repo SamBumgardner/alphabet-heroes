@@ -13,74 +13,103 @@ grow_vertical = 2
 theme = ExtResource("1_o5oao")
 script = ExtResource("1_sxq5r")
 
-[node name="Rows" type="VBoxContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -97.5
-offset_top = -25.0
-offset_right = 97.5
-offset_bottom = 25.0
+offset_left = -137.5
+offset_top = -51.5
+offset_right = 137.5
+offset_bottom = 51.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="Rows" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="HeroesSummoned" type="HBoxContainer" parent="Rows"]
+[node name="HeroesSummoned" type="HBoxContainer" parent="PanelContainer/MarginContainer/Rows"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Rows/HeroesSummoned"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Rows/HeroesSummoned"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "Heroes Summoned"
 
-[node name="HSpacing" type="Control" parent="Rows/HeroesSummoned"]
+[node name="HSpacing" type="Control" parent="PanelContainer/MarginContainer/Rows/HeroesSummoned"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Multiplication" type="Label" parent="Rows/HeroesSummoned"]
+[node name="Multiplication" type="Label" parent="PanelContainer/MarginContainer/Rows/HeroesSummoned"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "X"
 
-[node name="Count" type="Label" parent="Rows/HeroesSummoned"]
+[node name="Count" type="Label" parent="PanelContainer/MarginContainer/Rows/HeroesSummoned"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "0"
 
-[node name="PeasantsConscripted" type="HBoxContainer" parent="Rows"]
+[node name="PeasantsConscripted" type="HBoxContainer" parent="PanelContainer/MarginContainer/Rows"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Rows/PeasantsConscripted"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Rows/PeasantsConscripted"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "Peasants Conscripted"
 
-[node name="HSpacing" type="Control" parent="Rows/PeasantsConscripted"]
+[node name="HSpacing" type="Control" parent="PanelContainer/MarginContainer/Rows/PeasantsConscripted"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Multiplication" type="Label" parent="Rows/PeasantsConscripted"]
+[node name="Multiplication" type="Label" parent="PanelContainer/MarginContainer/Rows/PeasantsConscripted"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "X"
 
-[node name="Count" type="Label" parent="Rows/PeasantsConscripted"]
+[node name="Count" type="Label" parent="PanelContainer/MarginContainer/Rows/PeasantsConscripted"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "0"
 
-[node name="MonstersSlain" type="HBoxContainer" parent="Rows"]
+[node name="MonstersSlain" type="HBoxContainer" parent="PanelContainer/MarginContainer/Rows"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Rows/MonstersSlain"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Rows/MonstersSlain"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "Monsters Slain"
 
-[node name="HSpacing" type="Control" parent="Rows/MonstersSlain"]
+[node name="HSpacing" type="Control" parent="PanelContainer/MarginContainer/Rows/MonstersSlain"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Multiplication" type="Label" parent="Rows/MonstersSlain"]
+[node name="Multiplication" type="Label" parent="PanelContainer/MarginContainer/Rows/MonstersSlain"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "X"
 
-[node name="Count" type="Label" parent="Rows/MonstersSlain"]
+[node name="Count" type="Label" parent="PanelContainer/MarginContainer/Rows/MonstersSlain"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "0"
