@@ -6,11 +6,18 @@ signal word_activated(word)
 signal word_consumed(word)
 signal word_denied(word)
 
+signal max_letters_changed(new_max_letters:int)
+
 static var alpha_regex = RegEx.create_from_string("[A-Z]")
 
 @onready var viewport = get_viewport()
 
-@export var max_letters:int = 5
+@export var max_letters:int = 5:
+	set(value):
+		max_letters = value
+		if is_inside_tree():
+			max_letters_changed.emit(max_letters)
+
 @export var current_word:String = "":
 	set(value):
 		current_word = value

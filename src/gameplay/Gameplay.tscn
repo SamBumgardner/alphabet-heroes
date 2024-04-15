@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=29 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://ct2ln3f73kx8k" path="res://src/display/summoned_heroes/SummonedHeroPreviews.tscn" id="19_sv48p"]
 [ext_resource type="Script" path="res://src/display/summoned_heroes/AnimatedHeroDisplayer.gd" id="20_5hje4"]
 [ext_resource type="PackedScene" uid="uid://cqv757c3cshe4" path="res://src/display/typed_word/TileTextDisplay.tscn" id="20_xgcmq"]
+[ext_resource type="Script" path="res://src/display/PartySizeLabel.gd" id="21_ln3va"]
 [ext_resource type="PackedScene" uid="uid://bwp1rm1mjnafi" path="res://src/display/summoned_heroes/SummonedHero.tscn" id="21_onhpi"]
 [ext_resource type="Script" path="res://src/gameplay/SkipTurnLabel.gd" id="27_flb7c"]
 
@@ -100,6 +101,7 @@ script = ExtResource("6_13qwi")
 
 [node name="TextController" type="Node" parent="CombatNodes"]
 script = ExtResource("6_dfxbv")
+max_letters = 10
 
 [node name="PartyController" type="Node" parent="CombatNodes" node_paths=PackedStringArray("hero_repository")]
 script = ExtResource("7_vb18x")
@@ -186,6 +188,16 @@ expand_mode = 3
 [node name="HealthBar" parent="CombatNodes/PlayerDisplay" node_paths=PackedStringArray("combatant") instance=ExtResource("14_q3t14")]
 layout_mode = 2
 combatant = NodePath("../../Player")
+
+[node name="PartySizeLimitLabel" type="Label" parent="CombatNodes/PlayerDisplay" node_paths=PackedStringArray("text_controller")]
+layout_mode = 2
+theme = ExtResource("5_hjbl1")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Party Size Limit: 5"
+horizontal_alignment = 1
+script = ExtResource("21_ln3va")
+text_controller = NodePath("../../TextController")
 
 [node name="TileTextDisplay" parent="CombatNodes" instance=ExtResource("20_xgcmq")]
 layout_mode = 1
