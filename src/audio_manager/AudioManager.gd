@@ -7,6 +7,7 @@ extends Node
 @export var sfx_button_click : AudioStream
 @export var sfx_button_hover : AudioStream
 @export var sfx_button_summon : AudioStream
+@export var sfx_combat_player_windup : AudioStream
 
 const _default_audio_crossfade = 0.1
 
@@ -69,3 +70,6 @@ func _on_summon_new_heroes_button_pressed():
 	SoundManager.play_ui_sound(sfx_button_summon)
 
 #endregion Button press
+
+func _on_combat_sequencer_player_windup(duration):
+	SoundManager.play_sound(sfx_combat_player_windup)
