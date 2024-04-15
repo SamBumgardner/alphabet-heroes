@@ -310,4 +310,5 @@ layout_mode = 1
 [connection signal="hero_repository_contents_changed" from="CombatNodes/HeroRepository" to="CombatNodes/GameOverMonitorStatistics" method="_on_hero_repository_hero_repository_contents_changed"]
 [connection signal="enemy_defeated" from="CombatNodes/Enemy" to="CombatNodes/GameOverMonitorStatistics" method="_on_enemy_enemy_defeated"]
 [connection signal="enemy_reinitialized" from="CombatNodes/Enemy" to="AudioManager" method="_on_enemy_enemy_reinitialized"]
+[connection signal="hurt" from="CombatNodes/Enemy" to="AudioManager" method="_on_enemy_hurt"]
 [connection signal="hurt" from="CombatNodes/Player" to="AudioManager" method="_on_player_hurt"]
