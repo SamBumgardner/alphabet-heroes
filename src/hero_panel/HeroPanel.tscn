@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq3nvxvnxfek4"]
+[gd_scene load_steps=8 format=3 uid="uid://bq3nvxvnxfek4"]
 
 [ext_resource type="Script" path="res://src/hero_panel/HeroPanel.gd" id="1_0kmgj"]
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_lua0a"]
 [ext_resource type="Texture2D" uid="uid://bomytq1jpagf4" path="res://assets/art/heroes/portraits/Warrior_128x128.png" id="2_77xvi"]
+[ext_resource type="Texture2D" uid="uid://cubo57og8x0y0" path="res://assets/art/ui/Portrait_and_Letter_Background.png" id="4_33shr"]
 [ext_resource type="PackedScene" uid="uid://d3pdnnecfo71e" path="res://src/display/combat_preview/CombatPreview.tscn" id="4_ei1o6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3h14c"]
+texture = ExtResource("4_33shr")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4id1w"]
 bg_color = Color(0.00392157, 0.0627451, 0.113725, 1)
@@ -19,6 +23,7 @@ portrait_to_display = ExtResource("2_77xvi")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3h14c")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -72,11 +77,15 @@ size_flags_horizontal = 3
 
 [node name="LabelOfJob" type="Label" parent="MarginContainer/HBoxContainer/HeroStatistics"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 text = "Peasant:"
 
 [node name="HeroesAsLetterNames" type="RichTextLabel" parent="MarginContainer/HBoxContainer/HeroStatistics"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 text = "A, B, C, D"
 
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/HeroPortrait" to="." method="_on_hero_portrait_mouse_entered"]

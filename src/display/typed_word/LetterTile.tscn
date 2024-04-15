@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dt6pfo6qcx0lj"]
 
-[ext_resource type="Texture2D" uid="uid://sws54vfyy45q" path="res://assets/art/ui/letter_tile.png" id="1_fvghl"]
+[ext_resource type="Texture2D" uid="uid://cnb78g1pq4vux" path="res://assets/art/ui/Tile.png" id="2_jf0x8"]
 [ext_resource type="Theme" uid="uid://d2lmihmptd82a" path="res://assets/fonts/spelling_monospace_font_theme.tres" id="2_qtksh"]
 [ext_resource type="Script" path="res://src/display/typed_word/LetterTile.gd" id="3_6612j"]
 
@@ -11,7 +11,7 @@ grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme = ExtResource("2_qtksh")
-texture = ExtResource("1_fvghl")
+texture = ExtResource("2_jf0x8")
 expand_mode = 1
 script = ExtResource("3_6612j")
 
