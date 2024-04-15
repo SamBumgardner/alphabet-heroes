@@ -1,0 +1,17 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://b4x1e8n6ifc0"]
+
+[ext_resource type="AudioStream" uid="uid://bwb21gr36erwg" path="res://assets/audio/206_sfx_windup_castle.wav" id="1_bca8r"]
+[ext_resource type="AudioStream" uid="uid://bmik10xqmvgxc" path="res://assets/audio/207_sfx_windup_castle.wav" id="2_n2wdf"]
+[ext_resource type="AudioStream" uid="uid://crb8qctu3d1pw" path="res://assets/audio/208_sfx_windup_castle.wav" id="3_hsojf"]
+[ext_resource type="AudioStream" uid="uid://bafb5vg2ae6cs" path="res://assets/audio/209_sfx_windup_castle.wav" id="4_n2nwg"]
+
+[resource]
+streams_count = 4
+stream_0/stream = ExtResource("1_bca8r")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_n2wdf")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_hsojf")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_n2nwg")
+stream_3/weight = 1.0

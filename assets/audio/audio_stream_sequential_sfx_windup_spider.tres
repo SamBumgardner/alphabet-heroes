@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://bcei572vcmfw4"]
+
+[ext_resource type="AudioStream" uid="uid://bdmj18q08b262" path="res://assets/audio/210_sfx_windup_spider.wav" id="1_qxtl5"]
+[ext_resource type="AudioStream" uid="uid://v2kh31albn3k" path="res://assets/audio/211_sfx_windup_spider.wav" id="2_ngaya"]
+[ext_resource type="AudioStream" uid="uid://bfqg8xsguy7so" path="res://assets/audio/212_sfx_windup_spider.wav" id="3_mtdh7"]
+
+[resource]
+playback_mode = 2
+streams_count = 3
+stream_0/stream = ExtResource("1_qxtl5")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_ngaya")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_mtdh7")
+stream_2/weight = 1.0
