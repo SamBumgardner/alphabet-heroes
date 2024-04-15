@@ -98,5 +98,9 @@ text = "Quit"
 background_music_default = ExtResource("6_akq6q")
 
 [connection signal="ready" from="." to="AudioManager" method="_on_start_menu_ready"]
+[connection signal="mouse_entered" from="TitleControlsMarginContainer/Padding8px/TitleControlsRows/ButtonRows/StartButton" to="AudioManager" method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="TitleControlsMarginContainer/Padding8px/TitleControlsRows/ButtonRows/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="TitleControlsMarginContainer/Padding8px/TitleControlsRows/ButtonRows/CreditsButton" to="AudioManager" method="_on_credits_button_mouse_entered"]
+[connection signal="pressed" from="TitleControlsMarginContainer/Padding8px/TitleControlsRows/ButtonRows/CreditsButton" to="AudioManager" method="_on_credits_button_pressed"]
+[connection signal="mouse_entered" from="TitleControlsMarginContainer/Padding8px/TitleControlsRows/ButtonRows/QuitButton" to="AudioManager" method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="TitleControlsMarginContainer/Padding8px/TitleControlsRows/ButtonRows/QuitButton" to="." method="_on_quit_button_pressed"]
