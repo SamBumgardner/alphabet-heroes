@@ -100,7 +100,6 @@ script = ExtResource("6_13qwi")
 
 [node name="TextController" type="Node" parent="CombatNodes"]
 script = ExtResource("6_dfxbv")
-max_letters = 10
 
 [node name="PartyController" type="Node" parent="CombatNodes" node_paths=PackedStringArray("hero_repository")]
 script = ExtResource("7_vb18x")
