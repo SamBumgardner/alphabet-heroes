@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=34 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
@@ -28,7 +28,9 @@
 [ext_resource type="Script" path="res://src/display/PartySizeLabel.gd" id="21_ln3va"]
 [ext_resource type="PackedScene" uid="uid://bwp1rm1mjnafi" path="res://src/display/summoned_heroes/SummonedHero.tscn" id="21_onhpi"]
 [ext_resource type="Script" path="res://src/gameplay/SkipTurnLabel.gd" id="27_flb7c"]
+[ext_resource type="FontFile" uid="uid://ck0ltu3wyr11x" path="res://assets/fonts/Roboto/Roboto-Black.ttf" id="29_fqwku"]
 [ext_resource type="FontFile" uid="uid://c104v5f0ficln" path="res://assets/fonts/Roboto/Roboto-Regular.ttf" id="29_pw5kb"]
+[ext_resource type="Script" path="res://src/gameplay/IntroAnimation.gd" id="29_w3xnm"]
 
 [sub_resource type="Animation" id="Animation_wtvfq"]
 resource_name = "intro_animation"
@@ -104,10 +106,10 @@ layer = -1
 
 [node name="WorldMap" type="TextureRect" parent="CanvasLayer"]
 self_modulate = Color(0.317647, 0.317647, 0.317647, 1)
-offset_left = -165.0
-offset_top = -357.0
-offset_right = 4654.0
-offset_bottom = 3235.0
+offset_left = -33.7174
+offset_top = -72.9522
+offset_right = 4785.28
+offset_bottom = 3519.05
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_x1ldo")
 script = ExtResource("4_q7c0o")
@@ -352,10 +354,6 @@ theme_override_font_sizes/font_size = 48
 text = "Your legend grows:"
 horizontal_alignment = 1
 
-[node name="BackToStartMenuButton" parent="." instance=ExtResource("2_66iqr")]
-layout_direction = 0
-layout_mode = 1
-
 [node name="IntroNodes" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -369,6 +367,22 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_asj78")
 }
+script = ExtResource("29_w3xnm")
+
+[node name="TitleLabel" type="Label" parent="IntroNodes"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_top = 25.0
+offset_bottom = 98.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("29_fqwku")
+theme_override_font_sizes/font_size = 82
+text = "Heroes of Keys and Kingdoms"
+horizontal_alignment = 1
 
 [node name="IntroText" type="Label" parent="IntroNodes"]
 layout_mode = 1
@@ -381,15 +395,18 @@ grow_horizontal = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 40
-text = "In a world plagued by evil, few have the strength to resist.          
+text = "In a world plagued by evil, few have the strength to resist.        
 Those who do are scattered, uncoordinated, lost.
                     
-Weave mighty spells using ancient keystones;           
+Weave mighty spells with ancient keystones;           
 use their power to call forgotten hereoes to your side.
                               
 May you find the strength to prevail where others have fallen."
+visible_characters = 70
+visible_ratio = 0.204348
 
 [node name="Button" type="Button" parent="IntroNodes"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -407,6 +424,10 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("29_pw5kb")
 theme_override_font_sizes/font_size = 48
 text = "START"
+
+[node name="BackToStartMenuButton" parent="." instance=ExtResource("2_66iqr")]
+layout_direction = 0
+layout_mode = 1
 
 [connection signal="ready" from="." to="AudioManager" method="_on_gameplay_ready"]
 [connection signal="mouse_entered" from="CombatNodes/SummonNewHeroesButton" to="AudioManager" method="_on_summon_new_heroes_button_mouse_entered"]
