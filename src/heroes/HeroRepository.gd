@@ -17,6 +17,15 @@ func _init():
 	for letter in LETTERS:
 		_available_letters[letter] = true
 
+func reset():
+	_repository = Array()
+	for i in range(Hero.Job.size() - 1): # exclude the peasants
+		_repository.append({})
+	_available_letters = {}
+	for letter in LETTERS:
+		_available_letters[letter] = true
+	hero_repository_contents_changed.emit(_repository)
+
 func add(heroes:Array):
 	for hero : Hero in heroes:
 		_repository[hero.job][hero.letter] = true

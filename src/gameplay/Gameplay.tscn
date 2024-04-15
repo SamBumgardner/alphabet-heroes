@@ -1,8 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=26 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
 [ext_resource type="PackedScene" uid="uid://bv02y4o3plw5q" path="res://src/developer_only_navigation/DeveloperOnlyNavigation.tscn" id="3_6xc6h"]
+[ext_resource type="Texture2D" uid="uid://c7jqka4jmhiwl" path="res://assets/art/World_Map.jpg" id="3_x1ldo"]
+[ext_resource type="Script" path="res://src/gameplay/WorldMap.gd" id="4_q7c0o"]
 [ext_resource type="PackedScene" uid="uid://oyd68ql208nv" path="res://src/tray_of_heroes/TrayOfHeroes.tscn" id="4_vlgye"]
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="5_hjbl1"]
 [ext_resource type="Script" path="res://src/combat/CombatSequencer.gd" id="6_13qwi"]
@@ -34,7 +36,28 @@ grow_vertical = 2
 theme = ExtResource("5_hjbl1")
 script = ExtResource("1_fe8ca")
 
-[node name="TrayOfHeroes" parent="." instance=ExtResource("4_vlgye")]
+[node name="AudioManager" parent="." instance=ExtResource("6_rf27n")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="WorldMap" type="TextureRect" parent="CanvasLayer"]
+offset_left = -553.0
+offset_top = -2264.0
+offset_right = 4266.0
+offset_bottom = 1328.0
+texture = ExtResource("3_x1ldo")
+script = ExtResource("4_q7c0o")
+
+[node name="CombatNodes" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TrayOfHeroes" parent="CombatNodes" instance=ExtResource("4_vlgye")]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -43,23 +66,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="DeveloperOnlyNavigation" parent="." instance=ExtResource("3_6xc6h")]
+[node name="DeveloperOnlyNavigation" parent="CombatNodes" instance=ExtResource("3_6xc6h")]
 layout_mode = 1
 
-[node name="BackToStartMenuButton" parent="." instance=ExtResource("2_66iqr")]
+[node name="BackToStartMenuButton" parent="CombatNodes" instance=ExtResource("2_66iqr")]
 layout_direction = 0
 layout_mode = 1
 
-[node name="SummonNewHeroesButton" type="Button" parent="."]
+[node name="SummonNewHeroesButton" type="Button" parent="CombatNodes"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 0.75
 anchor_right = 1.0
 anchor_bottom = 0.75
-offset_left = -8.0
-offset_top = -4.0
-offset_bottom = 4.0
+offset_left = -158.0
+offset_top = -33.0
+offset_bottom = 33.0
 grow_horizontal = 0
 grow_vertical = 2
 focus_mode = 0
@@ -67,57 +90,61 @@ theme = ExtResource("5_hjbl1")
 text = "Summon New
 Heroes"
 
-[node name="AudioManager" parent="." instance=ExtResource("6_rf27n")]
+[node name="GameOverMonitorStatistics" parent="CombatNodes" instance=ExtResource("7_y431v")]
 
-[node name="CombatSequencer" type="Node" parent="."]
+[node name="CombatSequencer" type="Node" parent="CombatNodes"]
 script = ExtResource("6_13qwi")
 
-[node name="GameOverMonitorStatistics" parent="." instance=ExtResource("7_y431v")]
-
-[node name="TextController" type="Node" parent="."]
+[node name="TextController" type="Node" parent="CombatNodes"]
 script = ExtResource("6_dfxbv")
 max_letters = 10
 
-[node name="PartyController" type="Node" parent="." node_paths=PackedStringArray("hero_repository")]
+[node name="PartyController" type="Node" parent="CombatNodes" node_paths=PackedStringArray("hero_repository")]
 script = ExtResource("7_vb18x")
 hero_repository = NodePath("../HeroRepository")
 
-[node name="HeroRepository" type="Node" parent="."]
+[node name="HeroRepository" type="Node" parent="CombatNodes"]
 script = ExtResource("8_uko4w")
 
-[node name="Enemy" type="Node" parent="."]
+[node name="Enemy" type="Node" parent="CombatNodes"]
 script = ExtResource("12_mx65p")
 enemy_data = ExtResource("13_4stoj")
 
-[node name="Player" type="Node" parent="."]
+[node name="Player" type="Node" parent="CombatNodes"]
 script = ExtResource("14_t6j6y")
 
-[node name="EnemyDisplay" type="VBoxContainer" parent="." node_paths=PackedStringArray("enemy")]
+[node name="EnemyDisplay" type="VBoxContainer" parent="CombatNodes" node_paths=PackedStringArray("enemy")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.75
 anchor_top = 0.4
 anchor_right = 0.75
 anchor_bottom = 0.4
+offset_left = -128.0
+offset_top = -165.5
+offset_right = 128.0
+offset_bottom = 165.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("14_y1tmu")
 enemy = NodePath("../Enemy")
 
-[node name="TextureRect" type="TextureRect" parent="EnemyDisplay"]
+[node name="TextureRect" type="TextureRect" parent="CombatNodes/EnemyDisplay"]
 layout_mode = 2
 texture = ExtResource("13_i2a36")
 
-[node name="Label" type="Label" parent="EnemyDisplay"]
-layout_mode = 2
-text = "Group of Goblins"
-horizontal_alignment = 1
-
-[node name="HealthBar" parent="EnemyDisplay" node_paths=PackedStringArray("combatant") instance=ExtResource("14_q3t14")]
+[node name="HealthBar" parent="CombatNodes/EnemyDisplay" node_paths=PackedStringArray("combatant") instance=ExtResource("14_q3t14")]
 layout_mode = 2
 combatant = NodePath("../../Enemy")
 
-[node name="PlayerCombatPreview" parent="." instance=ExtResource("17_kwces")]
+[node name="Label" type="Label" parent="CombatNodes/EnemyDisplay"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Group of Goblins"
+horizontal_alignment = 1
+
+[node name="PlayerCombatPreview" parent="CombatNodes" instance=ExtResource("17_kwces")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.45
@@ -125,7 +152,7 @@ anchor_top = 0.2
 anchor_right = 0.45
 anchor_bottom = 0.2
 
-[node name="EnemyCombatPreview" parent="." instance=ExtResource("17_kwces")]
+[node name="EnemyCombatPreview" parent="CombatNodes" instance=ExtResource("17_kwces")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.75
@@ -133,28 +160,32 @@ anchor_top = 0.2
 anchor_right = 0.75
 anchor_bottom = 0.2
 
-[node name="PlayerDisplay" type="VBoxContainer" parent="."]
+[node name="PlayerDisplay" type="VBoxContainer" parent="CombatNodes"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
 anchor_top = 0.45
 anchor_right = 0.2
 anchor_bottom = 0.45
+offset_left = -87.5
+offset_top = -106.5
+offset_right = 87.5
+offset_bottom = 106.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="PlayerDisplay"]
+[node name="TextureRect" type="TextureRect" parent="CombatNodes/PlayerDisplay"]
 custom_minimum_size = Vector2(175, 175)
 layout_mode = 2
 texture = ExtResource("18_f1reu")
 expand_mode = 3
 
-[node name="HealthBar" parent="PlayerDisplay" node_paths=PackedStringArray("combatant") instance=ExtResource("14_q3t14")]
+[node name="HealthBar" parent="CombatNodes/PlayerDisplay" node_paths=PackedStringArray("combatant") instance=ExtResource("14_q3t14")]
 layout_mode = 2
 combatant = NodePath("../../Player")
 
-[node name="TileTextDisplay" parent="." instance=ExtResource("20_xgcmq")]
+[node name="TileTextDisplay" parent="CombatNodes" instance=ExtResource("20_xgcmq")]
 layout_mode = 1
 anchor_left = 0.45
 anchor_top = 0.45
@@ -162,39 +193,62 @@ anchor_right = 0.45
 anchor_bottom = 0.45
 grow_horizontal = 2
 
-[node name="SummonedHeroPreviews" parent="." instance=ExtResource("19_sv48p")]
+[node name="SummonedHeroPreviews" parent="CombatNodes" instance=ExtResource("19_sv48p")]
 layout_mode = 1
 
-[node name="AnimatedHeroDisplayer" type="Node" parent="."]
+[node name="AnimatedHeroDisplayer" type="Node" parent="CombatNodes"]
 script = ExtResource("20_5hje4")
 charge_destination = Vector2(939, 282)
 
-[node name="SummonedHero" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+[node name="SummonedHero" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
 scale = Vector2(1.15, 1.15)
 
-[node name="SummonedHero2" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+[node name="SummonedHero2" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
 
-[node name="SummonedHero3" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+[node name="SummonedHero3" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
 
-[node name="SummonedHero4" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+[node name="SummonedHero4" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
 
-[node name="SummonedHero5" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+[node name="SummonedHero5" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
 
-[node name="SummonedHero6" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+[node name="SummonedHero6" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
 
-[node name="SummonedHero7" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+[node name="SummonedHero7" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
 
-[node name="SummonedHero8" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+[node name="SummonedHero8" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
 
-[node name="SummonedHero9" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+[node name="SummonedHero9" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
 
-[node name="SummonedHero10" parent="AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+[node name="SummonedHero10" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+
+[node name="TravelNodes" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TravelNodes"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.1
+offset_right = 40.0
+offset_bottom = 29.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 48
+text = "Travelling..."
+horizontal_alignment = 1
 
 [connection signal="ready" from="." to="AudioManager" method="_on_gameplay_ready"]
-[connection signal="pressed" from="SummonNewHeroesButton" to="HeroRepository" method="generate_heroes"]
-[connection signal="word_consumed" from="TextController" to="HeroRepository" method="remove"]
-[connection signal="word_submitted" from="TextController" to="GameOverMonitorStatistics" method="_on_text_controller_word_submitted"]
-[connection signal="party_activated" from="PartyController" to="GameOverMonitorStatistics" method="_on_party_controller_party_activated"]
-[connection signal="hero_repository_contents_changed" from="HeroRepository" to="TrayOfHeroes" method="_on_hero_repository_hero_repository_contents_changed"]
-[connection signal="hero_repository_contents_changed" from="HeroRepository" to="GameOverMonitorStatistics" method="_on_hero_repository_hero_repository_contents_changed"]
-[connection signal="enemy_defeated" from="Enemy" to="GameOverMonitorStatistics" method="_on_enemy_enemy_defeated"]
+[connection signal="pressed" from="CombatNodes/SummonNewHeroesButton" to="CombatNodes/HeroRepository" method="generate_heroes"]
+[connection signal="word_consumed" from="CombatNodes/TextController" to="CombatNodes/HeroRepository" method="remove"]
+[connection signal="word_submitted" from="CombatNodes/TextController" to="CombatNodes/GameOverMonitorStatistics" method="_on_text_controller_word_submitted"]
+[connection signal="party_activated" from="CombatNodes/PartyController" to="CombatNodes/GameOverMonitorStatistics" method="_on_party_controller_party_activated"]
+[connection signal="hero_repository_contents_changed" from="CombatNodes/HeroRepository" to="CombatNodes/TrayOfHeroes" method="_on_hero_repository_hero_repository_contents_changed"]
+[connection signal="hero_repository_contents_changed" from="CombatNodes/HeroRepository" to="CombatNodes/GameOverMonitorStatistics" method="_on_hero_repository_hero_repository_contents_changed"]
+[connection signal="enemy_defeated" from="CombatNodes/Enemy" to="CombatNodes/GameOverMonitorStatistics" method="_on_enemy_enemy_defeated"]

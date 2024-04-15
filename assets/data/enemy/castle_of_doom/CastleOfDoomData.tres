@@ -10,3 +10,5 @@ name = "Castle of Doom"
 max_health = 100
 graphic = ExtResource("2_hayl3")
 action_selector_class = ExtResource("1_kj4na")
+location_name = "Mountains of Doom"
+location_position = Vector2(-3528, -1246)
