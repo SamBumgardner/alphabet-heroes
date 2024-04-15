@@ -22,3 +22,8 @@ func _defeated():
 
 func _to_string():
 	return "Player stats: " + super()
+
+func _on_combat_nodes_hidden():
+	var progression : PlayerProgressionChange = Database.get_progression_applied_before_enemy()
+	max_health += progression.max_health_increase
+	apply_healing(progression.health_recovered + progression.max_health_increase)

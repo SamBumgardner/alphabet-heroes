@@ -97,7 +97,6 @@ script = ExtResource("6_13qwi")
 
 [node name="TextController" type="Node" parent="CombatNodes"]
 script = ExtResource("6_dfxbv")
-max_letters = 10
 
 [node name="PartyController" type="Node" parent="CombatNodes" node_paths=PackedStringArray("hero_repository")]
 script = ExtResource("7_vb18x")
@@ -273,6 +272,23 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 48
 text = "Travelling..."
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="TravelNodes"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.3
+anchor_right = 0.5
+anchor_bottom = 0.3
+grow_horizontal = 2
+
+[node name="ProgressionText" type="Label" parent="TravelNodes/PanelContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 48
+text = "Your legend grows:"
 horizontal_alignment = 1
 
 [node name="BackToStartMenuButton" parent="." instance=ExtResource("2_66iqr")]
