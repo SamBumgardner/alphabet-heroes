@@ -7,6 +7,7 @@ extends Node
 @export var sfx_button_click : AudioStream
 @export var sfx_button_hover : AudioStream
 @export var sfx_button_summon : AudioStream
+@export var sfx_combat_enemy_current_windup : AudioStream
 @export var sfx_combat_enemy_default_windup : AudioStream
 @export var sfx_combat_player_windup : AudioStream
 
@@ -73,11 +74,23 @@ func _on_summon_new_heroes_button_pressed():
 
 #endregion Button press
 
-func _on_combat_sequencer_enemy_windup(duration):
-	SoundManager.play_ambient_sound(sfx_combat_enemy_default_windup)
+func _on_combat_sequencer_enemy_windup(_duration):
+	# Check to play a default SFX if the enemy is missing a unique windup SFX.
+	if sfx_combat_enemy_current_windup == null:
+		SoundManager.play_ambient_sound(sfx_combat_enemy_default_windup)
+		return
 
-func _on_combat_sequencer_player_impact(duration):
+	SoundManager.play_ambient_sound(sfx_combat_enemy_current_windup)
+
+func _on_combat_sequencer_player_impact(_duration):
 	SoundManager.stop_ambient_sound(sfx_combat_player_windup, 0.9)
 
-func _on_combat_sequencer_player_windup(duration):
+func _on_combat_sequencer_player_windup(_duration):
 	SoundManager.play_ambient_sound(sfx_combat_player_windup)
+
+func _on_enemy_enemy_reinitialized(enemy_data_in : EnemyData):
+	# Populate the current enemy's SFX windup, will use a default if null.
+	if enemy_data_in.sfx_windup != null:
+		sfx_combat_enemy_current_windup = enemy_data_in.sfx_windup
+	else:
+		sfx_combat_enemy_current_windup = null
