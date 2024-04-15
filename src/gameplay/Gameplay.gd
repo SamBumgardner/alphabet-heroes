@@ -110,7 +110,7 @@ func _on_gameover_victory_finished():
 		developer_only_navigation._on_win_button_pressed()
 		return
 	
-	$TravelNodes/Label.text = "Travelling to the %s..." % next_enemy.location_name
+	$TravelNodes/Label.text = "Travelling to %s..." % next_enemy.location_name
 	travel_nodes.modulate = Color.TRANSPARENT
 	travel_nodes.show()
 	
