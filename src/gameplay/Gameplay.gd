@@ -5,6 +5,8 @@ const travel_fade_in_duration = .5
 const travel_fade_out_duration = .5
 const combat_fade_in_duration = .5
 
+signal combat_nodes_hidden() # means combat stuff can perform all of their upgrades now
+
 @onready var database = get_node("/root/Database")
 
 @onready var combat_nodes = $CombatNodes as Control
@@ -79,6 +81,10 @@ func _ready():
 	var enemy_display = $CombatNodes/EnemyDisplay
 	enemy.enemy_enraged.connect(enemy_display._on_enemy_enrage_changed)
 	
+	combat_nodes_hidden.connect(hero_repository._on_combat_nodes_hidden)
+	combat_nodes_hidden.connect(text_controller._on_combat_nodes_hidden)
+	combat_nodes_hidden.connect(player._on_combat_nodes_hidden)
+	
 	# short-term game over handling:
 	var developer_only_navigation = $CombatNodes/DeveloperOnlyNavigation
 	combat_sequencer.gameover_defeat_finished.connect(
@@ -114,6 +120,7 @@ func _on_gameover_victory_finished():
 	
 	var travel_tween = create_tween()
 	travel_tween.tween_property(combat_nodes, "modulate", Color.TRANSPARENT, combat_fade_out_duration)
+	travel_tween.tween_callback(emit_signal.bind("combat_nodes_hidden"))
 	travel_tween.tween_property(travel_nodes, "modulate", Color.WHITE, travel_fade_in_duration)
 	travel_tween.parallel().tween_property(world_map, "modulate", Color.WHITE, travel_fade_in_duration)
 	world_map.add_travel_tween_steps(travel_tween, next_enemy.location_position)
