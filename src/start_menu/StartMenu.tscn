@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cckjypba5jdnl"]
+[gd_scene load_steps=7 format=3 uid="uid://cckjypba5jdnl"]
 
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_toiww"]
 [ext_resource type="Theme" uid="uid://c76ovc86ky5qb" path="res://assets/fonts/start_menu_title_font_theme.tres" id="3_3syjn"]
 [ext_resource type="Theme" uid="uid://cio67ny2audx2" path="res://assets/fonts/start_menu_sub_title_font_theme.tres" id="4_0np53"]
 [ext_resource type="Script" path="res://src/start_menu/StartMenu.gd" id="5"]
+[ext_resource type="PackedScene" uid="uid://f34u2l70v1q7" path="res://src/audio_manager/AudioManager.tscn" id="5_oxss7"]
+[ext_resource type="AudioStream" uid="uid://65kxyr71uq6c" path="res://assets/audio/002_music_loop.ogg" id="6_akq6q"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -72,7 +74,7 @@ flat = false
 item_count = 8
 popup/item_0/text = "Sam Bumgardner: Programming & Design"
 popup/item_0/id = 0
-popup/item_1/text = "Noah Bumgardner: Programming"
+popup/item_1/text = "Noah Bumgardner: Programming & Music"
 popup/item_1/id = 1
 popup/item_2/text = "Tom Bumgardner: Artwork"
 popup/item_2/id = 2
@@ -92,5 +94,9 @@ popup/item_7/id = 6
 layout_mode = 2
 text = "Quit"
 
+[node name="AudioManager" parent="." instance=ExtResource("5_oxss7")]
+background_music_default = ExtResource("6_akq6q")
+
+[connection signal="ready" from="." to="AudioManager" method="_on_start_menu_ready"]
 [connection signal="pressed" from="TitleControlsMarginContainer/Padding8px/TitleControlsRows/ButtonRows/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="TitleControlsMarginContainer/Padding8px/TitleControlsRows/ButtonRows/QuitButton" to="." method="_on_quit_button_pressed"]

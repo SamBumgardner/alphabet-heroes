@@ -4,7 +4,7 @@ A game created for Ludum Dare 55 - a family affair.
 ## Credits
 Team members include:
 
-- Noah Bumgardner: Programming
+- Noah Bumgardner: Programming & Music
 - Sam Bumgardner: Programming & Design
 - Tom Bumgardner: Artwork
 
