@@ -195,6 +195,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="DeveloperOnlyNavigation" parent="CombatNodes" instance=ExtResource("3_6xc6h")]
+visible = false
 layout_mode = 1
 
 [node name="SummonNewHeroesButton" type="Button" parent="CombatNodes"]
