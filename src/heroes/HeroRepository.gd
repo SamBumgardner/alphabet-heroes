@@ -2,6 +2,8 @@ class_name HeroRepository extends Node
 
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const GENERATE_BATCH_SIZE = 8
+const GENERATE_START_FIGHT = 6
+const GENERATE_END_OF_TURN_SIZE = 2
 
 signal hero_repository_contents_changed(current_repository)
 
@@ -17,6 +19,9 @@ func _init():
 	for letter in LETTERS:
 		_available_letters[letter] = true
 
+func _ready():
+	reset.call_deferred()
+
 func reset():
 	_repository = Array()
 	for i in range(Hero.Job.size() - 1): # exclude the peasants
@@ -24,6 +29,8 @@ func reset():
 	_available_letters = {}
 	for letter in LETTERS:
 		_available_letters[letter] = true
+	
+	generate_heroes(GENERATE_START_FIGHT)
 	hero_repository_contents_changed.emit(_repository)
 
 func add(heroes:Array):
@@ -57,9 +64,15 @@ func get_heroes(letters:String) -> Array:
 	
 	return result
 
-func generate_heroes():
+func generate_heroes_end_of_turn():
+	generate_heroes(GENERATE_END_OF_TURN_SIZE)
+
+func generate_heroes_batch():
+	generate_heroes(GENERATE_BATCH_SIZE)
+
+func generate_heroes(count_to_generate : int):
 	var new_heroes = []
-	for i in range(min(GENERATE_BATCH_SIZE, _available_letters.size())):
+	for i in range(min(count_to_generate, _available_letters.size())):
 		var hero = Hero.new(
 			_available_letters.keys().pick_random(), 
 			Hero.random_job()
