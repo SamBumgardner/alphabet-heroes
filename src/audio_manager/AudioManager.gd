@@ -9,6 +9,7 @@ extends Node
 @export var sfx_button_summon : AudioStream
 @export var sfx_combat_enemy_current_windup : AudioStream
 @export var sfx_combat_enemy_default_windup : AudioStream
+@export var sfx_combat_player_hurt : AudioStream
 @export var sfx_combat_player_windup : AudioStream
 
 const _default_audio_crossfade = 0.1
@@ -94,3 +95,6 @@ func _on_enemy_enemy_reinitialized(enemy_data_in : EnemyData):
 		sfx_combat_enemy_current_windup = enemy_data_in.sfx_windup
 	else:
 		sfx_combat_enemy_current_windup = null
+
+func _on_player_hurt(previous_health, new_health):
+	SoundManager.play_ambient_sound(sfx_combat_player_hurt)
