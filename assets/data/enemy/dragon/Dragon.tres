@@ -10,5 +10,5 @@ name = "Ruler of the Skies"
 max_health = 60
 graphic = ExtResource("2_i1r8y")
 action_selector_class = ExtResource("1_hxo35")
-location_name = "Timber Foothills"
-location_position = Vector2(-519, -1373)
+location_name = "Dawnpiercer Peak"
+location_position = Vector2(-1533, -2823)

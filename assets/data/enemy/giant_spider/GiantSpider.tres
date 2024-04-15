@@ -10,5 +10,5 @@ name = "Akkrax, Patient Hunter"
 max_health = 50
 graphic = ExtResource("2_fyn1n")
 action_selector_class = ExtResource("1_82gwl")
-location_name = "Timber Foothills"
-location_position = Vector2(-519, -1373)
+location_name = "the Forest of Silence"
+location_position = Vector2(-2864, -13)

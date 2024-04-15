@@ -45,10 +45,10 @@ script = ExtResource("1_fe8ca")
 layer = -1
 
 [node name="WorldMap" type="TextureRect" parent="CanvasLayer"]
-offset_left = -553.0
-offset_top = -2264.0
-offset_right = 4266.0
-offset_bottom = 1328.0
+offset_left = -961.0
+offset_top = -2191.0
+offset_right = 3858.0
+offset_bottom = 1401.0
 texture = ExtResource("3_x1ldo")
 script = ExtResource("4_q7c0o")
 
