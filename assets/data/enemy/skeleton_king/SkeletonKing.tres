@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3 uid="uid://65ks8nkc28rx"]
+
+[ext_resource type="Script" path="res://assets/data/enemy/goblins/GoblinActionSelector.gd" id="1_vh8t4"]
+[ext_resource type="Texture2D" uid="uid://dvvnfas1ihs50" path="res://assets/art/enemy/Giant_Skeleton_256x256.png" id="2_jdk70"]
+[ext_resource type="Script" path="res://src/combat/enemy/EnemyData.gd" id="3_jpyhi"]
+
+[resource]
+script = ExtResource("3_jpyhi")
+name = "The Skeleton King"
+max_health = 70
+graphic = ExtResource("2_jdk70")
+action_selector_class = ExtResource("1_vh8t4")
+location_name = "Mountains of Doom"
+location_position = Vector2(-3528, -1246)

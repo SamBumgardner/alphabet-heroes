@@ -18,7 +18,7 @@ func _initialize_enemy(enemy_data_in:EnemyData):
 	max_health = enemy_data.max_health
 	current_health = enemy_data.max_health
 	current_block = 0
-	action_selector = enemy_data.action_selector_class.new()
+	action_selector = enemy_data.action_selector_class.new(self)
 	current_action = action_selector.get_next_action()
 	healed.emit(current_health, current_health)
 	block_decreased.emit(current_block, current_block)
