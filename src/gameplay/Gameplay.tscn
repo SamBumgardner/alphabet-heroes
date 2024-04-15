@@ -193,7 +193,7 @@ combatant = NodePath("../../Player")
 layout_mode = 2
 theme = ExtResource("5_hjbl1")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
+theme_override_constants/outline_size = 10
 text = "Party Size Limit: 5"
 horizontal_alignment = 1
 script = ExtResource("21_ln3va")
@@ -283,6 +283,8 @@ horizontal_alignment = 1
 [connection signal="pressed" from="CombatNodes/SummonNewHeroesButton" to="AudioManager" method="_on_summon_new_heroes_button_pressed"]
 [connection signal="pressed" from="CombatNodes/SummonNewHeroesButton" to="CombatNodes/TextController" method="skip_turn"]
 [connection signal="pressed" from="CombatNodes/SummonNewHeroesButton" to="CombatNodes/HeroRepository" method="generate_heroes_batch"]
+[connection signal="player_impact" from="CombatNodes/CombatSequencer" to="AudioManager" method="_on_combat_sequencer_player_impact"]
+[connection signal="player_windup" from="CombatNodes/CombatSequencer" to="AudioManager" method="_on_combat_sequencer_player_windup"]
 [connection signal="word_consumed" from="CombatNodes/TextController" to="CombatNodes/HeroRepository" method="remove"]
 [connection signal="word_submitted" from="CombatNodes/TextController" to="CombatNodes/GameOverMonitorStatistics" method="_on_text_controller_word_submitted"]
 [connection signal="party_activated" from="CombatNodes/PartyController" to="CombatNodes/GameOverMonitorStatistics" method="_on_party_controller_party_activated"]
