@@ -31,6 +31,7 @@ func get_next_action() -> EnemyAction:
 	var result : EnemyAction
 	if enemy.current_health < enemy.max_health / 2 and not has_healed:
 		has_healed = true
+		enemy.change_enraged(true)
 		return heal_action
 	
 	var current_action_dict : Dictionary

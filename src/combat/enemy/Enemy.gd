@@ -4,6 +4,7 @@ signal enemy_defeated()
 signal action_changed(action:EnemyAction)
 signal enemy_activated(action:EnemyAction)
 signal enemy_reinitialized()
+signal enemy_enraged()
 
 @export var enemy_data : EnemyData
 var action_selector : EnemyActionSelector
@@ -24,6 +25,9 @@ func _initialize_enemy(enemy_data_in:EnemyData):
 	block_decreased.emit(current_block, current_block)
 	action_changed.emit(current_action)
 	enemy_reinitialized.emit()
+
+func change_enraged(is_enraged:bool):
+	enemy_enraged.emit(is_enraged)
 
 func _on_party_activated(party:Party):
 	apply_damage(party.combat_totals[CombatValues.Values.ATTACK], false)

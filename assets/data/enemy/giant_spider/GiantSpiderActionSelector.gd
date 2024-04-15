@@ -33,6 +33,7 @@ var player_hurt_sequence_index = 0
 func get_next_action() -> EnemyAction:
 	var result : EnemyAction
 	if Database.player_health_current >= 30:
+		enemy.change_enraged(false)
 		player_hurt_sequence_index = 0
 		var choice_index = randi_range(0, player_healthy_choice_options.size() - 1) 
 		result = player_healthy_actions[player_healthy_choice_options[choice_index]]
@@ -40,7 +41,7 @@ func get_next_action() -> EnemyAction:
 		if player_healthy_choice_options.is_empty():
 			player_healthy_choice_options.append_array(player_healthy_choice_refill)
 	else:
-		# it'd be nice to more clearly signal to the player that its state has changed.
+		enemy.change_enraged(true)
 		result = player_hurt_actions[player_hurt_sequence[player_hurt_sequence_index]]
 		player_hurt_sequence_index += 1
 

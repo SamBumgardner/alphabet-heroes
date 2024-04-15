@@ -28,6 +28,7 @@ func get_next_action() -> EnemyAction:
 	var result : EnemyAction
 	if enemy.current_health < enemy.max_health / 2 and not is_flying:
 		is_flying = true
+		enemy.change_enraged(true)
 		return flying_retreat_action
 	
 	var choice_index = randi_range(0, action_options.size() - 1) 

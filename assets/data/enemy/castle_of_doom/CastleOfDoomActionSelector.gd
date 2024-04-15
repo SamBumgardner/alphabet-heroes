@@ -35,6 +35,7 @@ func get_next_action() -> EnemyAction:
 	
 	if enemy.current_block <= 0 and not gates_broken:
 		gates_broken = true
+		enemy.change_enraged(true)
 		return broken_gates_action
 	
 	if not gates_broken:

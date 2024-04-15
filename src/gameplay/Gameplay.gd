@@ -87,6 +87,9 @@ func _ready():
 	var skip_turn_label = $CombatNodes/SkipTurnLabel
 	combat_sequencer.player_skipped.connect(skip_turn_label._on_turn_skipped)
 	
+	var enemy_display = $CombatNodes/EnemyDisplay
+	enemy.enemy_enraged.connect(enemy_display._on_enemy_enrage_changed)
+	
 	# short-term game over handling:
 	var developer_only_navigation = $CombatNodes/DeveloperOnlyNavigation
 	combat_sequencer.gameover_defeat_finished.connect(
