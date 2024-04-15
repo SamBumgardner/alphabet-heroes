@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3 uid="uid://7mw50xfws721"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3 uid="uid://7mw50xfws721"]
 
 [ext_resource type="Script" path="res://assets/data/enemy/giant_spider/GiantSpiderActionSelector.gd" id="1_82gwl"]
 [ext_resource type="Texture2D" uid="uid://cp357u37b7h13" path="res://assets/art/enemy/Spider_256x256.png" id="2_fyn1n"]
 [ext_resource type="Script" path="res://src/combat/enemy/EnemyData.gd" id="3_14eed"]
-[ext_resource type="AudioStream" uid="uid://bcei572vcmfw4" path="res://assets/audio/audio_stream_sequential_sfx_windup_spider.tres" id="4_uja3l"]
 
 [resource]
 script = ExtResource("3_14eed")
@@ -13,4 +12,3 @@ graphic = ExtResource("2_fyn1n")
 action_selector_class = ExtResource("1_82gwl")
 location_name = "the Forest of Silence"
 location_position = Vector2(-2864, -13)
-sfx_windup = ExtResource("4_uja3l")
