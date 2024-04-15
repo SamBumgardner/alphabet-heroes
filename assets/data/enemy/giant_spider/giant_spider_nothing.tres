@@ -7,4 +7,4 @@ script = ExtResource("1_gofx6")
 attack = 0
 block = 0
 magic = 0
-heal = 0
+heal = 1

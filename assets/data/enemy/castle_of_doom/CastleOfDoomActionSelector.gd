@@ -33,7 +33,7 @@ func get_next_action() -> EnemyAction:
 		start_of_combat = false
 		return initial_fortification_action
 	
-	if enemy.current_block <= 0:
+	if enemy.current_block <= 0 and not gates_broken:
 		gates_broken = true
 		return broken_gates_action
 	

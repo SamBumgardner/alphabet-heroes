@@ -2,16 +2,16 @@ extends EnemyActionSelector
 
 var heal_action = preload("res://assets/data/enemy/skeleton_king/skeleton_king_revive.tres")
 var normal_actions = {
-	"small_attack": preload("res://assets/data/enemy/giant_spider/giant_spider_small_magic_and_heal.tres"),
-	"medium_attack": preload("res://assets/data/enemy/giant_spider/giant_spider_medium_magic_and_heal.tres"),
-	"fortify": preload("res://assets/data/enemy/giant_spider/giant_spider_nothing.tres"),
-	"big_attack": preload("res://assets/data/enemy/giant_spider/giant_spider_big_magic.tres"),
+	"small_attack": preload("skeleton_king_small_attack_normal.tres"),
+	"medium_attack": preload("skeleton_king_medium_attack_normal.tres"),
+	"fortify": preload("skeleton_king_fortify_normal.tres"),
+	"big_attack": preload("skeleton_king_big_attack_normal.tres"),
 }
 var post_heal_actions = {
-	"small_attack": preload("res://assets/data/enemy/giant_spider/giant_spider_small_magic_and_heal.tres"),
-	"medium_attack": preload("res://assets/data/enemy/giant_spider/giant_spider_medium_magic_and_heal.tres"),
-	"fortify": preload("res://assets/data/enemy/giant_spider/giant_spider_nothing.tres"),
-	"big_attack": preload("res://assets/data/enemy/giant_spider/giant_spider_big_magic.tres"),
+	"small_attack": preload("skeleton_king_small_attack_enrage.tres"),
+	"medium_attack": preload("skeleton_king_medium_attack_enrage.tres"),
+	"fortify": preload("skeleton_king_fortify_enrage.tres"),
+	"big_attack": preload("skeleton_king_big_attack_enrage.tres"),
 }
 
 var action_sequence = [
@@ -29,7 +29,7 @@ var has_healed : bool = false
 # if player's unhealthy, run set sequence of magic-based attacks.
 func get_next_action() -> EnemyAction:
 	var result : EnemyAction
-	if enemy.current_health < enemy.max_health / 2:
+	if enemy.current_health < enemy.max_health / 2 and not has_healed:
 		has_healed = true
 		return heal_action
 	
@@ -41,6 +41,6 @@ func get_next_action() -> EnemyAction:
 		current_action_dict = post_heal_actions
 	
 	result = current_action_dict[action_sequence[sequence_index]]
-	sequence_index += 1
+	sequence_index = (sequence_index + 1) % action_sequence.size()
 
 	return result

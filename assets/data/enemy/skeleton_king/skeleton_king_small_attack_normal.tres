@@ -7,4 +7,4 @@ script = ExtResource("1_g4f0h")
 attack = 10
 block = 5
 magic = 0
-heal = 100
+heal = 0

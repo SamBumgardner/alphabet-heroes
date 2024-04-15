@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("3_14eed")
-name = "Akkrax, Patient Hunter"
+name = "The Patient Hunter"
 max_health = 50
 graphic = ExtResource("2_fyn1n")
 action_selector_class = ExtResource("1_82gwl")
