@@ -16,6 +16,12 @@ func _set_new_travel_tween(target_position:Vector2):
 	travel_tween.set_trans(Tween.TRANS_CUBIC)
 	travel_tween.tween_property(self, "position", target_position, TRAVEL_TIME)
 
+func reset_scale_tween():
+	var scale_tween = create_tween()
+	scale_tween.set_ease(Tween.EASE_IN_OUT)
+	scale_tween.set_trans(Tween.TRANS_CUBIC)
+	scale_tween.tween_property(self, "scale", Vector2.ONE, TRAVEL_TIME)
+
 func add_travel_tween_steps(tween_to_modify:Tween, target_position:Vector2):
 	tween_to_modify.set_ease(Tween.EASE_IN_OUT)
 	tween_to_modify.set_trans(Tween.TRANS_CUBIC)
