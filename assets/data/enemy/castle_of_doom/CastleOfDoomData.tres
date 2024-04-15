@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3 uid="uid://3okmt0il35xw"]
 
+[ext_resource type="Script" path="res://assets/data/enemy/castle_of_doom/CastleOfDoomActionSelector.gd" id="1_4bn1l"]
 [ext_resource type="Script" path="res://src/combat/enemy/EnemyData.gd" id="1_ale0q"]
-[ext_resource type="Script" path="res://assets/data/enemy/goblins/GoblinActionSelector.gd" id="1_kj4na"]
 [ext_resource type="Texture2D" uid="uid://hpm2hhnbx8o7" path="res://assets/art/enemy/Evil_Tower_256x256.png" id="2_hayl3"]
 
 [resource]
@@ -9,6 +9,6 @@ script = ExtResource("1_ale0q")
 name = "Castle of Doom"
 max_health = 100
 graphic = ExtResource("2_hayl3")
-action_selector_class = ExtResource("1_kj4na")
-location_name = "Mountains of Doom"
+action_selector_class = ExtResource("1_4bn1l")
+location_name = "the Mountains of Doom"
 location_position = Vector2(-3528, -1246)

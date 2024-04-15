@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_22i4q")
-attack = 10
+attack = 5
 block = 5
 magic = 0
 heal = 0

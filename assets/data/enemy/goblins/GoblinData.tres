@@ -7,8 +7,8 @@
 [resource]
 script = ExtResource("1_ebfjx")
 name = "Group of Goblins"
-max_health = 50
+max_health = 30
 graphic = ExtResource("2_frm8f")
 action_selector_class = ExtResource("1_ui3kw")
-location_name = "Timber Foothills"
+location_name = "the Timber Foothills"
 location_position = Vector2(-519, -1373)

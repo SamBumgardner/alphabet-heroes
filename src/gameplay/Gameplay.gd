@@ -8,6 +8,9 @@ const combat_fade_in_duration = .5
 static var ENEMY_LIST = [
 	preload("res://assets/data/enemy/rat_swarm/RatSwarmData.tres"),
 	preload("res://assets/data/enemy/goblins/GoblinData.tres"),
+	preload("res://assets/data/enemy/giant_spider/GiantSpider.tres"),
+	preload("res://assets/data/enemy/dragon/Dragon.tres"),
+	preload("res://assets/data/enemy/skeleton_king/SkeletonKing.tres"),
 	preload("res://assets/data/enemy/castle_of_doom/CastleOfDoomData.tres")
 ]
 
@@ -50,7 +53,7 @@ func _ready():
 	
 	var enemy_combat_preview = $CombatNodes/EnemyCombatPreview as CombatPreview
 	enemy.action_changed.connect(enemy_combat_preview._on_action_changed)
-	enemy_combat_preview._on_action_changed(enemy.current_action)
+	enemy_combat_preview._on_action_changed.call_deferred(enemy.current_action)
 	
 	var player = $CombatNodes/Player as Player
 	enemy.enemy_activated.connect(player._on_enemy_activated)
@@ -84,6 +87,9 @@ func _ready():
 	var skip_turn_label = $CombatNodes/SkipTurnLabel
 	combat_sequencer.player_skipped.connect(skip_turn_label._on_turn_skipped)
 	
+	var enemy_display = $CombatNodes/EnemyDisplay
+	enemy.enemy_enraged.connect(enemy_display._on_enemy_enrage_changed)
+	
 	# short-term game over handling:
 	var developer_only_navigation = $CombatNodes/DeveloperOnlyNavigation
 	combat_sequencer.gameover_defeat_finished.connect(
@@ -107,7 +113,7 @@ func _on_gameover_victory_finished():
 		developer_only_navigation._on_win_button_pressed()
 		return
 	
-	$TravelNodes/Label.text = "Travelling to the %s..." % next_enemy.location_name
+	$TravelNodes/Label.text = "Travelling to %s..." % next_enemy.location_name
 	travel_nodes.modulate = Color.TRANSPARENT
 	travel_nodes.show()
 	

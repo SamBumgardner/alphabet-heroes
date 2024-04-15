@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyAction" load_steps=2 format=3 uid="uid://m6yidg7c3b3w"]
+
+[ext_resource type="Script" path="res://src/combat/enemy/EnemyAction.gd" id="1_ac5wa"]
+
+[resource]
+script = ExtResource("1_ac5wa")
+attack = 15
+block = 0
+magic = 0
+heal = 0

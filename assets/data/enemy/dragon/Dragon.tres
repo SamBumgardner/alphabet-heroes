@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3 uid="uid://cipsutmvrehll"]
+
+[ext_resource type="Script" path="res://assets/data/enemy/dragon/DragonActionSelector.gd" id="1_hxo35"]
+[ext_resource type="Texture2D" uid="uid://b3exy1nghvudj" path="res://assets/art/enemy/Dragon_256x256.png" id="2_i1r8y"]
+[ext_resource type="Script" path="res://src/combat/enemy/EnemyData.gd" id="3_adyaq"]
+
+[resource]
+script = ExtResource("3_adyaq")
+name = "Ruler of the Skies"
+max_health = 60
+graphic = ExtResource("2_i1r8y")
+action_selector_class = ExtResource("1_hxo35")
+location_name = "Dawnpiercer Peak"
+location_position = Vector2(-1533, -2823)

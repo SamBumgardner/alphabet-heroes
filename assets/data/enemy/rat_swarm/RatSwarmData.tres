@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3 uid="uid://bp23cxel76cpd"]
 
-[ext_resource type="Script" path="res://assets/data/enemy/goblins/GoblinActionSelector.gd" id="1_3ny3u"]
+[ext_resource type="Script" path="res://assets/data/enemy/rat_swarm/RatSwarmActionSelector.gd" id="1_i08kk"]
 [ext_resource type="Script" path="res://src/combat/enemy/EnemyData.gd" id="1_neh0r"]
 [ext_resource type="Texture2D" uid="uid://cuxcwrokbd2ve" path="res://assets/art/enemy/Rat_Hoard_256x256.png" id="2_umhuw"]
 
 [resource]
 script = ExtResource("1_neh0r")
 name = "Rat Swarm"
-max_health = 2
+max_health = 20
 graphic = ExtResource("2_umhuw")
-action_selector_class = ExtResource("1_3ny3u")
-location_name = "South Forest Depths"
-location_position = Vector2(-553, -2264)
+action_selector_class = ExtResource("1_i08kk")
+location_name = "the Southern Grasslands"
+location_position = Vector2(-961, -2191)
