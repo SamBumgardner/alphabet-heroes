@@ -23,7 +23,7 @@ func _to_string():
 	if max_letters_increase != 0:
 		result += "Party Size: +%s\n" % max_letters_increase
 	if max_health_increase != 0:
-		result += "Max Health: +%s\n"
+		result += "Max Health: +%s\n" % max_health_increase
 	if health_recovered != 0:
-		result += "Healed: %s\n"
+		result += "Healed: %s\n" % health_recovered
 	return result
