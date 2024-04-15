@@ -51,6 +51,9 @@ func _on_quit_button_mouse_entered():
 func _on_start_button_mouse_entered():
 	SoundManager.play_sound(sfx_button_hover)
 
+func _on_summon_new_heroes_button_mouse_entered():
+	SoundManager.play_sound(sfx_button_hover)
+
 #endregion Button mouse entered
 
 #region Button press
