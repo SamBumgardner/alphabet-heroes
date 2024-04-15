@@ -1,6 +1,8 @@
 # Alphabet Heroes
 A game created for Ludum Dare 55 - a family affair.
 
+[Play on itch.io](https://nbumgardner.itch.io/ludum-dare-55-heroes-of-keys-kingdoms)
+
 ## Credits
 Team members include:
 

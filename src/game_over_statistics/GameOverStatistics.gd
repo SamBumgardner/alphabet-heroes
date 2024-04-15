@@ -2,9 +2,9 @@ extends Control
 
 @onready var database = get_node("/root/Database")
 
-@onready var row_heroes_summoned_count = $Rows/HeroesSummoned/Count
-@onready var row_monsters_slain_count = $Rows/MonstersSlain/Count
-@onready var row_peasants_conscripted_count = $Rows/PeasantsConscripted/Count
+@onready var row_heroes_summoned_count = $PanelContainer/MarginContainer/Rows/HeroesSummoned/Count
+@onready var row_monsters_slain_count = $PanelContainer/MarginContainer/Rows/MonstersSlain/Count
+@onready var row_peasants_conscripted_count = $PanelContainer/MarginContainer/Rows/PeasantsConscripted/Count
 
 func _ready():
 	_init_statistics_rows_counts()

@@ -15,21 +15,25 @@ alignment = 1
 script = ExtResource("1_scif5")
 
 [node name="CombatValueIcon" parent="." instance=ExtResource("1_3agbg")]
-visible = false
 layout_mode = 2
+tooltip_text = "Attack - Damages the opponent's block, then health if there's anything leftover."
 icon_graphic = ExtResource("2_ck56f")
 
 [node name="CombatValueIcon2" parent="." instance=ExtResource("1_3agbg")]
-visible = false
 layout_mode = 2
+tooltip_text = "Block - Will absorb incoming attack damage. 
+The player's block is lost at the end of a round.
+Enemies get to keep it until destroyed.
+The powers of darkness are truly unfair."
 icon_graphic = ExtResource("3_rojp5")
 
 [node name="CombatValueIcon3" parent="." instance=ExtResource("1_3agbg")]
-visible = false
 layout_mode = 2
+tooltip_text = "Magic - Applies damage directly to the opponent's health, ignoring block. "
 icon_graphic = ExtResource("4_cdm2e")
 
 [node name="CombatValueIcon4" parent="." instance=ExtResource("1_3agbg")]
-visible = false
 layout_mode = 2
+tooltip_text = "Healing - Restores missing health. 
+Cannot exceed the maximum, so excess healing is wasted."
 icon_graphic = ExtResource("5_v0jxx")

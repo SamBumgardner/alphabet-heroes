@@ -1,7 +1,7 @@
 extends Control
 
 @onready var quit_button = (
-	$TitleControlsMarginContainer/Padding8px/TitleControlsRows/ButtonRows/QuitButton
+	$Padding8px/TitleControlsRows/ButtonRows/QuitButton
 )
 
 func _ready():

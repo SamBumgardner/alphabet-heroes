@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=37 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
@@ -21,12 +21,14 @@
 [ext_resource type="Script" path="res://src/combat/Player.gd" id="14_t6j6y"]
 [ext_resource type="Script" path="res://src/display/enemy/EnemyDisplay.gd" id="14_y1tmu"]
 [ext_resource type="PackedScene" uid="uid://d3pdnnecfo71e" path="res://src/display/combat_preview/CombatPreview.tscn" id="17_kwces"]
-[ext_resource type="Texture2D" uid="uid://sv36d283ay2o" path="res://assets/art/player.jpg" id="18_f1reu"]
 [ext_resource type="PackedScene" uid="uid://ct2ln3f73kx8k" path="res://src/display/summoned_heroes/SummonedHeroPreviews.tscn" id="19_sv48p"]
 [ext_resource type="Script" path="res://src/display/summoned_heroes/AnimatedHeroDisplayer.gd" id="20_5hje4"]
 [ext_resource type="PackedScene" uid="uid://cqv757c3cshe4" path="res://src/display/typed_word/TileTextDisplay.tscn" id="20_xgcmq"]
 [ext_resource type="Script" path="res://src/display/PartySizeLabel.gd" id="21_ln3va"]
 [ext_resource type="PackedScene" uid="uid://bwp1rm1mjnafi" path="res://src/display/summoned_heroes/SummonedHero.tscn" id="21_onhpi"]
+[ext_resource type="Texture2D" uid="uid://tyta85a3jqfr" path="res://assets/art/Avatar_1.png" id="21_v76fs"]
+[ext_resource type="Script" path="res://src/gameplay/EnterHintPanel.gd" id="23_5vmej"]
+[ext_resource type="Script" path="res://src/gameplay/typing_hint_panel.gd" id="23_jbqrn"]
 [ext_resource type="Script" path="res://src/gameplay/SkipTurnLabel.gd" id="27_flb7c"]
 [ext_resource type="FontFile" uid="uid://ck0ltu3wyr11x" path="res://assets/fonts/Roboto/Roboto-Black.ttf" id="29_fqwku"]
 [ext_resource type="Script" path="res://src/gameplay/IntroAnimation.gd" id="29_w3xnm"]
@@ -195,6 +197,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="DeveloperOnlyNavigation" parent="CombatNodes" instance=ExtResource("3_6xc6h")]
+visible = false
 layout_mode = 1
 
 [node name="SummonNewHeroesButton" type="Button" parent="CombatNodes"]
@@ -204,14 +207,16 @@ anchor_left = 1.0
 anchor_top = 0.75
 anchor_right = 1.0
 anchor_bottom = 0.75
-offset_left = -158.0
-offset_top = -33.0
-offset_bottom = 33.0
+offset_left = -174.0
+offset_top = -52.0
+offset_right = -8.0
+offset_bottom = 43.0
 grow_horizontal = 0
 grow_vertical = 2
 focus_mode = 0
 theme = ExtResource("5_hjbl1")
-text = "Summon New
+text = "Skip Turn:
+Summon More
 Heroes"
 script = ExtResource("9_vh48n")
 
@@ -303,7 +308,7 @@ theme_override_constants/separation = 0
 [node name="TextureRect" type="TextureRect" parent="CombatNodes/PlayerDisplay"]
 custom_minimum_size = Vector2(175, 175)
 layout_mode = 2
-texture = ExtResource("18_f1reu")
+texture = ExtResource("21_v76fs")
 expand_mode = 3
 
 [node name="HealthBar" parent="CombatNodes/PlayerDisplay" node_paths=PackedStringArray("combatant") instance=ExtResource("14_q3t14")]
@@ -319,6 +324,92 @@ text = "Party Size Limit: 5"
 horizontal_alignment = 1
 script = ExtResource("21_ln3va")
 text_controller = NodePath("../../TextController")
+
+[node name="PartySizeHintPanel" type="Panel" parent="CombatNodes"]
+visible = false
+layout_mode = 0
+offset_left = 137.0
+offset_top = 455.0
+offset_right = 387.0
+offset_bottom = 527.0
+script = ExtResource("23_5vmej")
+
+[node name="Label" type="Label" parent="CombatNodes/PartySizeHintPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Word length is limited
+by party size"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeaderBonusHintPanel" type="Panel" parent="CombatNodes"]
+visible = false
+layout_mode = 0
+offset_left = 400.0
+offset_top = 34.0
+offset_right = 750.0
+offset_bottom = 106.0
+script = ExtResource("23_5vmej")
+
+[node name="Label" type="Label" parent="CombatNodes/LeaderBonusHintPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Heroes whose class matches 
+the first letter are x2 strong!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnterHintPanel" type="Panel" parent="CombatNodes"]
+visible = false
+layout_mode = 0
+offset_left = 401.0
+offset_top = 401.0
+offset_right = 751.0
+offset_bottom = 473.0
+script = ExtResource("23_5vmej")
+
+[node name="Label" type="Label" parent="CombatNodes/EnterHintPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press [Enter] with a valid word 
+to summon your heroes
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TypingHintPanel" type="Panel" parent="CombatNodes"]
+layout_mode = 2
+offset_left = 401.0
+offset_top = 320.0
+offset_right = 751.0
+offset_bottom = 392.0
+script = ExtResource("23_jbqrn")
+
+[node name="Label" type="Label" parent="CombatNodes/TypingHintPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Type letters to organize
+a party of heroes!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TileTextDisplay" parent="CombatNodes" instance=ExtResource("20_xgcmq")]
 layout_mode = 1
@@ -495,7 +586,14 @@ layout_mode = 1
 [connection signal="enemy_windup" from="CombatNodes/CombatSequencer" to="AudioManager" method="_on_combat_sequencer_enemy_windup"]
 [connection signal="player_impact" from="CombatNodes/CombatSequencer" to="AudioManager" method="_on_combat_sequencer_player_impact"]
 [connection signal="player_windup" from="CombatNodes/CombatSequencer" to="AudioManager" method="_on_combat_sequencer_player_windup"]
+[connection signal="word_changed" from="CombatNodes/TextController" to="CombatNodes/PartySizeHintPanel" method="_on_text_controller_word_changed"]
+[connection signal="word_changed" from="CombatNodes/TextController" to="CombatNodes/LeaderBonusHintPanel" method="_on_text_controller_word_changed"]
+[connection signal="word_changed" from="CombatNodes/TextController" to="CombatNodes/EnterHintPanel" method="_on_text_controller_word_changed"]
+[connection signal="word_changed" from="CombatNodes/TextController" to="CombatNodes/TypingHintPanel" method="_on_text_controller_word_changed"]
 [connection signal="word_consumed" from="CombatNodes/TextController" to="CombatNodes/HeroRepository" method="remove"]
+[connection signal="word_consumed" from="CombatNodes/TextController" to="CombatNodes/PartySizeHintPanel" method="_on_text_controller_word_consumed"]
+[connection signal="word_consumed" from="CombatNodes/TextController" to="CombatNodes/LeaderBonusHintPanel" method="_on_text_controller_word_consumed"]
+[connection signal="word_consumed" from="CombatNodes/TextController" to="CombatNodes/EnterHintPanel" method="_on_text_controller_word_consumed" flags=6]
 [connection signal="word_submitted" from="CombatNodes/TextController" to="CombatNodes/GameOverMonitorStatistics" method="_on_text_controller_word_submitted"]
 [connection signal="party_activated" from="CombatNodes/PartyController" to="CombatNodes/GameOverMonitorStatistics" method="_on_party_controller_party_activated"]
 [connection signal="hero_repository_contents_changed" from="CombatNodes/HeroRepository" to="CombatNodes/TrayOfHeroes" method="_on_hero_repository_hero_repository_contents_changed"]

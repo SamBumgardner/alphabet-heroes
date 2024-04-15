@@ -1,8 +1,50 @@
-[gd_scene load_steps=4 format=3 uid="uid://bs11mic41td2i"]
+[gd_scene load_steps=8 format=3 uid="uid://bs11mic41td2i"]
 
 [ext_resource type="Theme" uid="uid://c76ovc86ky5qb" path="res://assets/fonts/start_menu_title_font_theme.tres" id="1_35pj7"]
+[ext_resource type="Texture2D" uid="uid://b6lag8ib24bdd" path="res://assets/art/Victory_Screen_Color.jpg" id="1_nlmkv"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="1_ppj6s"]
 [ext_resource type="PackedScene" uid="uid://eanx8lpdpjr4" path="res://src/game_over_statistics/GameOverStatistics.tscn" id="1_u87r6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yrogm"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Animation" id="Animation_rhtd4"]
+resource_name = "GameOverWinFadeIn"
+length = 5.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StatsControl:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_008t8"]
+_data = {
+"GameOverWinFadeIn": SubResource("Animation_rhtd4")
+}
 
 [node name="GameOverWin" type="Control"]
 layout_mode = 3
@@ -12,22 +54,68 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Announcement" type="Label" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nlmkv")
+expand_mode = 3
+
+[node name="StatsControl" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Announcement" type="Label" parent="StatsControl"]
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.5
+anchor_top = 0.1
 anchor_right = 0.5
+anchor_bottom = 0.1
 offset_left = -125.5
 offset_right = 125.5
 offset_bottom = 85.0
 grow_horizontal = 2
 theme = ExtResource("1_35pj7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
 text = "Victory!"
 horizontal_alignment = 1
 
-[node name="GameOverStatistics" parent="." instance=ExtResource("1_u87r6")]
+[node name="GameOverStatistics" parent="StatsControl" instance=ExtResource("1_u87r6")]
 layout_mode = 1
 
-[node name="BackToStartMenuButton" parent="." instance=ExtResource("1_ppj6s")]
+[node name="BackToStartMenuButton" parent="StatsControl" instance=ExtResource("1_ppj6s")]
 layout_direction = 0
 layout_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="StatsControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.7
+anchor_right = 0.5
+anchor_bottom = 0.7
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yrogm")
+
+[node name="Button" type="Button" parent="StatsControl/PanelContainer"]
+layout_mode = 2
+text = "Return to Main Menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_008t8")
+}
+autoplay = "GameOverWinFadeIn"
+
+[connection signal="pressed" from="StatsControl/PanelContainer/Button" to="StatsControl/BackToStartMenuButton" method="_on_exit_button_pressed"]

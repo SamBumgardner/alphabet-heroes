@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://assets/data/enemy/castle_of_doom/CastleOfDoomActionSelector.gd" id="1_4bn1l"]
 [ext_resource type="Script" path="res://src/combat/enemy/EnemyData.gd" id="1_ale0q"]
-[ext_resource type="Texture2D" uid="uid://hpm2hhnbx8o7" path="res://assets/art/enemy/Evil_Tower_256x256.png" id="2_hayl3"]
+[ext_resource type="Texture2D" uid="uid://gkijgonbwqpl" path="res://assets/art/enemy/Evil_Tower_256x256_1.png" id="2_mo561"]
 [ext_resource type="AudioStream" uid="uid://b4x1e8n6ifc0" path="res://assets/audio/audio_stream_randomizer_sfx_windup_castle.tres" id="4_jbxd3"]
 
 [resource]
 script = ExtResource("1_ale0q")
 name = "Castle of Doom"
 max_health = 100
-graphic = ExtResource("2_hayl3")
+graphic = ExtResource("2_mo561")
 action_selector_class = ExtResource("1_4bn1l")
 location_name = "the Mountains of Doom"
 location_position = Vector2(-3528, -1246)
