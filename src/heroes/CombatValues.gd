@@ -8,9 +8,9 @@ enum Values {
 }
 
 const JOB_VALUES = [
-	[2, 1, 0, 0], # Warrior
+	[3, 1, 0, 0], # Warrior
 	[1, 3, 0, 0], # Knight
-	[0, 0, 4, 0], # Mage
+	[0, 0, 3, 0], # Mage
 	[1, 1, 1, 2], # Priest
 	[1, 0, 0, 0], # Peasant
 ]
