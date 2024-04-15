@@ -132,7 +132,7 @@ func _on_gameover_victory_finished():
 func _reinitialize_combat(new_enemy_data:EnemyData):
 	combat_sequencer.combat_finished.emit()
 	hero_repository.reset()
-	enemy._initialize_enemy(new_enemy_data)
+	enemy.initialize_enemy(new_enemy_data)
 	combat_nodes.process_mode = Node.PROCESS_MODE_DISABLED
 
 func _begin_new_combat():
