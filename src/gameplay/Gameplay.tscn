@@ -284,6 +284,7 @@ layout_mode = 1
 [connection signal="pressed" from="CombatNodes/SummonNewHeroesButton" to="AudioManager" method="_on_summon_new_heroes_button_pressed"]
 [connection signal="pressed" from="CombatNodes/SummonNewHeroesButton" to="CombatNodes/TextController" method="skip_turn"]
 [connection signal="pressed" from="CombatNodes/SummonNewHeroesButton" to="CombatNodes/HeroRepository" method="generate_heroes_batch"]
+[connection signal="enemy_windup" from="CombatNodes/CombatSequencer" to="AudioManager" method="_on_combat_sequencer_enemy_windup"]
 [connection signal="player_impact" from="CombatNodes/CombatSequencer" to="AudioManager" method="_on_combat_sequencer_player_impact"]
 [connection signal="player_windup" from="CombatNodes/CombatSequencer" to="AudioManager" method="_on_combat_sequencer_player_windup"]
 [connection signal="word_consumed" from="CombatNodes/TextController" to="CombatNodes/HeroRepository" method="remove"]
