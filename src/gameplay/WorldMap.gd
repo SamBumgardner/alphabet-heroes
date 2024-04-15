@@ -4,6 +4,9 @@ const TRAVEL_TIME = 5
 
 var travel_tween : Tween
 
+func _ready():
+	modulate = Color.DIM_GRAY
+
 func _set_new_travel_tween(target_position:Vector2):
 	if travel_tween != null and travel_tween.is_valid():
 		travel_tween.stop()

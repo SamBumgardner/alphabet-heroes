@@ -130,14 +130,16 @@ enemy = NodePath("../Enemy")
 layout_mode = 2
 texture = ExtResource("13_i2a36")
 
-[node name="Label" type="Label" parent="CombatNodes/EnemyDisplay"]
-layout_mode = 2
-text = "Group of Goblins"
-horizontal_alignment = 1
-
 [node name="HealthBar" parent="CombatNodes/EnemyDisplay" node_paths=PackedStringArray("combatant") instance=ExtResource("14_q3t14")]
 layout_mode = 2
 combatant = NodePath("../../Enemy")
+
+[node name="Label" type="Label" parent="CombatNodes/EnemyDisplay"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Group of Goblins"
+horizontal_alignment = 1
 
 [node name="PlayerCombatPreview" parent="CombatNodes" instance=ExtResource("17_kwces")]
 layout_mode = 1
