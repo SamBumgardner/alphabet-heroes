@@ -103,6 +103,12 @@ func _on_gameover_victory_finished():
 		return
 	
 	$TravelNodes/Label.text = "Travelling to %s..." % next_enemy.location_name
+	var changes_text = Database.get_progression_applied_before_enemy().to_string()
+	if changes_text != "":
+		$TravelNodes/PanelContainer/ProgressionText.text = "Your legend grows:\n" + changes_text
+	else:
+		$TravelNodes/PanelContainer/ProgressionText.text = ""
+	
 	travel_nodes.modulate = Color.TRANSPARENT
 	travel_nodes.show()
 	

@@ -20,8 +20,8 @@ static var HERO_PROGRESSION = [
 	PlayerProgressionChange.new(),
 	PlayerProgressionChange.new(1, 1, 0),
 	PlayerProgressionChange.new(0, 1, 2, 10, 10),
-	PlayerProgressionChange.new(1, 0, 0, 0, 10),
-	PlayerProgressionChange.new(0, 0, 2, 0, 10),
+	PlayerProgressionChange.new(1, 0, 2, 0, 10),
+	PlayerProgressionChange.new(0, 0, 0, 0, 10),
 	PlayerProgressionChange.new(1, 2, 1, 10, 20)
 ]
 

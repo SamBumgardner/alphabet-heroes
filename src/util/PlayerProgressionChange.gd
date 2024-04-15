@@ -17,13 +17,13 @@ func _init(batch_increase:int = 0, end_of_turn_increase:int = 0, letters_increas
 func _to_string():
 	var result = ""
 	if summon_batch_size_increase != 0: 
-		result += "Heroes per Active Summon: +%s\n" % summon_batch_size_increase
+		result += "Summon Count: +%s\n" % summon_batch_size_increase
 	if summon_end_of_turn_increase != 0: 
-		result += "Heroes per turn: +%s\n" % summon_end_of_turn_increase
+		result += "Passive Summons: +%s\n" % summon_end_of_turn_increase
 	if max_letters_increase != 0:
-		result += "Maximum party size: +%s\n" % max_letters_increase
+		result += "Party Size: +%s\n" % max_letters_increase
 	if max_health_increase != 0:
-		result += "Maximum health: +%s\n"
+		result += "Max Health: +%s\n"
 	if health_recovered != 0:
-		result += "Health recovered: %s\n"
+		result += "Healed: %s\n"
 	return result

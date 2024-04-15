@@ -253,7 +253,6 @@ horizontal_alignment = 1
 script = ExtResource("27_flb7c")
 
 [node name="TravelNodes" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -273,6 +272,23 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 48
 text = "Travelling..."
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="TravelNodes"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.3
+anchor_right = 0.5
+anchor_bottom = 0.3
+grow_horizontal = 2
+
+[node name="ProgressionText" type="Label" parent="TravelNodes/PanelContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 48
+text = "Your legend grows:"
 horizontal_alignment = 1
 
 [node name="BackToStartMenuButton" parent="." instance=ExtResource("2_66iqr")]
