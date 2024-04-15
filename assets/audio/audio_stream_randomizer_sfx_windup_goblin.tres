@@ -1,0 +1,14 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://c32hohnfghmhv"]
+
+[ext_resource type="AudioStream" uid="uid://b2f6tc22su2fc" path="res://assets/audio/202_sfx_windup_goblin.wav" id="1_85nnb"]
+[ext_resource type="AudioStream" uid="uid://ctrmc120gjq04" path="res://assets/audio/203_sfx_windup_goblin.wav" id="2_5eitg"]
+[ext_resource type="AudioStream" uid="uid://bmhu3saa3i5c7" path="res://assets/audio/204_sfx_windup_goblin.wav" id="3_8o0ec"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_85nnb")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_5eitg")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_8o0ec")
+stream_2/weight = 1.0
