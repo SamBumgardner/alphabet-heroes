@@ -90,7 +90,6 @@ func _on_gameover_victory_finished():
 	world_map.add_travel_tween_steps(travel_tween, next_enemy.location_position)
 	# re-intialize combat
 	travel_tween.tween_property(travel_nodes, "modulate", Color.TRANSPARENT, travel_fade_out_duration)
+	travel_tween.tween_callback(travel_nodes.hide)
 	travel_tween.tween_property(combat_nodes, "modulate", Color.WHITE, combat_fade_in_duration)
 	# turn on combat again (make emit combat ended)
-	
-	travel_nodes.hide()
