@@ -3,7 +3,7 @@ class_name Enemy extends Combatant
 signal enemy_defeated()
 signal action_changed(action:EnemyAction)
 signal enemy_activated(action:EnemyAction)
-signal enemy_reinitialized()
+signal enemy_reinitialized(enemy_data_in:EnemyData)
 signal enemy_enraged()
 
 @export var enemy_data : EnemyData
@@ -12,9 +12,9 @@ var current_action : EnemyAction
 
 func _ready():
 	if enemy_data != null:
-		_initialize_enemy(enemy_data)
+		initialize_enemy(enemy_data)
 
-func _initialize_enemy(enemy_data_in:EnemyData):
+func initialize_enemy(enemy_data_in:EnemyData):
 	enemy_data = enemy_data_in
 	max_health = enemy_data.max_health
 	current_health = enemy_data.max_health
@@ -24,7 +24,7 @@ func _initialize_enemy(enemy_data_in:EnemyData):
 	healed.emit(current_health, current_health)
 	block_decreased.emit(current_block, current_block)
 	action_changed.emit(current_action)
-	enemy_reinitialized.emit()
+	enemy_reinitialized.emit(enemy_data_in)
 
 func change_enraged(is_enraged:bool):
 	enemy_enraged.emit(is_enraged)

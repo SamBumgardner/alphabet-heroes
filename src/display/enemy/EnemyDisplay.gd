@@ -10,7 +10,7 @@ func _ready():
 	$TextureRect.texture = enemy.enemy_data.graphic
 	$Label.text = enemy.enemy_data.name
 
-func _on_enemy_reinitialized():
+func _on_enemy_reinitialized(_enemy_data_in : EnemyData):
 	$TextureRect.texture = enemy.enemy_data.graphic
 	$TextureRect.self_modulate = Color.WHITE
 	$Label.text = enemy.enemy_data.name
