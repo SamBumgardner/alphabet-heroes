@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://assets/data/enemy/rat_swarm/RatSwarmActionSelector.gd" id="1_i08kk"]
 [ext_resource type="Script" path="res://src/combat/enemy/EnemyData.gd" id="1_neh0r"]
 [ext_resource type="Texture2D" uid="uid://cuxcwrokbd2ve" path="res://assets/art/enemy/Rat_Hoard_256x256.png" id="2_umhuw"]
-[ext_resource type="AudioStream" path="res://assets/audio/201_sfx_windup_rat.wav" id="4_qseed"]
+[ext_resource type="AudioStream" uid="uid://b34x333sw8smx" path="res://assets/audio/201_sfx_windup_rat.wav" id="4_qseed"]
 
 [resource]
 script = ExtResource("1_neh0r")
