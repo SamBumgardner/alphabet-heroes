@@ -1,0 +1,20 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://cbt5qv0nqxa6o"]
+
+[ext_resource type="AudioStream" uid="uid://gwmo5vcot2qw" path="res://assets/audio/106_sfx_hurt.wav" id="1_jjrhd"]
+[ext_resource type="AudioStream" uid="uid://djuxhxeqtbdf0" path="res://assets/audio/107_sfx_hurt.wav" id="2_535u5"]
+[ext_resource type="AudioStream" uid="uid://b4o8mssbjbu7g" path="res://assets/audio/108_sfx_hurt.wav" id="3_np8f4"]
+[ext_resource type="AudioStream" uid="uid://dbdt0c1ek075t" path="res://assets/audio/109_sfx_hurt.wav" id="4_43re4"]
+[ext_resource type="AudioStream" uid="uid://3o4yuugrt7hg" path="res://assets/audio/110_sfx_hurt.wav" id="5_kbm4k"]
+
+[resource]
+streams_count = 5
+stream_0/stream = ExtResource("1_jjrhd")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_535u5")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_np8f4")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_43re4")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_kbm4k")
+stream_4/weight = 1.0

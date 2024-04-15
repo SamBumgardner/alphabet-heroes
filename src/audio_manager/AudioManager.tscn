@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://f34u2l70v1q7"]
+[gd_scene load_steps=10 format=3 uid="uid://f34u2l70v1q7"]
 
 [ext_resource type="Script" path="res://src/audio_manager/AudioManager.gd" id="1_abr2a"]
 [ext_resource type="AudioStream" uid="uid://dfkmsfggjrc3x" path="res://assets/audio/001_music_loop.ogg" id="2_gdr37"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bdd2svy02l4i1" path="res://assets/audio/101_sfx_button.wav" id="6_5yvfi"]
 [ext_resource type="AudioStream" uid="uid://cbk3krfow3chy" path="res://assets/audio/104_sfx_combat_player_windup.wav" id="7_g0wlx"]
 [ext_resource type="AudioStream" uid="uid://ecihh423cdyq" path="res://assets/audio/105_sfx_voice_steady.wav" id="7_ku37f"]
+[ext_resource type="AudioStream" uid="uid://cbt5qv0nqxa6o" path="res://assets/audio/audio_stream_randomizer_sfx_player_hurt.tres" id="8_y2si7"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_abr2a")
@@ -17,4 +18,5 @@ sfx_button_click = ExtResource("5_nxxot")
 sfx_button_hover = ExtResource("5_ycj67")
 sfx_button_summon = ExtResource("6_5yvfi")
 sfx_combat_enemy_default_windup = ExtResource("7_ku37f")
+sfx_combat_player_hurt = ExtResource("8_y2si7")
 sfx_combat_player_windup = ExtResource("7_g0wlx")

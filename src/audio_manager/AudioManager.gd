@@ -9,6 +9,7 @@ extends Node
 @export var sfx_button_summon : AudioStream
 @export var sfx_combat_enemy_current_windup : AudioStream
 @export var sfx_combat_enemy_default_windup : AudioStream
+@export var sfx_combat_player_hurt : AudioStream
 @export var sfx_combat_player_windup : AudioStream
 
 const _default_audio_crossfade = 0.1
@@ -73,6 +74,9 @@ func _on_summon_new_heroes_button_pressed():
 	SoundManager.play_ui_sound(sfx_button_summon)
 
 #endregion Button press
+
+func _on_combat_sequencer_enemy_impact(duration):
+	SoundManager.play_ambient_sound(sfx_combat_player_hurt)
 
 func _on_combat_sequencer_enemy_windup(_duration):
 	# Check to play a default SFX if the enemy is missing a unique windup SFX.
