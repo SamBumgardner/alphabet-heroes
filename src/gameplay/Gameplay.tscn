@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=29 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://src/heroes/PartyController.gd" id="7_vb18x"]
 [ext_resource type="PackedScene" uid="uid://c6qrbk6hrtpc" path="res://src/game_over_monitor_statistics/GameOverMonitorStatistics.tscn" id="7_y431v"]
 [ext_resource type="Script" path="res://src/heroes/HeroRepository.gd" id="8_uko4w"]
+[ext_resource type="Script" path="res://src/heroes/SummonNewHeroesButton.gd" id="9_vh48n"]
 [ext_resource type="Script" path="res://src/combat/enemy/Enemy.gd" id="12_mx65p"]
 [ext_resource type="Resource" uid="uid://bp23cxel76cpd" path="res://assets/data/enemy/rat_swarm/RatSwarmData.tres" id="13_4stoj"]
 [ext_resource type="Texture2D" uid="uid://c6kwxcdkcsvu6" path="res://assets/art/enemy/Goblins_256x256.png" id="13_i2a36"]
@@ -24,7 +25,9 @@
 [ext_resource type="PackedScene" uid="uid://ct2ln3f73kx8k" path="res://src/display/summoned_heroes/SummonedHeroPreviews.tscn" id="19_sv48p"]
 [ext_resource type="Script" path="res://src/display/summoned_heroes/AnimatedHeroDisplayer.gd" id="20_5hje4"]
 [ext_resource type="PackedScene" uid="uid://cqv757c3cshe4" path="res://src/display/typed_word/TileTextDisplay.tscn" id="20_xgcmq"]
+[ext_resource type="Script" path="res://src/display/PartySizeLabel.gd" id="21_ln3va"]
 [ext_resource type="PackedScene" uid="uid://bwp1rm1mjnafi" path="res://src/display/summoned_heroes/SummonedHero.tscn" id="21_onhpi"]
+[ext_resource type="Script" path="res://src/gameplay/SkipTurnLabel.gd" id="27_flb7c"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -85,6 +88,7 @@ focus_mode = 0
 theme = ExtResource("5_hjbl1")
 text = "Summon New
 Heroes"
+script = ExtResource("9_vh48n")
 
 [node name="GameOverMonitorStatistics" parent="CombatNodes" instance=ExtResource("7_y431v")]
 
@@ -181,6 +185,16 @@ expand_mode = 3
 layout_mode = 2
 combatant = NodePath("../../Player")
 
+[node name="PartySizeLimitLabel" type="Label" parent="CombatNodes/PlayerDisplay" node_paths=PackedStringArray("text_controller")]
+layout_mode = 2
+theme = ExtResource("5_hjbl1")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Party Size Limit: 5"
+horizontal_alignment = 1
+script = ExtResource("21_ln3va")
+text_controller = NodePath("../../TextController")
+
 [node name="TileTextDisplay" parent="CombatNodes" instance=ExtResource("20_xgcmq")]
 layout_mode = 1
 anchor_left = 0.45
@@ -217,6 +231,26 @@ scale = Vector2(1.15, 1.15)
 
 [node name="SummonedHero10" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
 
+[node name="SkipTurnLabel" type="Label" parent="CombatNodes"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.45
+anchor_top = 0.4
+anchor_right = 0.45
+anchor_bottom = 0.4
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_hjbl1")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 52
+text = "Skipped
+Turn"
+horizontal_alignment = 1
+script = ExtResource("27_flb7c")
+
 [node name="TravelNodes" type="Control" parent="."]
 visible = false
 layout_mode = 1
@@ -247,7 +281,8 @@ layout_mode = 1
 [connection signal="ready" from="." to="AudioManager" method="_on_gameplay_ready"]
 [connection signal="mouse_entered" from="CombatNodes/SummonNewHeroesButton" to="AudioManager" method="_on_summon_new_heroes_button_mouse_entered"]
 [connection signal="pressed" from="CombatNodes/SummonNewHeroesButton" to="AudioManager" method="_on_summon_new_heroes_button_pressed"]
-[connection signal="pressed" from="CombatNodes/SummonNewHeroesButton" to="CombatNodes/HeroRepository" method="generate_heroes"]
+[connection signal="pressed" from="CombatNodes/SummonNewHeroesButton" to="CombatNodes/TextController" method="skip_turn"]
+[connection signal="pressed" from="CombatNodes/SummonNewHeroesButton" to="CombatNodes/HeroRepository" method="generate_heroes_batch"]
 [connection signal="player_impact" from="CombatNodes/CombatSequencer" to="AudioManager" method="_on_combat_sequencer_player_impact"]
 [connection signal="player_windup" from="CombatNodes/CombatSequencer" to="AudioManager" method="_on_combat_sequencer_player_windup"]
 [connection signal="word_consumed" from="CombatNodes/TextController" to="CombatNodes/HeroRepository" method="remove"]

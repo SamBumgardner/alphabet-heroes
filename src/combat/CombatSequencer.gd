@@ -4,6 +4,7 @@ signal combat_started()
 signal combat_finished()
 signal player_windup(duration:float)
 signal player_impact(duration:float)
+signal player_skipped()
 signal enemy_windup(duration:float)
 signal enemy_impact(duration:float)
 signal gameover_victory_started(duration:float)
@@ -13,6 +14,7 @@ signal gameover_defeat_finished(duration:float)
 
 var duration_player_windup : float = 2
 var duration_player_impact : float = 1
+var duration_player_skip : float = 1
 
 var duration_enemy_windup : float = .5
 var duration_enemy_impact : float = 1
@@ -29,13 +31,20 @@ func _on_player_defeated():
 func _on_enemy_defeated():
 	enemy_defeated = true
 
-func _on_word_submitted(_word:String):
-	start_combat_sequence()
+func _on_word_submitted(word:String):
+	start_combat_sequence(word == "")
 
-func start_combat_sequence():
+func start_combat_sequence(player_inactive:bool = false):
 	combat_started.emit()
+	
+	if player_inactive:
+		player_skipped.emit(duration_player_skip)
+		var tween = create_tween()
+		tween.tween_interval(duration_player_skip)
+		tween.tween_callback(start_enemy_sequence)
+		return
+	
 	player_windup.emit(duration_player_windup)
-
 	var tween = create_tween()
 	tween.tween_interval(duration_player_windup)
 	tween.tween_callback(emit_signal.bind("player_impact", duration_player_impact))
