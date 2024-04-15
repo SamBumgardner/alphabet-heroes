@@ -37,6 +37,8 @@ func get_next_action() -> EnemyAction:
 		var choice_index = randi_range(0, player_healthy_choice_options.size() - 1) 
 		result = player_healthy_actions[player_healthy_choice_options[choice_index]]
 		player_healthy_actions.remove_at(choice_index)
+		if player_healthy_choice_options.is_empty():
+			player_healthy_choice_options.append_array(player_healthy_choice_refill)
 	else:
 		# it'd be nice to more clearly signal to the player that its state has changed.
 		result = player_hurt_actions[player_hurt_sequence[player_hurt_sequence_index]]
