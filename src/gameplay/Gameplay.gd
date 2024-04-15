@@ -85,6 +85,9 @@ func _ready():
 	combat_nodes_hidden.connect(text_controller._on_combat_nodes_hidden)
 	combat_nodes_hidden.connect(player._on_combat_nodes_hidden)
 	
+	var intro_animation : IntroAnimation = $IntroNodes/IntroAnimation
+	intro_animation.intro_finished.connect(_on_intro_finished)
+	
 	# short-term game over handling:
 	var developer_only_navigation = $CombatNodes/DeveloperOnlyNavigation
 	combat_sequencer.gameover_defeat_finished.connect(
@@ -92,6 +95,11 @@ func _ready():
 	)
 	
 	combat_sequencer.gameover_victory_finished.connect(_on_gameover_victory_finished)
+
+func _on_intro_finished():
+	world_map.reset_scale_tween()
+	Database.set_current_enemy_index(-1)
+	_on_gameover_victory_finished()
 
 func try_get_next_enemy() -> EnemyData:
 	Database.set_current_enemy_index(Database.current_enemy_index + 1)
@@ -111,9 +119,12 @@ func _on_gameover_victory_finished():
 	$TravelNodes/Label.text = "Travelling to %s..." % next_enemy.location_name
 	var changes_text = Database.get_progression_applied_before_enemy().to_string()
 	if changes_text != "":
+		$TravelNodes/PanelContainer.show()
 		$TravelNodes/PanelContainer/ProgressionText.text = "Your legend grows:\n" + changes_text
 	else:
+		$TravelNodes/PanelContainer.hide()
 		$TravelNodes/PanelContainer/ProgressionText.text = ""
+		
 	
 	travel_nodes.modulate = Color.TRANSPARENT
 	travel_nodes.show()
