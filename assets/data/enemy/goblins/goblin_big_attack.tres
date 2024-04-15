@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_esdrf")
-attack = 20
+attack = 15
 block = 0
 magic = 0
 heal = 0

@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_neh0r")
 name = "Rat Swarm"
-max_health = 2
+max_health = 20
 graphic = ExtResource("2_umhuw")
 action_selector_class = ExtResource("1_3ny3u")
 location_name = "South Forest Depths"

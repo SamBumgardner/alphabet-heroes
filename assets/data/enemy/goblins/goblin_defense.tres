@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_arnd6")
 attack = 0
-block = 20
+block = 5
 magic = 0
 heal = 10
