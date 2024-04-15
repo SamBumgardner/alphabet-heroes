@@ -36,6 +36,8 @@ grow_vertical = 2
 theme = ExtResource("5_hjbl1")
 script = ExtResource("1_fe8ca")
 
+[node name="AudioManager" parent="." instance=ExtResource("6_rf27n")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
@@ -218,9 +220,6 @@ scale = Vector2(1.15, 1.15)
 [node name="SummonedHero9" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
 
 [node name="SummonedHero10" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
-
-[node name="AudioManager" parent="." instance=ExtResource("6_rf27n")]
-script = ExtResource("6_13qwi")
 
 [node name="TravelNodes" type="Control" parent="."]
 visible = false
