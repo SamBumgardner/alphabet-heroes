@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3 uid="uid://65ks8nkc28rx"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3 uid="uid://65ks8nkc28rx"]
 
 [ext_resource type="Script" path="res://assets/data/enemy/skeleton_king/SkeletonKingActionSelector.gd" id="1_rfbtq"]
 [ext_resource type="Texture2D" uid="uid://dvvnfas1ihs50" path="res://assets/art/enemy/Giant_Skeleton_256x256.png" id="2_jdk70"]
 [ext_resource type="Script" path="res://src/combat/enemy/EnemyData.gd" id="3_jpyhi"]
+[ext_resource type="AudioStream" uid="uid://dpqunfcex5r4f" path="res://assets/audio/205_sfx_windup_skeleton.wav" id="4_tjog3"]
 
 [resource]
 script = ExtResource("3_jpyhi")
@@ -12,3 +13,4 @@ graphic = ExtResource("2_jdk70")
 action_selector_class = ExtResource("1_rfbtq")
 location_name = "the Sunken Necropolis"
 location_position = Vector2(-3529, -2815)
+sfx_windup = ExtResource("4_tjog3")
