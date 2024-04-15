@@ -21,6 +21,9 @@ func _on_party_changed(new_party:Party):
 	for i in range(hero_previews.size()):
 		if i < new_party.heroes.size():
 			hero_previews[i].texture = hero_images[new_party.heroes[i].job]
+			var matches_leader = new_party.heroes[i].job == new_party.heroes[0].job \
+				and new_party.heroes[0].job != Hero.Job.PEASANT
+			hero_previews[i].set_leader_bonus_glow(matches_leader, new_party.heroes[i].job)
 			hero_previews[i].show()
 		else:
 			hero_previews[i].hide()
