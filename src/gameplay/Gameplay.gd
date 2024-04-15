@@ -8,6 +8,9 @@ const combat_fade_in_duration = .5
 static var ENEMY_LIST = [
 	preload("res://assets/data/enemy/rat_swarm/RatSwarmData.tres"),
 	preload("res://assets/data/enemy/goblins/GoblinData.tres"),
+	preload("res://assets/data/enemy/giant_spider/GiantSpider.tres"),
+	preload("res://assets/data/enemy/dragon/Dragon.tres"),
+	preload("res://assets/data/enemy/skeleton_king/SkeletonKing.tres"),
 	preload("res://assets/data/enemy/castle_of_doom/CastleOfDoomData.tres")
 ]
 
