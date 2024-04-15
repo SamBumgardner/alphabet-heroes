@@ -12,6 +12,7 @@ extends Node
 const _default_audio_crossfade = 0.1
 
 func _ready():
+	SoundManager.set_ambient_sound_volume(0.5)
 	SoundManager.set_music_volume(0.5)
 	SoundManager.set_sound_volume(0.5)
 
@@ -71,5 +72,8 @@ func _on_summon_new_heroes_button_pressed():
 
 #endregion Button press
 
+func _on_combat_sequencer_player_impact(duration):
+	SoundManager.stop_ambient_sound(sfx_combat_player_windup, 0.9)
+
 func _on_combat_sequencer_player_windup(duration):
-	SoundManager.play_sound(sfx_combat_player_windup)
+	SoundManager.play_ambient_sound(sfx_combat_player_windup)
