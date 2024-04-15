@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bq3nvxvnxfek4"]
+[gd_scene load_steps=6 format=3 uid="uid://bq3nvxvnxfek4"]
 
 [ext_resource type="Script" path="res://src/hero_panel/HeroPanel.gd" id="1_0kmgj"]
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_lua0a"]
 [ext_resource type="Texture2D" uid="uid://bomytq1jpagf4" path="res://assets/art/heroes/portraits/Warrior_128x128.png" id="2_77xvi"]
+[ext_resource type="PackedScene" uid="uid://d3pdnnecfo71e" path="res://src/display/combat_preview/CombatPreview.tscn" id="4_ei1o6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4id1w"]
+bg_color = Color(0.00392157, 0.0627451, 0.113725, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [node name="HeroPanelContainer" type="PanelContainer"]
 theme = ExtResource("1_lua0a")
@@ -26,6 +34,35 @@ size_flags_vertical = 8
 texture = ExtResource("2_77xvi")
 stretch_mode = 2
 
+[node name="HelpPanel" type="Panel" parent="MarginContainer/HBoxContainer/HeroPortrait"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 7.0
+offset_right = 24.0
+offset_bottom = 26.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4id1w")
+
+[node name="HelpQuestionMark" type="Label" parent="MarginContainer/HBoxContainer/HeroPortrait/HelpPanel"]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 14.0
+offset_bottom = 19.0
+theme_override_font_sizes/font_size = 16
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CombatValuePreview" parent="MarginContainer/HBoxContainer/HeroPortrait" instance=ExtResource("4_ei1o6")]
+visible = false
+layout_mode = 0
+offset_left = -1.0
+offset_top = 3.0
+offset_right = 72.0
+offset_bottom = 3.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.5, 0.5)
+
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 
@@ -41,3 +78,6 @@ text = "Peasant:"
 layout_mode = 2
 size_flags_vertical = 3
 text = "A, B, C, D"
+
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/HeroPortrait" to="." method="_on_hero_portrait_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/HeroPortrait" to="." method="_on_hero_portrait_mouse_exited"]
