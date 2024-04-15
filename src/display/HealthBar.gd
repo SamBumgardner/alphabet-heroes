@@ -19,6 +19,7 @@ func _ready():
 
 func init_combatant(new_combatant):
 	combatant.hurt.connect(_on_hurt)
+	combatant.healed.connect(_on_heal)
 	combatant.block_increased.connect(_on_block_increased)
 	combatant.block_decreased.connect(_on_block_decreased)
 	combatant.block_removed.connect(_on_block_decreased)
@@ -47,6 +48,11 @@ func _on_hurt(_old_health : float, health : float, is_setup : bool = false):
 		text_shake_tween = create_tween()
 		text_shake_tween.tween_method(shake_bar, 0, 0, .1)
 		text_shake_tween.tween_property(self, "position", start_position, 0)
+
+func _on_heal(_old_health : float, health : float):
+	label.text = "%d/%d" % [health, combatant.max_health]
+	value_bar.value = health / combatant.max_health * 100
+	chase_bar.value = value_bar.value
 
 func _on_block_increased(_previous : int, new_block : int):
 	block_icon.set_block(new_block)

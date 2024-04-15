@@ -3,6 +3,7 @@ class_name Enemy extends Combatant
 signal enemy_defeated()
 signal action_changed(action:EnemyAction)
 signal enemy_activated(action:EnemyAction)
+signal enemy_reinitialized()
 
 @export var enemy_data : EnemyData
 var action_selector : EnemyActionSelector
@@ -16,9 +17,13 @@ func _initialize_enemy(enemy_data_in:EnemyData):
 	enemy_data = enemy_data_in
 	max_health = enemy_data.max_health
 	current_health = enemy_data.max_health
+	current_block = 0
 	action_selector = enemy_data.action_selector_class.new()
 	current_action = action_selector.get_next_action()
+	healed.emit(current_health, current_health)
+	block_decreased.emit(current_block, current_block)
 	action_changed.emit(current_action)
+	enemy_reinitialized.emit()
 
 func _on_party_activated(party:Party):
 	apply_damage(party.combat_totals[CombatValues.Values.ATTACK], false)

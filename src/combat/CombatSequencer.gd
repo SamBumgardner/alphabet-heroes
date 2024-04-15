@@ -65,6 +65,8 @@ func try_gameover_sequence() -> bool:
 		var tween = create_tween()
 		tween.tween_interval(duration_gameover_defeat)
 		tween.tween_callback(emit_signal.bind("gameover_defeat_finished"))
+		player_defeated = false
+		enemy_defeated = false
 		return true
 
 	if enemy_defeated:
@@ -72,6 +74,8 @@ func try_gameover_sequence() -> bool:
 		var tween = create_tween()
 		tween.tween_interval(duration_gameover_victory)
 		tween.tween_callback(emit_signal.bind("gameover_victory_finished"))
+		player_defeated = false
+		enemy_defeated = false
 		return true
 
 	# return true if either sequence was started, otherwise false.

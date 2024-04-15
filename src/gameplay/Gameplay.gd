@@ -8,6 +8,10 @@ const combat_fade_in_duration = .5
 @onready var database = get_node("/root/Database")
 
 @onready var combat_nodes = $CombatNodes as Control
+@onready var combat_sequencer = $CombatNodes/CombatSequencer as CombatSequencer
+@onready var hero_repository = $CombatNodes/HeroRepository as HeroRepository
+@onready var enemy = $CombatNodes/Enemy as Enemy
+
 @onready var travel_nodes = $TravelNodes as Control
 
 @onready var world_map = $CanvasLayer/WorldMap as WorldMap
@@ -17,13 +21,12 @@ func _ready():
 	
 	# wire up connections in code to make them more durable than editor config
 	var text_controller = $CombatNodes/TextController as TextController
-	var combat_sequencer = $CombatNodes/CombatSequencer as CombatSequencer
+
 	text_controller.word_submitted.connect(combat_sequencer._on_word_submitted)
 	combat_sequencer.combat_started.connect(text_controller._on_combat_started)
 	combat_sequencer.player_impact.connect(text_controller._on_player_impact)
 	combat_sequencer.combat_finished.connect(text_controller._on_combat_finished)
 	
-	var enemy = $CombatNodes/Enemy as Enemy
 	combat_sequencer.combat_finished.connect(enemy._on_combat_finished)
 	combat_sequencer.enemy_impact.connect(enemy._on_enemy_impact)
 	enemy.enemy_defeated.connect(combat_sequencer._on_enemy_defeated)
@@ -88,8 +91,17 @@ func _on_gameover_victory_finished():
 	travel_tween.tween_property(combat_nodes, "modulate", Color.TRANSPARENT, combat_fade_out_duration)
 	travel_tween.tween_property(travel_nodes, "modulate", Color.WHITE, travel_fade_in_duration)
 	world_map.add_travel_tween_steps(travel_tween, next_enemy.location_position)
-	# re-intialize combat
+	travel_tween.tween_callback(_reinitialize_combat.bind(next_enemy))
 	travel_tween.tween_property(travel_nodes, "modulate", Color.TRANSPARENT, travel_fade_out_duration)
 	travel_tween.tween_callback(travel_nodes.hide)
 	travel_tween.tween_property(combat_nodes, "modulate", Color.WHITE, combat_fade_in_duration)
-	# turn on combat again (make emit combat ended)
+	travel_tween.tween_callback(_begin_new_combat)
+
+func _reinitialize_combat(new_enemy_data:EnemyData):
+	combat_sequencer.combat_finished.emit()
+	hero_repository.reset()
+	enemy._initialize_enemy(new_enemy_data)
+	combat_nodes.process_mode = Node.PROCESS_MODE_DISABLED
+
+func _begin_new_combat():
+	combat_nodes.process_mode = Node.PROCESS_MODE_INHERIT
