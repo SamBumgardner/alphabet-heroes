@@ -6,6 +6,7 @@ extends Node
 
 @export var sfx_button_click : AudioStream
 @export var sfx_button_hover : AudioStream
+@export var sfx_button_summon : AudioStream
 
 const _default_audio_crossfade = 0.1
 
@@ -51,6 +52,8 @@ func _on_quit_button_mouse_entered():
 func _on_start_button_mouse_entered():
 	SoundManager.play_ui_sound(sfx_button_hover)
 
+# To Do: Fix broken connection that mutes hovering over the
+#  `Summon New Heroes` button.
 func _on_summon_new_heroes_button_mouse_entered():
 	SoundManager.play_ui_sound(sfx_button_hover)
 
@@ -63,5 +66,8 @@ func _on_credits_button_pressed():
 
 func _on_exit_button_pressed():
 	SoundManager.play_ui_sound(sfx_button_click)
+
+func _on_summon_new_heroes_button_pressed():
+	SoundManager.play_ui_sound(sfx_button_summon)
 
 #endregion Button press

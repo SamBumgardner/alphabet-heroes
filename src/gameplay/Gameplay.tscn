@@ -247,6 +247,7 @@ horizontal_alignment = 1
 
 [connection signal="ready" from="." to="AudioManager" method="_on_gameplay_ready"]
 [connection signal="mouse_entered" from="CombatNodes/SummonNewHeroesButton" to="AudioManager" method="_on_summon_new_heroes_button_mouse_entered"]
+[connection signal="pressed" from="CombatNodes/SummonNewHeroesButton" to="AudioManager" method="_on_summon_new_heroes_button_pressed"]
 [connection signal="pressed" from="CombatNodes/SummonNewHeroesButton" to="CombatNodes/HeroRepository" method="generate_heroes"]
 [connection signal="word_consumed" from="CombatNodes/TextController" to="CombatNodes/HeroRepository" method="remove"]
 [connection signal="word_submitted" from="CombatNodes/TextController" to="CombatNodes/GameOverMonitorStatistics" method="_on_text_controller_word_submitted"]
