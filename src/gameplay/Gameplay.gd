@@ -74,7 +74,16 @@ func _ready():
 	)
 	combat_sequencer.player_windup.connect(animated_hero_displayer._on_player_windup)
 	combat_sequencer.player_impact.connect(animated_hero_displayer._on_player_impact)
-
+	
+	combat_sequencer.combat_finished.connect(hero_repository.generate_heroes_end_of_turn)
+	
+	var summon_new_heroes_button = $CombatNodes/SummonNewHeroesButton
+	combat_sequencer.combat_started.connect(summon_new_heroes_button._on_combat_started)
+	combat_sequencer.combat_finished.connect(summon_new_heroes_button._on_combat_finished)
+	
+	var skip_turn_label = $CombatNodes/SkipTurnLabel
+	combat_sequencer.player_skipped.connect(skip_turn_label._on_turn_skipped)
+	
 	# short-term game over handling:
 	var developer_only_navigation = $CombatNodes/DeveloperOnlyNavigation
 	combat_sequencer.gameover_defeat_finished.connect(

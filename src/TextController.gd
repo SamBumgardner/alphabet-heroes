@@ -50,6 +50,10 @@ func send_word():
 		word_denied.emit(current_word)
 		print("tried to start the battle, but %s is not a valid word" % current_word)
 
+func skip_turn():
+	current_word = ""
+	word_submitted.emit(current_word)
+
 # combat timing
 func _on_combat_started():
 	in_combat = true

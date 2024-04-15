@@ -19,4 +19,4 @@ enum Job {
 }
 
 static func random_job() -> Job:
-	return (randi() % Job.size() - 1) as Job
+	return randi_range(0, Job.size() - 2) as Job

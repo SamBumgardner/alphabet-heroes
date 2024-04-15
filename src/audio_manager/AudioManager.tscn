@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://dfkmsfggjrc3x" path="res://assets/audio/001_music_loop.ogg" id="2_gdr37"]
 [ext_resource type="AudioStream" uid="uid://65kxyr71uq6c" path="res://assets/audio/002_music_loop.ogg" id="2_svuq4"]
 [ext_resource type="AudioStream" uid="uid://mu8msxrjpfry" path="res://assets/audio/102_sfx_select.wav" id="5_nxxot"]
-[ext_resource type="AudioStream" path="res://assets/audio/103_sfx_rustle.wav" id="5_ycj67"]
+[ext_resource type="AudioStream" uid="uid://crqucowfla56x" path="res://assets/audio/103_sfx_rustle.wav" id="5_ycj67"]
 [ext_resource type="AudioStream" uid="uid://bdd2svy02l4i1" path="res://assets/audio/101_sfx_button.wav" id="6_5yvfi"]
 
 [node name="AudioManager" type="Node"]
