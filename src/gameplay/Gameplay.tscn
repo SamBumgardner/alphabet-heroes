@@ -21,10 +21,10 @@
 [ext_resource type="Script" path="res://src/combat/Player.gd" id="14_t6j6y"]
 [ext_resource type="Script" path="res://src/display/enemy/EnemyDisplay.gd" id="14_y1tmu"]
 [ext_resource type="PackedScene" uid="uid://d3pdnnecfo71e" path="res://src/display/combat_preview/CombatPreview.tscn" id="17_kwces"]
-[ext_resource type="Texture2D" uid="uid://sv36d283ay2o" path="res://assets/art/player.jpg" id="18_f1reu"]
 [ext_resource type="PackedScene" uid="uid://ct2ln3f73kx8k" path="res://src/display/summoned_heroes/SummonedHeroPreviews.tscn" id="19_sv48p"]
 [ext_resource type="Script" path="res://src/display/summoned_heroes/AnimatedHeroDisplayer.gd" id="20_5hje4"]
 [ext_resource type="PackedScene" uid="uid://cqv757c3cshe4" path="res://src/display/typed_word/TileTextDisplay.tscn" id="20_xgcmq"]
+[ext_resource type="Texture2D" uid="uid://bnr3ll5rs3by6" path="res://assets/art/player_ink.jpg" id="21_hmyl5"]
 [ext_resource type="Script" path="res://src/display/PartySizeLabel.gd" id="21_ln3va"]
 [ext_resource type="PackedScene" uid="uid://bwp1rm1mjnafi" path="res://src/display/summoned_heroes/SummonedHero.tscn" id="21_onhpi"]
 [ext_resource type="Script" path="res://src/gameplay/SkipTurnLabel.gd" id="27_flb7c"]
@@ -304,7 +304,7 @@ theme_override_constants/separation = 0
 [node name="TextureRect" type="TextureRect" parent="CombatNodes/PlayerDisplay"]
 custom_minimum_size = Vector2(175, 175)
 layout_mode = 2
-texture = ExtResource("18_f1reu")
+texture = ExtResource("21_hmyl5")
 expand_mode = 3
 
 [node name="HealthBar" parent="CombatNodes/PlayerDisplay" node_paths=PackedStringArray("combatant") instance=ExtResource("14_q3t14")]
