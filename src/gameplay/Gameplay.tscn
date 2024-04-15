@@ -1,14 +1,15 @@
-[gd_scene load_steps=25 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=26 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
 [ext_resource type="PackedScene" uid="uid://bv02y4o3plw5q" path="res://src/developer_only_navigation/DeveloperOnlyNavigation.tscn" id="3_6xc6h"]
-[ext_resource type="Texture2D" path="res://assets/art/World_Map.jpg" id="3_x1ldo"]
+[ext_resource type="Texture2D" uid="uid://c7jqka4jmhiwl" path="res://assets/art/World_Map.jpg" id="3_x1ldo"]
 [ext_resource type="Script" path="res://src/gameplay/WorldMap.gd" id="4_q7c0o"]
 [ext_resource type="PackedScene" uid="uid://oyd68ql208nv" path="res://src/tray_of_heroes/TrayOfHeroes.tscn" id="4_vlgye"]
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="5_hjbl1"]
 [ext_resource type="Script" path="res://src/combat/CombatSequencer.gd" id="6_13qwi"]
 [ext_resource type="Script" path="res://src/TextController.gd" id="6_dfxbv"]
+[ext_resource type="PackedScene" uid="uid://f34u2l70v1q7" path="res://src/audio_manager/AudioManager.tscn" id="6_rf27n"]
 [ext_resource type="Script" path="res://src/heroes/PartyController.gd" id="7_vb18x"]
 [ext_resource type="PackedScene" uid="uid://c6qrbk6hrtpc" path="res://src/game_over_monitor_statistics/GameOverMonitorStatistics.tscn" id="7_y431v"]
 [ext_resource type="Script" path="res://src/heroes/HeroRepository.gd" id="8_uko4w"]
@@ -87,10 +88,10 @@ theme = ExtResource("5_hjbl1")
 text = "Summon New
 Heroes"
 
+[node name="GameOverMonitorStatistics" parent="CombatNodes" instance=ExtResource("7_y431v")]
+
 [node name="CombatSequencer" type="Node" parent="CombatNodes"]
 script = ExtResource("6_13qwi")
-
-[node name="GameOverMonitorStatistics" parent="CombatNodes" instance=ExtResource("7_y431v")]
 
 [node name="TextController" type="Node" parent="CombatNodes"]
 script = ExtResource("6_dfxbv")
@@ -218,6 +219,9 @@ scale = Vector2(1.15, 1.15)
 
 [node name="SummonedHero10" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
 
+[node name="AudioManager" parent="." instance=ExtResource("6_rf27n")]
+script = ExtResource("6_13qwi")
+
 [node name="TravelNodes" type="Control" parent="."]
 visible = false
 layout_mode = 1
@@ -241,6 +245,7 @@ theme_override_font_sizes/font_size = 48
 text = "Travelling..."
 horizontal_alignment = 1
 
+[connection signal="ready" from="." to="AudioManager" method="_on_gameplay_ready"]
 [connection signal="pressed" from="CombatNodes/SummonNewHeroesButton" to="CombatNodes/HeroRepository" method="generate_heroes"]
 [connection signal="word_consumed" from="CombatNodes/TextController" to="CombatNodes/HeroRepository" method="remove"]
 [connection signal="word_submitted" from="CombatNodes/TextController" to="CombatNodes/GameOverMonitorStatistics" method="_on_text_controller_word_submitted"]
