@@ -18,5 +18,6 @@ func _unhandled_key_input(event):
 
 func _on_animation_finished(anim_name:String = ""):
 	if anim_name == "clean_up_intro":
+		print("trying to clean up")
 		intro_finished.emit()
 

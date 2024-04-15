@@ -97,6 +97,8 @@ func _ready():
 	combat_sequencer.gameover_victory_finished.connect(_on_gameover_victory_finished)
 
 func _on_intro_finished():
+	print("received cleanup")
+	$IntroNodes.process_mode = Node.PROCESS_MODE_DISABLED
 	world_map.reset_scale_tween()
 	Database.set_current_enemy_index(-1)
 	_on_gameover_victory_finished()
