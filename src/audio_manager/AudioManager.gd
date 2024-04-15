@@ -52,8 +52,6 @@ func _on_quit_button_mouse_entered():
 func _on_start_button_mouse_entered():
 	SoundManager.play_ui_sound(sfx_button_hover)
 
-# To Do: Fix broken connection that mutes hovering over the
-#  `Summon New Heroes` button.
 func _on_summon_new_heroes_button_mouse_entered():
 	SoundManager.play_ui_sound(sfx_button_hover)
 

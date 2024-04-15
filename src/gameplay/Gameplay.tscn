@@ -37,7 +37,6 @@ theme = ExtResource("5_hjbl1")
 script = ExtResource("1_fe8ca")
 
 [node name="AudioManager" parent="." instance=ExtResource("6_rf27n")]
-sfx_button_hover = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
