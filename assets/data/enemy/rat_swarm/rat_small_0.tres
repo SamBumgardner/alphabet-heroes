@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_6vevi")
-attack = 0
+attack = 5
 block = 0
 magic = 0
 heal = 0
