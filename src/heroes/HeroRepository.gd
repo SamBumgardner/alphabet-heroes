@@ -1,9 +1,9 @@
 class_name HeroRepository extends Node
 
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-const GENERATE_BATCH_SIZE = 8
-const GENERATE_START_FIGHT = 6
-const GENERATE_END_OF_TURN_SIZE = 2
+var GENERATE_BATCH_SIZE = 8
+var GENERATE_START_FIGHT = 6
+var GENERATE_END_OF_TURN_SIZE = 2
 
 signal hero_repository_contents_changed(current_repository)
 
@@ -81,3 +81,9 @@ func generate_heroes(count_to_generate : int):
 		new_heroes.append(hero)
 	
 	add(new_heroes)
+
+func _on_combat_nodes_hidden():
+	var progression : PlayerProgressionChange = Database.get_progression_applied_before_enemy()
+	GENERATE_BATCH_SIZE += progression.summon_batch_size_increase
+	GENERATE_START_FIGHT += progression.summon_batch_size_increase
+	GENERATE_END_OF_TURN_SIZE += progression.summon_end_of_turn_increase

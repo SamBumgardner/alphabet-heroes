@@ -72,3 +72,7 @@ func _on_player_impact(_duration:float):
 func _on_combat_finished():
 	current_word = ""
 	in_combat = false
+
+func _on_combat_nodes_hidden():
+	var progression : PlayerProgressionChange = Database.get_progression_applied_before_enemy()
+	max_letters += progression.max_letters_increase

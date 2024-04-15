@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3 uid="uid://b4bkv68mpkiho"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3 uid="uid://b4bkv68mpkiho"]
 
 [ext_resource type="Script" path="res://src/combat/enemy/EnemyData.gd" id="1_ebfjx"]
 [ext_resource type="Script" path="res://assets/data/enemy/goblins/GoblinActionSelector.gd" id="1_ui3kw"]
 [ext_resource type="Texture2D" uid="uid://c6kwxcdkcsvu6" path="res://assets/art/enemy/Goblins_256x256.png" id="2_frm8f"]
-[ext_resource type="AudioStream" uid="uid://c32hohnfghmhv" path="res://assets/audio/audio_stream_randomizer_sfx_windup_goblin.tres" id="4_d68o8"]
 
 [resource]
 script = ExtResource("1_ebfjx")
@@ -13,4 +12,3 @@ graphic = ExtResource("2_frm8f")
 action_selector_class = ExtResource("1_ui3kw")
 location_name = "the Timber Foothills"
 location_position = Vector2(-519, -1373)
-sfx_windup = ExtResource("4_d68o8")

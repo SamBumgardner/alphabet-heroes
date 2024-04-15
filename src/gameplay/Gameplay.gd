@@ -5,14 +5,7 @@ const travel_fade_in_duration = .5
 const travel_fade_out_duration = .5
 const combat_fade_in_duration = .5
 
-static var ENEMY_LIST = [
-	preload("res://assets/data/enemy/rat_swarm/RatSwarmData.tres"),
-	preload("res://assets/data/enemy/goblins/GoblinData.tres"),
-	preload("res://assets/data/enemy/giant_spider/GiantSpider.tres"),
-	preload("res://assets/data/enemy/dragon/Dragon.tres"),
-	preload("res://assets/data/enemy/skeleton_king/SkeletonKing.tres"),
-	preload("res://assets/data/enemy/castle_of_doom/CastleOfDoomData.tres")
-]
+signal combat_nodes_hidden() # means combat stuff can perform all of their upgrades now
 
 @onready var database = get_node("/root/Database")
 
@@ -24,8 +17,6 @@ static var ENEMY_LIST = [
 @onready var travel_nodes = $TravelNodes as Control
 
 @onready var world_map = $CanvasLayer/WorldMap as WorldMap
-
-var current_enemy_index = 0
 
 func _ready():
 	database.reset_values()
@@ -90,6 +81,10 @@ func _ready():
 	var enemy_display = $CombatNodes/EnemyDisplay
 	enemy.enemy_enraged.connect(enemy_display._on_enemy_enrage_changed)
 	
+	combat_nodes_hidden.connect(hero_repository._on_combat_nodes_hidden)
+	combat_nodes_hidden.connect(text_controller._on_combat_nodes_hidden)
+	combat_nodes_hidden.connect(player._on_combat_nodes_hidden)
+	
 	# short-term game over handling:
 	var developer_only_navigation = $CombatNodes/DeveloperOnlyNavigation
 	combat_sequencer.gameover_defeat_finished.connect(
@@ -99,9 +94,9 @@ func _ready():
 	combat_sequencer.gameover_victory_finished.connect(_on_gameover_victory_finished)
 
 func try_get_next_enemy() -> EnemyData:
-	current_enemy_index += 1
-	if current_enemy_index < ENEMY_LIST.size():
-		return ENEMY_LIST[current_enemy_index]
+	Database.set_current_enemy_index(Database.current_enemy_index + 1)
+	if Database.current_enemy_index < Database.ENEMY_LIST.size():
+		return Database.ENEMY_LIST[Database.current_enemy_index]
 	
 	return null
 
@@ -114,11 +109,18 @@ func _on_gameover_victory_finished():
 		return
 	
 	$TravelNodes/Label.text = "Travelling to %s..." % next_enemy.location_name
+	var changes_text = Database.get_progression_applied_before_enemy().to_string()
+	if changes_text != "":
+		$TravelNodes/PanelContainer/ProgressionText.text = "Your legend grows:\n" + changes_text
+	else:
+		$TravelNodes/PanelContainer/ProgressionText.text = ""
+	
 	travel_nodes.modulate = Color.TRANSPARENT
 	travel_nodes.show()
 	
 	var travel_tween = create_tween()
 	travel_tween.tween_property(combat_nodes, "modulate", Color.TRANSPARENT, combat_fade_out_duration)
+	travel_tween.tween_callback(emit_signal.bind("combat_nodes_hidden"))
 	travel_tween.tween_property(travel_nodes, "modulate", Color.WHITE, travel_fade_in_duration)
 	travel_tween.parallel().tween_property(world_map, "modulate", Color.WHITE, travel_fade_in_duration)
 	world_map.add_travel_tween_steps(travel_tween, next_enemy.location_position)
