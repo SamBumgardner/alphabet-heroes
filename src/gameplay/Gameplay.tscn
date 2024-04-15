@@ -69,10 +69,6 @@ grow_vertical = 0
 [node name="DeveloperOnlyNavigation" parent="CombatNodes" instance=ExtResource("3_6xc6h")]
 layout_mode = 1
 
-[node name="BackToStartMenuButton" parent="CombatNodes" instance=ExtResource("2_66iqr")]
-layout_direction = 0
-layout_mode = 1
-
 [node name="SummonNewHeroesButton" type="Button" parent="CombatNodes"]
 layout_mode = 1
 anchors_preset = -1
@@ -243,6 +239,10 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 48
 text = "Travelling..."
 horizontal_alignment = 1
+
+[node name="BackToStartMenuButton" parent="." instance=ExtResource("2_66iqr")]
+layout_direction = 0
+layout_mode = 1
 
 [connection signal="ready" from="." to="AudioManager" method="_on_gameplay_ready"]
 [connection signal="mouse_entered" from="CombatNodes/SummonNewHeroesButton" to="AudioManager" method="_on_summon_new_heroes_button_mouse_entered"]
