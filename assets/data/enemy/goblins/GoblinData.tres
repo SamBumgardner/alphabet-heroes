@@ -10,5 +10,5 @@ name = "Group of Goblins"
 max_health = 50
 graphic = ExtResource("2_frm8f")
 action_selector_class = ExtResource("1_ui3kw")
-location_name = "Timber Range Foothills"
+location_name = "Timber Foothills"
 location_position = Vector2(-519, -1373)
