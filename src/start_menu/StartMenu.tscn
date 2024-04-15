@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cckjypba5jdnl"]
+[gd_scene load_steps=9 format=3 uid="uid://cckjypba5jdnl"]
 
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_toiww"]
 [ext_resource type="Theme" uid="uid://c76ovc86ky5qb" path="res://assets/fonts/start_menu_title_font_theme.tres" id="3_3syjn"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://f34u2l70v1q7" path="res://src/audio_manager/AudioManager.tscn" id="5_oxss7"]
 [ext_resource type="AudioStream" uid="uid://65kxyr71uq6c" path="res://assets/audio/002_music_loop.ogg" id="6_akq6q"]
 [ext_resource type="AudioStream" uid="uid://b38sr5ayiesk3" path="res://assets/audio/101_sfx_button.wav" id="7_tnpbi"]
+[ext_resource type="AudioStream" uid="uid://crqucowfla56x" path="res://assets/audio/103_sfx_rustle.wav" id="8_xjyas"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -98,8 +99,12 @@ text = "Quit"
 [node name="AudioManager" parent="." instance=ExtResource("5_oxss7")]
 background_music_default = ExtResource("6_akq6q")
 sfx_button_pressed = ExtResource("7_tnpbi")
+sfx_button_hover = ExtResource("8_xjyas")
 
 [connection signal="ready" from="." to="AudioManager" method="_on_start_menu_ready"]
+[connection signal="mouse_entered" from="TitleControlsMarginContainer/Padding8px/TitleControlsRows/ButtonRows/StartButton" to="AudioManager" method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="TitleControlsMarginContainer/Padding8px/TitleControlsRows/ButtonRows/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="TitleControlsMarginContainer/Padding8px/TitleControlsRows/ButtonRows/CreditsButton" to="AudioManager" method="_on_credits_button_mouse_entered"]
 [connection signal="pressed" from="TitleControlsMarginContainer/Padding8px/TitleControlsRows/ButtonRows/CreditsButton" to="AudioManager" method="_on_credits_button_pressed"]
+[connection signal="mouse_entered" from="TitleControlsMarginContainer/Padding8px/TitleControlsRows/ButtonRows/QuitButton" to="AudioManager" method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="TitleControlsMarginContainer/Padding8px/TitleControlsRows/ButtonRows/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -5,6 +5,7 @@ extends Node
 @export var background_music_default : AudioStream
 
 @export var sfx_button_pressed : AudioStream
+@export var sfx_button_hover : AudioStream
 
 const _default_audio_crossfade = 0.1
 
@@ -35,6 +36,19 @@ func _on_start_menu_ready():
 	)
 
 #endregion Scene arrival
+
+#region Button mouse entered
+
+func _on_credits_button_mouse_entered():
+	SoundManager.play_sound(sfx_button_hover)
+
+func _on_quit_button_mouse_entered():
+	SoundManager.play_sound(sfx_button_hover)
+
+func _on_start_button_mouse_entered():
+	SoundManager.play_sound(sfx_button_hover)
+
+#endregion Button mouse entered
 
 #region Button press
 
