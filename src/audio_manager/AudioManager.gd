@@ -75,9 +75,6 @@ func _on_summon_new_heroes_button_pressed():
 
 #endregion Button press
 
-func _on_combat_sequencer_enemy_impact(duration):
-	SoundManager.play_ambient_sound(sfx_combat_player_hurt)
-
 func _on_combat_sequencer_enemy_windup(_duration):
 	# Check to play a default SFX if the enemy is missing a unique windup SFX.
 	if sfx_combat_enemy_current_windup == null:
@@ -98,3 +95,6 @@ func _on_enemy_enemy_reinitialized(enemy_data_in : EnemyData):
 		sfx_combat_enemy_current_windup = enemy_data_in.sfx_windup
 	else:
 		sfx_combat_enemy_current_windup = null
+
+func _on_player_hurt(previous_health, new_health):
+	SoundManager.play_ambient_sound(sfx_combat_player_hurt)

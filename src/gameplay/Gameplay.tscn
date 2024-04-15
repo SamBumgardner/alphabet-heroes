@@ -300,7 +300,6 @@ layout_mode = 1
 [connection signal="pressed" from="CombatNodes/SummonNewHeroesButton" to="AudioManager" method="_on_summon_new_heroes_button_pressed"]
 [connection signal="pressed" from="CombatNodes/SummonNewHeroesButton" to="CombatNodes/TextController" method="skip_turn"]
 [connection signal="pressed" from="CombatNodes/SummonNewHeroesButton" to="CombatNodes/HeroRepository" method="generate_heroes_batch"]
-[connection signal="enemy_impact" from="CombatNodes/CombatSequencer" to="AudioManager" method="_on_combat_sequencer_enemy_impact"]
 [connection signal="enemy_windup" from="CombatNodes/CombatSequencer" to="AudioManager" method="_on_combat_sequencer_enemy_windup"]
 [connection signal="player_impact" from="CombatNodes/CombatSequencer" to="AudioManager" method="_on_combat_sequencer_player_impact"]
 [connection signal="player_windup" from="CombatNodes/CombatSequencer" to="AudioManager" method="_on_combat_sequencer_player_windup"]
@@ -311,3 +310,4 @@ layout_mode = 1
 [connection signal="hero_repository_contents_changed" from="CombatNodes/HeroRepository" to="CombatNodes/GameOverMonitorStatistics" method="_on_hero_repository_hero_repository_contents_changed"]
 [connection signal="enemy_defeated" from="CombatNodes/Enemy" to="CombatNodes/GameOverMonitorStatistics" method="_on_enemy_enemy_defeated"]
 [connection signal="enemy_reinitialized" from="CombatNodes/Enemy" to="AudioManager" method="_on_enemy_enemy_reinitialized"]
+[connection signal="hurt" from="CombatNodes/Player" to="AudioManager" method="_on_player_hurt"]
