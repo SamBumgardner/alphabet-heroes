@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="GameDifficulty" load_steps=2 format=3 uid="uid://caxdykd3lpo23"]
+
+[ext_resource type="Script" path="res://src/util/GameDifficulty.gd" id="1_r6cho"]
+
+[resource]
+script = ExtResource("1_r6cho")
+player_progressions = Array[Resource("res://src/util/PlayerProgressionChange.gd")]([])
+enemy_list = Array[Resource("res://src/combat/enemy/EnemyData.gd")]([])
+hero_combat_values = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]

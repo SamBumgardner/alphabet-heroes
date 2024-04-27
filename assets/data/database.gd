@@ -8,23 +8,10 @@ const _initial_peasants_conscripted_count : int = 0
 const _initial_fights_retried_count : int = 0
 const _initial_player_health_maximum : int = 50
 
-static var ENEMY_LIST = [
-	preload("res://assets/data/enemy/normal_mode/rat_swarm/RatSwarmData.tres"),
-	preload("res://assets/data/enemy/normal_mode/goblins/GoblinData.tres"),
-	preload("res://assets/data/enemy/normal_mode/giant_spider/GiantSpider.tres"),
-	preload("res://assets/data/enemy/normal_mode/dragon/Dragon.tres"),
-	preload("res://assets/data/enemy/normal_mode/skeleton_king/SkeletonKing.tres"),
-	preload("res://assets/data/enemy/normal_mode/castle_of_doom/CastleOfDoomData.tres")
-]
-
-static var HERO_PROGRESSION = [
-	PlayerProgressionChange.new(),
-	PlayerProgressionChange.new(1, 1, 0),
-	PlayerProgressionChange.new(0, 1, 2, 10, 10),
-	PlayerProgressionChange.new(1, 0, 2, 0, 10),
-	PlayerProgressionChange.new(0, 0, 0, 0, 10),
-	PlayerProgressionChange.new(1, 2, 1, 10, 20)
-]
+# values are loaded during set_difficulty_data
+static var ENEMY_LIST
+static var HERO_PROGRESSION
+static var JOB_VALUES
 
 var current_enemy_index : int
 var heroes_summoned_count : int
@@ -37,6 +24,7 @@ func _ready():
 	reset_values()
 
 func reset_values() -> void:
+	set_difficulty_data()
 	set_current_enemy_index(_initial_enemy_index)
 	set_heroes_summoned_count(_initial_heroes_summoned_count)
 	set_monsters_slain_count(_initial_monsters_slain_count)
@@ -44,6 +32,12 @@ func reset_values() -> void:
 	set_fights_retried_count(_initial_fights_retried_count)
 	
 	set_player_health_to_maximum()
+
+func set_difficulty_data() -> void:
+	var normal_difficulty : GameDifficulty = preload("res://assets/data/normal_mode.tres")
+	JOB_VALUES = normal_difficulty.hero_combat_values
+	HERO_PROGRESSION = normal_difficulty.player_progressions
+	ENEMY_LIST = normal_difficulty.enemy_list
 
 func get_progression_applied_before_enemy() -> PlayerProgressionChange:
 	return HERO_PROGRESSION[current_enemy_index]

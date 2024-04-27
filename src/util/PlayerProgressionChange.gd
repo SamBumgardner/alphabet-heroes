@@ -1,10 +1,10 @@
-class_name PlayerProgressionChange extends RefCounted
+class_name PlayerProgressionChange extends Resource
 
-var summon_batch_size_increase : int = 0
-var summon_end_of_turn_increase : int = 0
-var max_letters_increase : int = 0
-var max_health_increase : int = 0
-var health_recovered : int = 0
+@export var summon_batch_size_increase : int = 0
+@export var summon_end_of_turn_increase : int = 0
+@export var max_letters_increase : int = 0
+@export var max_health_increase : int = 0
+@export var health_recovered : int = 0
 
 func _init(batch_increase:int = 0, end_of_turn_increase:int = 0, letters_increase:int = 0,
 		max_health:int = 0, healing:int = 0):
