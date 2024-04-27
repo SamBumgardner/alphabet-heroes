@@ -1,9 +1,9 @@
 extends EnemyActionSelector
 
 var actions = {
-	"small_attack": preload("res://assets/data/enemy/goblins/goblin_small_attack.tres"),
-	"big_attack": preload("res://assets/data/enemy/goblins/goblin_big_attack.tres"),
-	"defense": preload("res://assets/data/enemy/goblins/goblin_defense.tres"),
+	"small_attack": preload("res://assets/data/enemy/normal_mode/goblins/goblin_small_attack.tres"),
+	"big_attack": preload("res://assets/data/enemy/normal_mode/goblins/goblin_big_attack.tres"),
+	"defense": preload("res://assets/data/enemy/normal_mode/goblins/goblin_defense.tres"),
 }
 var action_sequence = [
 	"small_attack",

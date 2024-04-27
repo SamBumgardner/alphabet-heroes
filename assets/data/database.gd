@@ -9,12 +9,12 @@ const _initial_fights_retried_count : int = 0
 const _initial_player_health_maximum : int = 50
 
 static var ENEMY_LIST = [
-	preload("res://assets/data/enemy/rat_swarm/RatSwarmData.tres"),
-	preload("res://assets/data/enemy/goblins/GoblinData.tres"),
-	preload("res://assets/data/enemy/giant_spider/GiantSpider.tres"),
-	preload("res://assets/data/enemy/dragon/Dragon.tres"),
-	preload("res://assets/data/enemy/skeleton_king/SkeletonKing.tres"),
-	preload("res://assets/data/enemy/castle_of_doom/CastleOfDoomData.tres")
+	preload("res://assets/data/enemy/normal_mode/rat_swarm/RatSwarmData.tres"),
+	preload("res://assets/data/enemy/normal_mode/goblins/GoblinData.tres"),
+	preload("res://assets/data/enemy/normal_mode/giant_spider/GiantSpider.tres"),
+	preload("res://assets/data/enemy/normal_mode/dragon/Dragon.tres"),
+	preload("res://assets/data/enemy/normal_mode/skeleton_king/SkeletonKing.tres"),
+	preload("res://assets/data/enemy/normal_mode/castle_of_doom/CastleOfDoomData.tres")
 ]
 
 static var HERO_PROGRESSION = [
