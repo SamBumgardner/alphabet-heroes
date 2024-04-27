@@ -1,10 +1,11 @@
 # Defines variables shared across scenes with the correct data types.
 extends Node
 
-const _initial_enemy_index : int = 0
+const _initial_enemy_index : int = -1
 const _initial_heroes_summoned_count : int = 0
 const _initial_monsters_slain_count : int = 0
 const _initial_peasants_conscripted_count : int = 0
+const _initial_fights_retried_count : int = 0
 const _initial_player_health_maximum : int = 50
 
 static var ENEMY_LIST = [
@@ -29,6 +30,7 @@ var current_enemy_index : int
 var heroes_summoned_count : int
 var monsters_slain_count : int
 var peasants_conscripted_count : int
+var fights_retried_count : int
 var player_health_current : int
 
 func _ready():
@@ -39,6 +41,8 @@ func reset_values() -> void:
 	set_heroes_summoned_count(_initial_heroes_summoned_count)
 	set_monsters_slain_count(_initial_monsters_slain_count)
 	set_peasants_conscripted_count(_initial_peasants_conscripted_count)
+	set_fights_retried_count(_initial_fights_retried_count)
+	
 	set_player_health_to_maximum()
 
 func get_progression_applied_before_enemy() -> PlayerProgressionChange:
@@ -55,6 +59,9 @@ func set_monsters_slain_count(updated_count : int) -> void:
 
 func set_peasants_conscripted_count(updated_count : int) -> void:
 	peasants_conscripted_count = updated_count
+
+func set_fights_retried_count(updated_count : int) -> void:
+	fights_retried_count = updated_count
 
 func set_player_health_current(updated_health : int) -> void:
 	player_health_current = updated_health

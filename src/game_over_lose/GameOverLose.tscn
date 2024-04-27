@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://eanx8lpdpjr4" path="res://src/game_over_statistics/GameOverStatistics.tscn" id="2_6s5qo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3soc"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.439216, 0.439216, 0.439216, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -91,7 +91,7 @@ text = "Too Bad! Try Again?"
 [node name="GameOverStatistics" parent="StatsControl" instance=ExtResource("2_6s5qo")]
 layout_mode = 1
 
-[node name="BackToStartMenuButton" parent="StatsControl" instance=ExtResource("1_wyp61")]
+[node name="SceneTransitionHandler" parent="StatsControl" instance=ExtResource("1_wyp61")]
 layout_direction = 0
 layout_mode = 1
 
@@ -107,7 +107,14 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_s3soc")
 
-[node name="Button" type="Button" parent="StatsControl/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="StatsControl/PanelContainer"]
+layout_mode = 2
+
+[node name="RetryButton" type="Button" parent="StatsControl/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Retry"
+
+[node name="MainMenuButton" type="Button" parent="StatsControl/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Return to Main Menu"
 
@@ -117,4 +124,5 @@ libraries = {
 }
 autoplay = "GameOverLose"
 
-[connection signal="pressed" from="StatsControl/PanelContainer/Button" to="StatsControl/BackToStartMenuButton" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="StatsControl/PanelContainer/VBoxContainer/RetryButton" to="StatsControl/SceneTransitionHandler" method="_on_retry_button_pressed"]
+[connection signal="pressed" from="StatsControl/PanelContainer/VBoxContainer/MainMenuButton" to="StatsControl/SceneTransitionHandler" method="_on_exit_button_pressed"]

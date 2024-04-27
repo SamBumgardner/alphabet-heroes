@@ -113,3 +113,28 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 text = "0"
+
+[node name="FightsRetried" type="HBoxContainer" parent="PanelContainer/MarginContainer/Rows"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Rows/FightsRetried"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "Fights Retried"
+
+[node name="HSpacing" type="Control" parent="PanelContainer/MarginContainer/Rows/FightsRetried"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Multiplication" type="Label" parent="PanelContainer/MarginContainer/Rows/FightsRetried"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "X"
+
+[node name="Count" type="Label" parent="PanelContainer/MarginContainer/Rows/FightsRetried"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "0"

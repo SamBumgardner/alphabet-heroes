@@ -75,4 +75,7 @@ func _on_combat_finished():
 
 func _on_combat_nodes_hidden():
 	var progression : PlayerProgressionChange = Database.get_progression_applied_before_enemy()
+	apply_progression(progression)
+
+func apply_progression(progression:PlayerProgressionChange):
 	max_letters += progression.max_letters_increase

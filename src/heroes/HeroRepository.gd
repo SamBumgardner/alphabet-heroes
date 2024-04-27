@@ -84,6 +84,9 @@ func generate_heroes(count_to_generate : int):
 
 func _on_combat_nodes_hidden():
 	var progression : PlayerProgressionChange = Database.get_progression_applied_before_enemy()
+	apply_progression(progression)
+
+func apply_progression(progression:PlayerProgressionChange):
 	GENERATE_BATCH_SIZE += progression.summon_batch_size_increase
 	GENERATE_START_FIGHT += progression.summon_batch_size_increase
 	GENERATE_END_OF_TURN_SIZE += progression.summon_end_of_turn_increase

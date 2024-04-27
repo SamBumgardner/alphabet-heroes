@@ -6,6 +6,7 @@ const travel_fade_out_duration = .5
 const combat_fade_in_duration = .5
 
 signal combat_nodes_hidden() # means combat stuff can perform all of their upgrades now
+signal fight_retried()
 
 @onready var database = get_node("/root/Database")
 
@@ -13,17 +14,16 @@ signal combat_nodes_hidden() # means combat stuff can perform all of their upgra
 @onready var combat_sequencer = $CombatNodes/CombatSequencer as CombatSequencer
 @onready var hero_repository = $CombatNodes/HeroRepository as HeroRepository
 @onready var enemy = $CombatNodes/Enemy as Enemy
+@onready var player = $CombatNodes/Player as Player
+@onready var text_controller = $CombatNodes/TextController as TextController
 
 @onready var travel_nodes = $TravelNodes as Control
 
 @onready var world_map = $CanvasLayer/WorldMap as WorldMap
 
 func _ready():
-	database.reset_values()
 	
 	# wire up connections in code to make them more durable than editor config
-	var text_controller = $CombatNodes/TextController as TextController
-
 	text_controller.word_submitted.connect(combat_sequencer._on_word_submitted)
 	combat_sequencer.combat_started.connect(text_controller._on_combat_started)
 	combat_sequencer.player_impact.connect(text_controller._on_player_impact)
@@ -44,9 +44,7 @@ func _ready():
 	
 	var enemy_combat_preview = $CombatNodes/EnemyCombatPreview as CombatPreview
 	enemy.action_changed.connect(enemy_combat_preview._on_action_changed)
-	enemy_combat_preview._on_action_changed.call_deferred(enemy.current_action)
 	
-	var player = $CombatNodes/Player as Player
 	enemy.enemy_activated.connect(player._on_enemy_activated)
 	combat_sequencer.combat_finished.connect(player._on_combat_finished)
 	party_controller.party_activated.connect(player._on_party_activated)
@@ -95,6 +93,10 @@ func _ready():
 	)
 	
 	combat_sequencer.gameover_victory_finished.connect(_on_gameover_victory_finished)
+	
+	if Database.current_enemy_index != -1:
+		fight_retried.emit()
+		_initialize_at_combat()
 
 func _on_intro_finished():
 	print("received cleanup")
@@ -143,6 +145,34 @@ func _on_gameover_victory_finished():
 	travel_tween.tween_callback(travel_nodes.hide)
 	travel_tween.tween_property(combat_nodes, "modulate", Color.WHITE, combat_fade_in_duration)
 	travel_tween.tween_callback(_begin_new_combat)
+
+# Use to jump straight to a particular fight
+func _initialize_at_combat():
+	var starting_enemy = Database.ENEMY_LIST[Database.current_enemy_index]
+	# cancel intro animation
+	($IntroNodes/IntroAnimation as IntroAnimation).stop()
+	$IntroNodes.process_mode = Node.PROCESS_MODE_DISABLED
+	$IntroNodes.queue_free()
+	# apply all previous improvements
+	var i = 0
+	while i <= Database.current_enemy_index:
+		var progression = Database.HERO_PROGRESSION[i]
+		hero_repository.apply_progression(progression)
+		text_controller.apply_progression(progression)
+		player.apply_progression(progression)
+		i += 1
+	# jump world map to target position & scale & change modulation to dim gray
+	world_map.jump_to_destination(starting_enemy.location_position)
+	world_map.modulate = Color.DIM_GRAY
+	# _reinitialize_combat with current enemy
+	_reinitialize_combat(starting_enemy)
+	# hide travel nodes
+	travel_nodes.hide()
+	# modulate in combat nodes
+	combat_nodes.modulate = Color.WHITE
+	# begin new combat
+	_begin_new_combat()
+	
 
 func _reinitialize_combat(new_enemy_data:EnemyData):
 	combat_sequencer.combat_finished.emit()
