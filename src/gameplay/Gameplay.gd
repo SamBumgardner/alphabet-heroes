@@ -44,7 +44,6 @@ func _ready():
 	
 	var enemy_combat_preview = $CombatNodes/EnemyCombatPreview as CombatPreview
 	enemy.action_changed.connect(enemy_combat_preview._on_action_changed)
-	enemy_combat_preview._on_action_changed.call_deferred(enemy.current_action)
 	
 	enemy.enemy_activated.connect(player._on_enemy_activated)
 	combat_sequencer.combat_finished.connect(player._on_combat_finished)
