@@ -6,6 +6,7 @@ const travel_fade_out_duration = .5
 const combat_fade_in_duration = .5
 
 signal combat_nodes_hidden() # means combat stuff can perform all of their upgrades now
+signal fight_retried()
 
 @onready var database = get_node("/root/Database")
 
@@ -95,6 +96,7 @@ func _ready():
 	combat_sequencer.gameover_victory_finished.connect(_on_gameover_victory_finished)
 	
 	if Database.current_enemy_index != -1:
+		fight_retried.emit()
 		_initialize_at_combat()
 
 func _on_intro_finished():

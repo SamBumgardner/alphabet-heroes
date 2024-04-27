@@ -579,6 +579,7 @@ text = "[press any key to begin]"
 layout_direction = 0
 layout_mode = 1
 
+[connection signal="fight_retried" from="." to="CombatNodes/GameOverMonitorStatistics" method="_on_fight_retried"]
 [connection signal="ready" from="." to="AudioManager" method="_on_gameplay_ready"]
 [connection signal="mouse_entered" from="CombatNodes/SummonNewHeroesButton" to="AudioManager" method="_on_summon_new_heroes_button_mouse_entered"]
 [connection signal="pressed" from="CombatNodes/SummonNewHeroesButton" to="AudioManager" method="_on_summon_new_heroes_button_pressed"]

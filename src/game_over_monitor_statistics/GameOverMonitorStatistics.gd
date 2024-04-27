@@ -82,3 +82,6 @@ func _on_hero_repository_hero_repository_contents_changed(current_repository):
 
 func _on_text_controller_word_submitted(word):
 	_increase_statistic_peasants_conscripted(word)
+
+func _on_fight_retried():
+	Database.set_fights_retried_count(Database.fights_retried_count + 1)
