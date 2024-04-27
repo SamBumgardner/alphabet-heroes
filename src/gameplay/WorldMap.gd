@@ -26,3 +26,7 @@ func add_travel_tween_steps(tween_to_modify:Tween, target_position:Vector2):
 	tween_to_modify.set_ease(Tween.EASE_IN_OUT)
 	tween_to_modify.set_trans(Tween.TRANS_CUBIC)
 	tween_to_modify.tween_property(self, "position", target_position, TRAVEL_TIME)
+
+func jump_to_destination(target_position:Vector2):
+	scale = Vector2.ONE
+	position = target_position
