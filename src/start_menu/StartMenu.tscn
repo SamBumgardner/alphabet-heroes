@@ -74,6 +74,10 @@ theme_override_constants/separation = 6
 layout_mode = 2
 text = "Start"
 
+[node name="HardMode" type="Button" parent="Padding8px/TitleControlsRows/ButtonRows"]
+layout_mode = 2
+text = "Hard Mode"
+
 [node name="CreditsButton" type="MenuButton" parent="Padding8px/TitleControlsRows/ButtonRows"]
 layout_mode = 2
 focus_mode = 2
@@ -107,6 +111,8 @@ text = "Quit"
 [connection signal="ready" from="." to="AudioManager" method="_on_start_menu_ready"]
 [connection signal="mouse_entered" from="Padding8px/TitleControlsRows/ButtonRows/StartButton" to="AudioManager" method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="Padding8px/TitleControlsRows/ButtonRows/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="Padding8px/TitleControlsRows/ButtonRows/HardMode" to="AudioManager" method="_on_start_button_mouse_entered"]
+[connection signal="pressed" from="Padding8px/TitleControlsRows/ButtonRows/HardMode" to="." method="_on_hard_mode_button_pressed"]
 [connection signal="mouse_entered" from="Padding8px/TitleControlsRows/ButtonRows/CreditsButton" to="AudioManager" method="_on_credits_button_mouse_entered"]
 [connection signal="pressed" from="Padding8px/TitleControlsRows/ButtonRows/CreditsButton" to="AudioManager" method="_on_credits_button_pressed"]
 [connection signal="mouse_entered" from="Padding8px/TitleControlsRows/ButtonRows/QuitButton" to="AudioManager" method="_on_quit_button_mouse_entered"]

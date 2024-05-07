@@ -10,6 +10,11 @@ func _ready():
 		quit_button.visible = false
 
 func _on_start_button_pressed():
+	Database.set_difficulty_data(preload("res://assets/data/normal_mode.tres"))
+	get_tree().change_scene_to_file("res://src/gameplay/Gameplay.tscn")
+
+func _on_hard_mode_button_pressed():
+	Database.set_difficulty_data(preload("res://assets/data/hard_mode.tres"))
 	get_tree().change_scene_to_file("res://src/gameplay/Gameplay.tscn")
 
 func _on_quit_button_pressed():

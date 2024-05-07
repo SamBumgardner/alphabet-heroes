@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("3_jpyhi")
 name = "The Skeleton King"
-max_health = 70
+max_health = 100
 graphic = ExtResource("2_jdk70")
 action_selector_class = ExtResource("1_rfbtq")
 location_name = "the Sunken Necropolis"

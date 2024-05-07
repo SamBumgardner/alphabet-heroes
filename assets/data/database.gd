@@ -24,7 +24,7 @@ func _ready():
 	reset_values()
 
 func reset_values() -> void:
-	set_difficulty_data()
+	set_difficulty_data(preload("res://assets/data/normal_mode.tres"))
 	set_current_enemy_index(_initial_enemy_index)
 	set_heroes_summoned_count(_initial_heroes_summoned_count)
 	set_monsters_slain_count(_initial_monsters_slain_count)
@@ -33,11 +33,10 @@ func reset_values() -> void:
 	
 	set_player_health_to_maximum()
 
-func set_difficulty_data() -> void:
-	var normal_difficulty : GameDifficulty = preload("res://assets/data/normal_mode.tres")
-	JOB_VALUES = normal_difficulty.hero_combat_values
-	HERO_PROGRESSION = normal_difficulty.player_progressions
-	ENEMY_LIST = normal_difficulty.enemy_list
+func set_difficulty_data(difficulty : GameDifficulty) -> void:
+	JOB_VALUES = difficulty.hero_combat_values
+	HERO_PROGRESSION = difficulty.player_progressions
+	ENEMY_LIST = difficulty.enemy_list
 
 func get_progression_applied_before_enemy() -> PlayerProgressionChange:
 	return HERO_PROGRESSION[current_enemy_index]
