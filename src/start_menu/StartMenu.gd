@@ -8,6 +8,8 @@ func _ready():
 	Database.reset_values()
 	if OS.get_name() == "Web":
 		quit_button.visible = false
+	if !Database.player_beaten_normal:
+		$Padding8px/TitleControlsRows/ButtonRows/HardMode.hide()
 
 func _on_start_button_pressed():
 	Database.set_difficulty_data(preload("res://assets/data/normal_mode.tres"))

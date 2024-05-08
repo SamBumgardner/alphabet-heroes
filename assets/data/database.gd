@@ -22,6 +22,8 @@ var peasants_conscripted_count : int
 var fights_retried_count : int
 var player_health_current : int
 
+var player_beaten_normal : bool = false
+
 func _ready():
 	reset_values()
 
@@ -44,6 +46,9 @@ func set_difficulty_data(difficulty : GameDifficulty) -> void:
 
 func get_progression_applied_before_enemy() -> PlayerProgressionChange:
 	return HERO_PROGRESSION[current_enemy_index]
+
+func set_player_beaten_normal(updated_victory_status : bool) -> void:
+	player_beaten_normal = updated_victory_status
 
 func set_current_enemy_index(updated_index : int) -> void:
 	current_enemy_index = updated_index

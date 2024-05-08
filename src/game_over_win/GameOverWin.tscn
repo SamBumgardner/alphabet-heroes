@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bs11mic41td2i"]
+[gd_scene load_steps=9 format=3 uid="uid://bs11mic41td2i"]
 
 [ext_resource type="Theme" uid="uid://c76ovc86ky5qb" path="res://assets/fonts/start_menu_title_font_theme.tres" id="1_35pj7"]
+[ext_resource type="Script" path="res://src/game_over_win/GameOverWin.gd" id="1_76pb5"]
 [ext_resource type="Texture2D" uid="uid://b6lag8ib24bdd" path="res://assets/art/Victory_Screen_Color.jpg" id="1_nlmkv"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="1_ppj6s"]
 [ext_resource type="PackedScene" uid="uid://eanx8lpdpjr4" path="res://src/game_over_statistics/GameOverStatistics.tscn" id="1_u87r6"]
@@ -53,6 +54,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_76pb5")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
