@@ -9,3 +9,5 @@ class_name GameDifficulty extends Resource
 	[0, 0, 0, 0],
 	[0, 0, 0, 0]
 ]
+@export var intro_title : String = ""
+@export var intro_text : String = ""

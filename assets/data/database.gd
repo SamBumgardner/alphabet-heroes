@@ -9,6 +9,8 @@ const _initial_fights_retried_count : int = 0
 const _initial_player_health_maximum : int = 50
 
 # values are loaded during set_difficulty_data
+static var INTRO_TITLE
+static var INTRO_TEXT
 static var ENEMY_LIST
 static var HERO_PROGRESSION
 static var JOB_VALUES
@@ -37,6 +39,8 @@ func set_difficulty_data(difficulty : GameDifficulty) -> void:
 	JOB_VALUES = difficulty.hero_combat_values
 	HERO_PROGRESSION = difficulty.player_progressions
 	ENEMY_LIST = difficulty.enemy_list
+	INTRO_TITLE = difficulty.intro_title
+	INTRO_TEXT = difficulty.intro_text
 
 func get_progression_applied_before_enemy() -> PlayerProgressionChange:
 	return HERO_PROGRESSION[current_enemy_index]

@@ -35,3 +35,13 @@ script = ExtResource("1_r6cho")
 player_progressions = Array[ExtResource("1_yd8ca")]([SubResource("Resource_3jddf"), SubResource("Resource_4r25q"), SubResource("Resource_iqyvn")])
 enemy_list = Array[Resource("res://src/combat/enemy/EnemyData.gd")]([ExtResource("1_kw2vn"), ExtResource("3_nl3gi"), ExtResource("2_x8a4y")])
 hero_combat_values = [[3, 1, 0, 0], [2, 2, 0, 0], [0, 0, 3, 0], [1, 1, 1, 1], [1, 0, 0, 0]]
+intro_title = "Extra Special Hard Mode"
+intro_text = "My main motivation for creating this bonus mode was
+technical (setting up structures for more varied scenarios 
+in the future) but hopefully it's also fun!.
+
+You'll only have to defeat the last 3 fights, but heroes'
+defensive stats have been weakened and you'll have less
+resources.
+
+Good luck!"

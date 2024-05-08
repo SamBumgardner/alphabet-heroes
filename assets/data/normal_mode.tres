@@ -62,3 +62,11 @@ script = ExtResource("1_ahal5")
 player_progressions = Array[ExtResource("7_nhwgx")]([SubResource("Resource_pvsyo"), SubResource("Resource_j18d3"), SubResource("Resource_4h6te"), SubResource("Resource_mnb3h"), SubResource("Resource_p1pkq"), SubResource("Resource_qgyhx")])
 enemy_list = Array[Resource("res://src/combat/enemy/EnemyData.gd")]([ExtResource("1_706st"), ExtResource("2_8x87k"), ExtResource("3_htwmx"), ExtResource("4_uvjhv"), ExtResource("5_yvbpy"), ExtResource("6_xur78")])
 hero_combat_values = [[3, 1, 0, 0], [1, 3, 0, 0], [0, 0, 3, 0], [1, 1, 1, 2], [1, 0, 0, 0]]
+intro_title = "Heroes of Keys and Kingdom"
+intro_text = "In a world plagued by evil, few have the strength to fight.        
+Those who do are scattered, uncoordinated, lost.
+                    
+Weave mighty spells with ancient keystones;           
+use their power to call heroes to your side.
+                              
+May you find the strength to prevail where others have fallen."
