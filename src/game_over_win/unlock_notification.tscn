@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://diovsu0ipgg3y"]
+
+[ext_resource type="Script" path="res://src/game_over_win/UnlockNotification.gd" id="1_lv353"]
+[ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="2_dhu4m"]
+[ext_resource type="AudioStream" uid="uid://2jyx6comlccd" path="res://assets/audio/113_sfx_unlock.wav" id="3_f6gpp"]
+
+[sub_resource type="Gradient" id="Gradient_yuwmm"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_loikc"]
+offsets = PackedFloat32Array(0, 0.335878, 0.667939, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.21, 0.763, 1, 1, 0.133333, 1, 0, 1, 1, 0.85, 0, 1)
+
+[node name="UnlockNotification" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_lv353")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BoxParticles" type="CPUParticles2D" parent="Control"]
+emitting = false
+amount = 24
+one_shot = true
+explosiveness = 0.9
+emission_shape = 3
+emission_rect_extents = Vector2(317, 31)
+direction = Vector2(0, -1)
+spread = 60.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 150.0
+scale_amount_min = 10.0
+scale_amount_max = 20.0
+color_ramp = SubResource("Gradient_yuwmm")
+color_initial_ramp = SubResource("Gradient_loikc")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 5
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_dhu4m")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+horizontal_alignment = 1
+
+[node name="UnlockSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_f6gpp")

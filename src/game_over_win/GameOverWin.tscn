@@ -1,11 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bs11mic41td2i"]
+[gd_scene load_steps=10 format=3 uid="uid://bs11mic41td2i"]
 
 [ext_resource type="Theme" uid="uid://c76ovc86ky5qb" path="res://assets/fonts/start_menu_title_font_theme.tres" id="1_35pj7"]
 [ext_resource type="Script" path="res://src/game_over_win/GameOverWin.gd" id="1_76pb5"]
 [ext_resource type="Texture2D" uid="uid://b6lag8ib24bdd" path="res://assets/art/Victory_Screen_Color.jpg" id="1_nlmkv"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="1_ppj6s"]
 [ext_resource type="PackedScene" uid="uid://eanx8lpdpjr4" path="res://src/game_over_statistics/GameOverStatistics.tscn" id="1_u87r6"]
-[ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="6_qdr0i"]
+[ext_resource type="PackedScene" uid="uid://diovsu0ipgg3y" path="res://src/game_over_win/unlock_notification.tscn" id="6_071hs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yrogm"]
 bg_color = Color(0, 0, 0, 1)
@@ -42,55 +42,25 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/2/type = "value"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("UnlockNotification/Control/LeftParticles:emitting")
+tracks/2/path = NodePath("UnlockNotification")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("UnlockNotification/Control2/Right Particles:emitting")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("UnlockNotification:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"pop_up"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_008t8"]
 _data = {
 "GameOverWinFadeIn": SubResource("Animation_rhtd4")
 }
-
-[sub_resource type="Gradient" id="Gradient_yuwmm"]
-offsets = PackedFloat32Array(0, 0.744275, 1)
-colors = PackedColorArray(1, 0.85, 0, 1, 0.21, 0.763, 1, 1, 0.211765, 0.764706, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_og2ip"]
-offsets = PackedFloat32Array(0, 0.725191, 1)
-colors = PackedColorArray(0.133333, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0)
 
 [node name="GameOverWin" type="Control"]
 layout_mode = 3
@@ -102,7 +72,6 @@ grow_vertical = 2
 script = ExtResource("1_76pb5")
 
 [node name="Background" type="TextureRect" parent="."]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -113,7 +82,6 @@ texture = ExtResource("1_nlmkv")
 expand_mode = 3
 
 [node name="StatsControl" type="Control" parent="."]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -167,7 +135,7 @@ libraries = {
 }
 autoplay = "GameOverWinFadeIn"
 
-[node name="UnlockNotification" type="PanelContainer" parent="."]
+[node name="UnlockNotification" parent="." instance=ExtResource("6_071hs")]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -175,64 +143,10 @@ anchor_left = 0.5
 anchor_top = 0.8
 anchor_right = 0.5
 anchor_bottom = 0.8
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 0.0
+offset_bottom = 0.0
 grow_horizontal = 2
-
-[node name="Control" type="Control" parent="UnlockNotification"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-
-[node name="LeftParticles" type="CPUParticles2D" parent="UnlockNotification/Control"]
-emitting = false
-amount = 16
-one_shot = true
-explosiveness = 1.0
-emission_shape = 3
-emission_rect_extents = Vector2(0, 50)
-direction = Vector2(-1, 0)
-spread = 60.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 100.0
-initial_velocity_max = 150.0
-scale_amount_min = 10.0
-scale_amount_max = 20.0
-color_ramp = SubResource("Gradient_yuwmm")
-
-[node name="Control2" type="Control" parent="UnlockNotification"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-
-[node name="Right Particles" type="CPUParticles2D" parent="UnlockNotification/Control2"]
-emitting = false
-amount = 16
-one_shot = true
-explosiveness = 1.0
-emission_shape = 3
-emission_rect_extents = Vector2(0, 50)
-spread = 60.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 100.0
-initial_velocity_max = 150.0
-scale_amount_min = 10.0
-scale_amount_max = 20.0
-color_ramp = SubResource("Gradient_og2ip")
-
-[node name="MarginContainer" type="MarginContainer" parent="UnlockNotification"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 1
-theme_override_constants/margin_right = 5
-
-[node name="Label" type="Label" parent="UnlockNotification/MarginContainer"]
-layout_mode = 2
-theme = ExtResource("6_qdr0i")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-text = "\"Hard\" Scenario Unlocked!
+notification_text = "\"Hard\" Scenario Unlocked!
 (Type \"hard\" on the title screen to re-unlock it in the future!)"
-horizontal_alignment = 1
 
 [connection signal="pressed" from="StatsControl/PanelContainer/Button" to="StatsControl/BackToStartMenuButton" method="_on_exit_button_pressed"]
