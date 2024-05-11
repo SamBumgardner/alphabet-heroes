@@ -22,7 +22,7 @@ extends Control
 
 func _ready():
 	combat_value_preview._set_icon_combat_values(
-		CombatValues.JOB_VALUES[job_to_display]
+		Database.JOB_VALUES[job_to_display]
 	)
 	var hero_class_name : String = Hero.Job.keys()[job_to_display]
 

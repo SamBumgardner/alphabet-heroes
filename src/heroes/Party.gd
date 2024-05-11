@@ -22,7 +22,7 @@ func calculate_combat_totals(input_heroes) -> Array:
 	for hero in input_heroes:
 		var multiplier = 2 if leader_job == hero.job && hero.job != Hero.Job.PEASANT else 1
 		for i in range(num_values):
-			totals[i] += CombatValues.JOB_VALUES[hero.job][i] * multiplier
+			totals[i] += Database.JOB_VALUES[hero.job][i] * multiplier
 	
 	return totals
 

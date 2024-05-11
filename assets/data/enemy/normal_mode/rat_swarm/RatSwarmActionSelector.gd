@@ -1,12 +1,12 @@
 extends EnemyActionSelector
 
 var small_actions = [
-	preload("res://assets/data/enemy/rat_swarm/rat_small_0.tres"),
-	preload("res://assets/data/enemy/rat_swarm/rat_small_1.tres"),
+	preload("res://assets/data/enemy/normal_mode/rat_swarm/rat_small_0.tres"),
+	preload("res://assets/data/enemy/normal_mode/rat_swarm/rat_small_1.tres"),
 ]
 var big_actions = [
-	preload("res://assets/data/enemy/rat_swarm/rat_big_0.tres"),
-	preload("res://assets/data/enemy/rat_swarm/rat_big_1.tres"),
+	preload("res://assets/data/enemy/normal_mode/rat_swarm/rat_big_0.tres"),
+	preload("res://assets/data/enemy/normal_mode/rat_swarm/rat_big_1.tres"),
 ]
 
 var turns_per_phase = 2

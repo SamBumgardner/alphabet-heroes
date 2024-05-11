@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=38 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://src/heroes/HeroRepository.gd" id="8_uko4w"]
 [ext_resource type="Script" path="res://src/heroes/SummonNewHeroesButton.gd" id="9_vh48n"]
 [ext_resource type="Script" path="res://src/combat/enemy/Enemy.gd" id="12_mx65p"]
-[ext_resource type="Resource" uid="uid://bp23cxel76cpd" path="res://assets/data/enemy/rat_swarm/RatSwarmData.tres" id="13_4stoj"]
+[ext_resource type="Resource" uid="uid://bp23cxel76cpd" path="res://assets/data/enemy/normal_mode/rat_swarm/RatSwarmData.tres" id="13_4stoj"]
 [ext_resource type="Texture2D" uid="uid://c6kwxcdkcsvu6" path="res://assets/art/enemy/Goblins_256x256.png" id="13_i2a36"]
 [ext_resource type="PackedScene" uid="uid://cy6mn63arb02j" path="res://src/display/HealthBar.tscn" id="14_q3t14"]
 [ext_resource type="Script" path="res://src/combat/Player.gd" id="14_t6j6y"]
@@ -33,6 +33,7 @@
 [ext_resource type="FontFile" uid="uid://ck0ltu3wyr11x" path="res://assets/fonts/Roboto/Roboto-Black.ttf" id="29_fqwku"]
 [ext_resource type="Script" path="res://src/gameplay/IntroAnimation.gd" id="29_w3xnm"]
 [ext_resource type="Theme" uid="uid://d2lmihmptd82a" path="res://assets/fonts/spelling_monospace_font_theme.tres" id="30_ori8m"]
+[ext_resource type="Script" path="res://src/gameplay/IntroNodes.gd" id="30_t1cjc"]
 
 [sub_resource type="Animation" id="Animation_y8ux4"]
 resource_name = "clean_up_intro"
@@ -515,6 +516,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("30_t1cjc")
 
 [node name="IntroAnimation" type="AnimationPlayer" parent="IntroNodes"]
 root_node = NodePath("../..")

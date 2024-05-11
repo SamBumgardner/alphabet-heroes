@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bs11mic41td2i"]
+[gd_scene load_steps=10 format=3 uid="uid://bs11mic41td2i"]
 
 [ext_resource type="Theme" uid="uid://c76ovc86ky5qb" path="res://assets/fonts/start_menu_title_font_theme.tres" id="1_35pj7"]
+[ext_resource type="Script" path="res://src/game_over_win/GameOverWin.gd" id="1_76pb5"]
 [ext_resource type="Texture2D" uid="uid://b6lag8ib24bdd" path="res://assets/art/Victory_Screen_Color.jpg" id="1_nlmkv"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="1_ppj6s"]
 [ext_resource type="PackedScene" uid="uid://eanx8lpdpjr4" path="res://src/game_over_statistics/GameOverStatistics.tscn" id="1_u87r6"]
+[ext_resource type="PackedScene" uid="uid://diovsu0ipgg3y" path="res://src/game_over_win/unlock_notification.tscn" id="6_071hs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yrogm"]
 bg_color = Color(0, 0, 0, 1)
@@ -40,6 +42,20 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"optional_unlock_notification"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_008t8"]
 _data = {
@@ -53,8 +69,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_76pb5")
 
 [node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.5, 0.5, 0.5, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,6 +83,7 @@ texture = ExtResource("1_nlmkv")
 expand_mode = 3
 
 [node name="StatsControl" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -117,5 +136,19 @@ libraries = {
 "": SubResource("AnimationLibrary_008t8")
 }
 autoplay = "GameOverWinFadeIn"
+
+[node name="UnlockNotification" parent="." instance=ExtResource("6_071hs")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.8
+anchor_right = 0.5
+anchor_bottom = 0.8
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+notification_text = "\"Hard\" Scenario Unlocked!
+(Type \"hard\" on the title screen to re-unlock it in the future!)"
 
 [connection signal="pressed" from="StatsControl/PanelContainer/Button" to="StatsControl/BackToStartMenuButton" method="_on_exit_button_pressed"]

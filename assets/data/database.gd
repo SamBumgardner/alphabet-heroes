@@ -8,23 +8,12 @@ const _initial_peasants_conscripted_count : int = 0
 const _initial_fights_retried_count : int = 0
 const _initial_player_health_maximum : int = 50
 
-static var ENEMY_LIST = [
-	preload("res://assets/data/enemy/rat_swarm/RatSwarmData.tres"),
-	preload("res://assets/data/enemy/goblins/GoblinData.tres"),
-	preload("res://assets/data/enemy/giant_spider/GiantSpider.tres"),
-	preload("res://assets/data/enemy/dragon/Dragon.tres"),
-	preload("res://assets/data/enemy/skeleton_king/SkeletonKing.tres"),
-	preload("res://assets/data/enemy/castle_of_doom/CastleOfDoomData.tres")
-]
-
-static var HERO_PROGRESSION = [
-	PlayerProgressionChange.new(),
-	PlayerProgressionChange.new(1, 1, 0),
-	PlayerProgressionChange.new(0, 1, 2, 10, 10),
-	PlayerProgressionChange.new(1, 0, 2, 0, 10),
-	PlayerProgressionChange.new(0, 0, 0, 0, 10),
-	PlayerProgressionChange.new(1, 2, 1, 10, 20)
-]
+# values are loaded during set_difficulty_data
+static var INTRO_TITLE
+static var INTRO_TEXT
+static var ENEMY_LIST
+static var HERO_PROGRESSION
+static var JOB_VALUES
 
 var current_enemy_index : int
 var heroes_summoned_count : int
@@ -33,10 +22,13 @@ var peasants_conscripted_count : int
 var fights_retried_count : int
 var player_health_current : int
 
+var player_beaten_normal : bool = false
+
 func _ready():
 	reset_values()
 
 func reset_values() -> void:
+	set_difficulty_data(preload("res://assets/data/normal_mode.tres"))
 	set_current_enemy_index(_initial_enemy_index)
 	set_heroes_summoned_count(_initial_heroes_summoned_count)
 	set_monsters_slain_count(_initial_monsters_slain_count)
@@ -45,8 +37,18 @@ func reset_values() -> void:
 	
 	set_player_health_to_maximum()
 
+func set_difficulty_data(difficulty : GameDifficulty) -> void:
+	JOB_VALUES = difficulty.hero_combat_values
+	HERO_PROGRESSION = difficulty.player_progressions
+	ENEMY_LIST = difficulty.enemy_list
+	INTRO_TITLE = difficulty.intro_title
+	INTRO_TEXT = difficulty.intro_text
+
 func get_progression_applied_before_enemy() -> PlayerProgressionChange:
 	return HERO_PROGRESSION[current_enemy_index]
+
+func set_player_beaten_normal(updated_victory_status : bool) -> void:
+	player_beaten_normal = updated_victory_status
 
 func set_current_enemy_index(updated_index : int) -> void:
 	current_enemy_index = updated_index

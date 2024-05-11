@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cckjypba5jdnl"]
+[gd_scene load_steps=7 format=3 uid="uid://cckjypba5jdnl"]
 
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_toiww"]
 [ext_resource type="Texture2D" uid="uid://ddu4fxnv4lisb" path="res://assets/art/background_start_menu_painted.jpg" id="3_4wbmo"]
 [ext_resource type="Theme" uid="uid://cio67ny2audx2" path="res://assets/fonts/start_menu_sub_title_font_theme.tres" id="4_0np53"]
 [ext_resource type="Script" path="res://src/start_menu/StartMenu.gd" id="5"]
 [ext_resource type="PackedScene" uid="uid://f34u2l70v1q7" path="res://src/audio_manager/AudioManager.tscn" id="5_oxss7"]
+[ext_resource type="Script" path="res://src/start_menu/HardModeButton.gd" id="5_w6ovx"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -74,6 +75,11 @@ theme_override_constants/separation = 6
 layout_mode = 2
 text = "Start"
 
+[node name="HardMode" type="Button" parent="Padding8px/TitleControlsRows/ButtonRows"]
+layout_mode = 2
+text = "Hard Mode"
+script = ExtResource("5_w6ovx")
+
 [node name="CreditsButton" type="MenuButton" parent="Padding8px/TitleControlsRows/ButtonRows"]
 layout_mode = 2
 focus_mode = 2
@@ -107,6 +113,8 @@ text = "Quit"
 [connection signal="ready" from="." to="AudioManager" method="_on_start_menu_ready"]
 [connection signal="mouse_entered" from="Padding8px/TitleControlsRows/ButtonRows/StartButton" to="AudioManager" method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="Padding8px/TitleControlsRows/ButtonRows/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="Padding8px/TitleControlsRows/ButtonRows/HardMode" to="AudioManager" method="_on_start_button_mouse_entered"]
+[connection signal="pressed" from="Padding8px/TitleControlsRows/ButtonRows/HardMode" to="." method="_on_hard_mode_button_pressed"]
 [connection signal="mouse_entered" from="Padding8px/TitleControlsRows/ButtonRows/CreditsButton" to="AudioManager" method="_on_credits_button_mouse_entered"]
 [connection signal="pressed" from="Padding8px/TitleControlsRows/ButtonRows/CreditsButton" to="AudioManager" method="_on_credits_button_pressed"]
 [connection signal="mouse_entered" from="Padding8px/TitleControlsRows/ButtonRows/QuitButton" to="AudioManager" method="_on_quit_button_mouse_entered"]

@@ -1,6 +1,6 @@
 extends EnemyActionSelector
 
-var heal_action = preload("res://assets/data/enemy/skeleton_king/skeleton_king_revive.tres")
+var heal_action = preload("res://assets/data/enemy/normal_mode/skeleton_king/skeleton_king_revive.tres")
 var normal_actions = {
 	"small_attack": preload("skeleton_king_small_attack_normal.tres"),
 	"medium_attack": preload("skeleton_king_medium_attack_normal.tres"),

@@ -1,15 +1,15 @@
 extends EnemyActionSelector
 
 var player_healthy_actions = [
-	preload("res://assets/data/enemy/giant_spider/giant_spider_attack_and_block.tres"),
-	preload("res://assets/data/enemy/giant_spider/giant_spider_big_attack.tres"),
-	preload("res://assets/data/enemy/giant_spider/giant_spider_block_and_heal.tres")
+	preload("res://assets/data/enemy/normal_mode/giant_spider/giant_spider_attack_and_block.tres"),
+	preload("res://assets/data/enemy/normal_mode/giant_spider/giant_spider_big_attack.tres"),
+	preload("res://assets/data/enemy/normal_mode/giant_spider/giant_spider_block_and_heal.tres")
 ]
 var player_hurt_actions = {
-	"small_magic_and_heal": preload("res://assets/data/enemy/giant_spider/giant_spider_small_magic_and_heal.tres"),
-	"medium_magic_and_heal": preload("res://assets/data/enemy/giant_spider/giant_spider_medium_magic_and_heal.tres"),
-	"nothing": preload("res://assets/data/enemy/giant_spider/giant_spider_nothing.tres"),
-	"big_magic": preload("res://assets/data/enemy/giant_spider/giant_spider_big_magic.tres"),
+	"small_magic_and_heal": preload("res://assets/data/enemy/normal_mode/giant_spider/giant_spider_small_magic_and_heal.tres"),
+	"medium_magic_and_heal": preload("res://assets/data/enemy/normal_mode/giant_spider/giant_spider_medium_magic_and_heal.tres"),
+	"nothing": preload("res://assets/data/enemy/normal_mode/giant_spider/giant_spider_nothing.tres"),
+	"big_magic": preload("res://assets/data/enemy/normal_mode/giant_spider/giant_spider_big_magic.tres"),
 }
 
 const player_healthy_choice_refill = [

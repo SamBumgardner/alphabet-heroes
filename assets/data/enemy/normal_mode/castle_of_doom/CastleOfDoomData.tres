@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3 uid="uid://3okmt0il35xw"]
 
-[ext_resource type="Script" path="res://assets/data/enemy/castle_of_doom/CastleOfDoomActionSelector.gd" id="1_4bn1l"]
+[ext_resource type="Script" path="res://assets/data/enemy/normal_mode/castle_of_doom/CastleOfDoomActionSelector.gd" id="1_4bn1l"]
 [ext_resource type="Script" path="res://src/combat/enemy/EnemyData.gd" id="1_ale0q"]
 [ext_resource type="Texture2D" uid="uid://gkijgonbwqpl" path="res://assets/art/enemy/Evil_Tower_256x256_1.png" id="2_mo561"]
 [ext_resource type="AudioStream" uid="uid://b4x1e8n6ifc0" path="res://assets/audio/audio_stream_randomizer_sfx_windup_castle.tres" id="4_jbxd3"]
