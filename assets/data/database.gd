@@ -1,7 +1,7 @@
 # Defines variables shared across scenes with the correct data types.
 extends Node
 
-const _initial_enemy_index : int = -1
+const _initial_enemy_index : int = 0
 const _initial_heroes_summoned_count : int = 0
 const _initial_monsters_slain_count : int = 0
 const _initial_peasants_conscripted_count : int = 0
