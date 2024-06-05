@@ -30,6 +30,8 @@ func _on_player_windup(duration:float):
 	var fade_out_duration = .25
 	
 	for summoned_hero in animatable_heroes:
+		summoned_hero.modulate = Color.WHITE
+		
 		var charge_tween = create_tween()
 		charge_tween.tween_interval(summon_animation_duration)
 		charge_tween.tween_callback(summoned_hero.play.bind("run"))

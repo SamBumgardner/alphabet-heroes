@@ -24,7 +24,8 @@ signal fight_retried()
 func _ready():
 	
 	# wire up connections in code to make them more durable than editor config
-	text_controller.word_submitted.connect(combat_sequencer._on_word_submitted)
+	text_controller.word_submitted.connect(player._on_word_submitted)
+	player.player_ready_to_act.connect(combat_sequencer._on_player_ready_to_act)
 	combat_sequencer.combat_started.connect(text_controller._on_combat_started)
 	combat_sequencer.player_impact.connect(text_controller._on_player_impact)
 	combat_sequencer.combat_finished.connect(text_controller._on_combat_finished)
@@ -83,7 +84,7 @@ func _ready():
 	combat_nodes_hidden.connect(text_controller._on_combat_nodes_hidden)
 	combat_nodes_hidden.connect(player._on_combat_nodes_hidden)
 	
-	var intro_animation : IntroAnimation = $IntroNodes/IntroAnimation
+	var intro_animation: IntroAnimation = $IntroNodes/IntroAnimation
 	intro_animation.intro_finished.connect(_on_intro_finished)
 	
 	# short-term game over handling:
@@ -94,7 +95,7 @@ func _ready():
 	
 	combat_sequencer.gameover_victory_finished.connect(_on_gameover_victory_finished)
 	
-	if Database.current_enemy_index != -1:
+	if Database.current_enemy_index != - 1:
 		fight_retried.emit()
 		_initialize_at_combat()
 
@@ -102,7 +103,7 @@ func _on_intro_finished():
 	print("received cleanup")
 	$IntroNodes.process_mode = Node.PROCESS_MODE_DISABLED
 	world_map.reset_scale_tween()
-	Database.set_current_enemy_index(-1)
+	Database.set_current_enemy_index( - 1)
 	_on_gameover_victory_finished()
 
 func try_get_next_enemy() -> EnemyData:
@@ -128,7 +129,6 @@ func _on_gameover_victory_finished():
 	else:
 		$TravelNodes/PanelContainer.hide()
 		$TravelNodes/PanelContainer/ProgressionText.text = ""
-		
 	
 	travel_nodes.modulate = Color.TRANSPARENT
 	travel_nodes.show()
@@ -172,9 +172,8 @@ func _initialize_at_combat():
 	combat_nodes.modulate = Color.WHITE
 	# begin new combat
 	_begin_new_combat()
-	
 
-func _reinitialize_combat(new_enemy_data:EnemyData):
+func _reinitialize_combat(new_enemy_data: EnemyData):
 	combat_sequencer.combat_finished.emit()
 	hero_repository.reset()
 	enemy.initialize_enemy(new_enemy_data)
