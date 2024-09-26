@@ -29,7 +29,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/sound_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_cutscene/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
 
 [rendering]
 

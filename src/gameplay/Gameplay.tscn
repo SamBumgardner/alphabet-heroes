@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=41 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
@@ -34,6 +34,9 @@
 [ext_resource type="Script" path="res://src/gameplay/IntroAnimation.gd" id="29_w3xnm"]
 [ext_resource type="Theme" uid="uid://d2lmihmptd82a" path="res://assets/fonts/spelling_monospace_font_theme.tres" id="30_ori8m"]
 [ext_resource type="Script" path="res://src/gameplay/IntroNodes.gd" id="30_t1cjc"]
+[ext_resource type="PackedScene" uid="uid://cwyu2ghreykrb" path="res://addons/dialogue_cutscene/DialogueCutscene.tscn" id="34_c0vaw"]
+[ext_resource type="Texture2D" uid="uid://bp6g7v8emmumg" path="res://assets/art/dialogue_cutscene/dialogue_box/simple_dialogue_box.png" id="35_q8n0e"]
+[ext_resource type="Texture2D" uid="uid://c58pfrinbox3w" path="res://addons/dialogue_cutscene/assets/simple_name_tag_box.png" id="36_387dk"]
 
 [sub_resource type="Animation" id="Animation_y8ux4"]
 resource_name = "clean_up_intro"
@@ -576,6 +579,32 @@ grow_horizontal = 2
 theme = ExtResource("30_ori8m")
 theme_override_constants/outline_size = 15
 text = "[press any key to begin]"
+
+[node name="CutsceneLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="DialogueCutscene" parent="CutsceneLayer" instance=ExtResource("34_c0vaw")]
+process_mode = 2
+
+[node name="DialogueBox" type="NinePatchRect" parent="CutsceneLayer"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("35_q8n0e")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="NameTag" type="NinePatchRect" parent="CutsceneLayer"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("36_387dk")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
 
 [node name="BackToStartMenuButton" parent="." instance=ExtResource("2_66iqr")]
 layout_direction = 0

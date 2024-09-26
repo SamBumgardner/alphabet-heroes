@@ -21,6 +21,8 @@ signal fight_retried()
 
 @onready var world_map = $CanvasLayer/WorldMap as WorldMap
 
+var custcene = preload("res://assets/data/dialogue_cutscene/cutscenes/Cutscene_01.dc")
+
 func _ready():
 	
 	# wire up connections in code to make them more durable than editor config
@@ -94,6 +96,8 @@ func _ready():
 	)
 	
 	combat_sequencer.gameover_victory_finished.connect(_on_gameover_victory_finished)
+	
+	_initialize_cutscene_resources()
 	
 	if Database.current_enemy_index != - 1:
 		fight_retried.emit()
@@ -180,4 +184,26 @@ func _reinitialize_combat(new_enemy_data: EnemyData):
 	combat_nodes.process_mode = Node.PROCESS_MODE_DISABLED
 
 func _begin_new_combat():
+	start_cutscene(custcene)
 	combat_nodes.process_mode = Node.PROCESS_MODE_INHERIT
+
+func _initialize_cutscene_resources():
+	$CutsceneLayer/DialogueCutscene.cutscene_finished.connect(_on_cutscene_finished)
+	$CutsceneLayer/DialogueCutscene.set_graphic_overrides(
+		$CutsceneLayer/DialogueBox,
+		$CutsceneLayer/NameTag,
+		preload("res://assets/art/dialogue_cutscene/dialogue_box/simple_arrow.png"))
+	# These nodes aren't needed anymore, they were just around as a convenient way to define nine-patch backgrounds.
+	$CutsceneLayer/DialogueBox.queue_free()
+	$CutsceneLayer/NameTag.queue_free()
+
+func start_cutscene(cutscene : DialogueCutsceneData) -> void:
+	get_tree().paused = true
+	
+	$CutsceneLayer.show()
+	$CutsceneLayer/DialogueCutscene.init_cutscene(cutscene)
+	$CutsceneLayer/DialogueCutscene.open_cutscene()
+
+func _on_cutscene_finished() -> void:
+	get_tree().paused = false
+	$CutsceneLayer.hide()
