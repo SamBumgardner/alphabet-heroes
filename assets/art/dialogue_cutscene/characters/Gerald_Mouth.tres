@@ -1,0 +1,61 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://c1kd5hqwlrsd3"]
+
+[ext_resource type="Texture2D" uid="uid://s3x301id4if6" path="res://assets/art/dialogue_cutscene/sheets/Gerald_Mouth.png" id="1_v873r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4h5o"]
+atlas = ExtResource("1_v873r")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_re7tx"]
+atlas = ExtResource("1_v873r")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nr2gc"]
+atlas = ExtResource("1_v873r")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ht72p"]
+atlas = ExtResource("1_v873r")
+region = Rect2(1024, 0, 512, 512)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4h5o")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_re7tx")
+}],
+"loop": false,
+"name": &"smile",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_nr2gc")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_ht72p")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_nr2gc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht72p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nr2gc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht72p")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 12.0
+}]

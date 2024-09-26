@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://c0a7of1f2m50r"]
+
+[ext_resource type="Texture2D" uid="uid://tivshv6285v7" path="res://assets/art/dialogue_cutscene/sheets/Gerald_Expressions.png" id="1_hioit"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwlbe"]
+atlas = ExtResource("1_hioit")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1512v"]
+atlas = ExtResource("1_hioit")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vd3w3"]
+atlas = ExtResource("1_hioit")
+region = Rect2(1024, 0, 512, 512)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwlbe")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1512v")
+}],
+"loop": false,
+"name": &"laughing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vd3w3")
+}],
+"loop": false,
+"name": &"sad",
+"speed": 5.0
+}]

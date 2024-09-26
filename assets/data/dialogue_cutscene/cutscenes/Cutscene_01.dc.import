@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_cutscene_data_importer"
+type="Resource"
+uid="uid://bigrhlxvdfi02"
+path="res://.godot/imported/Cutscene_01.dc-4c71557fee7f39d69ab0a7c9ef2fee08.tres"
+
+[deps]
+
+source_file="res://assets/data/dialogue_cutscene/cutscenes/Cutscene_01.dc"
+dest_files=["res://.godot/imported/Cutscene_01.dc-4c71557fee7f39d69ab0a7c9ef2fee08.tres"]
+
+[params]
+
+character_data_path="res://assets/data/dialogue_cutscene/characters"

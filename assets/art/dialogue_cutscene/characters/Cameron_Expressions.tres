@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://d14f6k34g172w"]
+
+[ext_resource type="Texture2D" uid="uid://dvj2uprtw30k6" path="res://assets/art/dialogue_cutscene/sheets/Cameron_Expressions.png" id="1_l53jr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_350w7"]
+atlas = ExtResource("1_l53jr")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38jku"]
+atlas = ExtResource("1_l53jr")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wia3"]
+atlas = ExtResource("1_l53jr")
+region = Rect2(512, 0, 512, 512)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_350w7")
+}],
+"loop": false,
+"name": &"curious",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38jku")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wia3")
+}],
+"loop": false,
+"name": &"worried",
+"speed": 5.0
+}]

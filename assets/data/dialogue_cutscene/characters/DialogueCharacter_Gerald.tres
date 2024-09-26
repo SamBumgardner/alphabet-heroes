@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueCharacter" load_steps=5 format=3 uid="uid://u07d8tgu6ijh"]
+
+[ext_resource type="SpriteFrames" uid="uid://c0a7of1f2m50r" path="res://assets/art/dialogue_cutscene/characters/Gerald_Expressions.tres" id="1_8wkwm"]
+[ext_resource type="Script" path="res://addons/dialogue_cutscene/models/DialogueCharacter.gd" id="1_l8vks"]
+[ext_resource type="SpriteFrames" uid="uid://c1kd5hqwlrsd3" path="res://assets/art/dialogue_cutscene/characters/Gerald_Mouth.tres" id="2_30w5e"]
+[ext_resource type="AudioStream" uid="uid://dfoufsk6xm6s7" path="res://assets/audio/dialogue_cutscene/voice_blip_low.wav" id="4_jtfee"]
+
+[resource]
+script = ExtResource("1_l8vks")
+name = "Gerald"
+voice = ExtResource("4_jtfee")
+expressions = ExtResource("1_8wkwm")
+mouth_frames = ExtResource("2_30w5e")

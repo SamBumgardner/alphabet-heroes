@@ -1,0 +1,21 @@
+!characters
+Gerald
+Cameron
+
+!script
+    Gerald:
+|2|This is a sample dialogue. I wonder how we should handle positioning for text that doesn't fill the entire dialogue box.
+
+|1|With this sizing|.15,0,1,sad,default|...|1| we can fit a total of 4 lines. Who knows if this would work.|
+
+    Gerald:
+|1.5|Incidentally, this whole system has a pretty big drawback. It doesn't handle text that spans more than 4 lines very well, clipping text at the end if it cannot be displayed.|
+
+    Gerald:
+|1.5|This wouldn't be so bad if there was a convenient way to tell that a script page was too long, but instead we're at the mercy of the font size. That, and font size adjustments that accompany dialogue box background changes.|
+
+    Cameron:
+|1|Maybe you have more interesting things to say?| 
+
+    Gerald:
+|3|I don't think so.|

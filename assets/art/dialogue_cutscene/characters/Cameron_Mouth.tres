@@ -1,0 +1,73 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://digogy3bhyhja"]
+
+[ext_resource type="Texture2D" uid="uid://jtdo8bnu1hsi" path="res://assets/art/dialogue_cutscene/sheets/Cameron_Mouth.png" id="1_f43kk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wtrw"]
+atlas = ExtResource("1_f43kk")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe7eg"]
+atlas = ExtResource("1_f43kk")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kx0h"]
+atlas = ExtResource("1_f43kk")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo2em"]
+atlas = ExtResource("1_f43kk")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afqdi"]
+atlas = ExtResource("1_f43kk")
+region = Rect2(1024, 0, 512, 512)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wtrw")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xe7eg")
+}],
+"loop": false,
+"name": &"frown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kx0h")
+}],
+"loop": true,
+"name": &"smile",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_oo2em")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_afqdi")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_oo2em")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo2em")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afqdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo2em")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 12.0
+}]
