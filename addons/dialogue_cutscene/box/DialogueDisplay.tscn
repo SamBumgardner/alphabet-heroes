@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://slar1ieetoeo"]
+
+[ext_resource type="Texture2D" uid="uid://dnkl2ckxikvtq" path="res://addons/dialogue_cutscene/assets/NinePatchRect.png" id="1_88g43"]
+[ext_resource type="Script" path="res://addons/dialogue_cutscene/box/DialogueDisplay.gd" id="2_0xm3k"]
+[ext_resource type="Script" path="res://addons/dialogue_cutscene/box/Dialogue.gd" id="3_jfexq"]
+[ext_resource type="Texture2D" uid="uid://stwbcecneeas" path="res://addons/dialogue_cutscene/assets/dialogue_advance_arrow.png" id="4_3el73"]
+[ext_resource type="Script" path="res://addons/dialogue_cutscene/box/DialogueAdvanceArrow.gd" id="5_88ty2"]
+
+[node name="DialogueDisplay" type="NinePatchRect"]
+custom_minimum_size = Vector2(0, 240)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_88g43")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+script = ExtResource("2_0xm3k")
+
+[node name="Dialogue" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = -48.0
+offset_bottom = -48.0
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 23
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras neque tellus, aliquet id dolor ornare, maximus tristique erat. Praesent eu arcu laoreet, congue ante ac, pellentesque odio. Pellentesque ipsum eros, tempus ac eleifend a, scelerisque quis lacus. Aliquam tristique in nisl nec finibus. Suspendisse potenti. Aenean ac interdum arcu. Integer egestas risus ac lectus scelerisque iaculis. Ut viverra tempor mauris. Vestibulum a mi a ante pretium blandit. Proin sit amet est diam. Nunc lobortis est elit, in suscipit enim hendrerit quis. Aenean consectetur faucibus turpis at tincidunt. Pellentesque viverra mauris eu velit lobortis, quis convallis sem hendrerit. Morbi condimentum est posuere sem convallis, ultrices molestie odio accumsan.
+
+Fusce tincidunt pharetra nisi, quis scelerisque enim commodo eu. Aliquam congue arcu tortor, in scelerisque dui convallis eget. Nunc tempus laoreet nunc, mattis varius dolor ornare sed. Fusce non commodo ante, eget dictum tellus. Fusce cursus malesuada convallis. In hendrerit nunc nec ante fringilla feugiat. Praesent at porta leo. Nam ut molestie purus, non auctor nisl. Quisque dui quam, luctus non fringilla sed, eleifend ac nisl. Pellentesque erat arcu, laoreet sit amet dictum nec, feugiat vel est. Curabitur sit amet ullamcorper mi. Proin lacinia eros a augue facilisis, eu aliquet ante rutrum. Phasellus porta non nisl quis interdum."
+autowrap_mode = 2
+text_overrun_behavior = 4
+max_lines_visible = 4
+script = ExtResource("3_jfexq")
+
+[node name="DialogueAdvanceArrow" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("4_3el73")
+stretch_mode = 2
+script = ExtResource("5_88ty2")
+
+[connection signal="item_rect_changed" from="." to="." method="_on_item_rect_changed"]
+[connection signal="resized" from="Dialogue" to="Dialogue" method="_on_resized"]
+[connection signal="visibility_changed" from="DialogueAdvanceArrow" to="DialogueAdvanceArrow" method="_on_visibility_changed"]

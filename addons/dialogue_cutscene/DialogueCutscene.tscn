@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwyu2ghreykrb"]
+
+[ext_resource type="Script" path="res://addons/dialogue_cutscene/DialogueCutscene.gd" id="1_4n4w5"]
+[ext_resource type="Texture2D" uid="uid://ybeexlyr6f4w" path="res://addons/dialogue_cutscene/assets/NameTagRect.png" id="4_rdqm6"]
+[ext_resource type="PackedScene" uid="uid://slar1ieetoeo" path="res://addons/dialogue_cutscene/box/DialogueDisplay.tscn" id="5_twl4m"]
+[ext_resource type="AudioStream" uid="uid://wv708m68fre2" path="res://addons/dialogue_cutscene/assets/default_voice_randomizer.tres" id="6_xrw1f"]
+
+[node name="DialogueCutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4n4w5")
+
+[node name="Characters" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_top = 408.0
+offset_bottom = 408.0
+
+[node name="Portrait" type="AnimatedSprite2D" parent="Characters"]
+z_index = -1
+position = Vector2(0, 100)
+scale = Vector2(0.5, 0.5)
+centered = false
+offset = Vector2(0, -512)
+
+[node name="AnimatedMouth" type="AnimatedSprite2D" parent="Characters/Portrait"]
+z_index = 1
+centered = false
+offset = Vector2(0, -512)
+
+[node name="DialogueContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -268.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="NameTag" type="MarginContainer" parent="DialogueContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 12
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DialogueContainer/NameTag"]
+layout_mode = 2
+texture = ExtResource("4_rdqm6")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueContainer/NameTag"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="CharacterName" type="Label" parent="DialogueContainer/NameTag/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "Example Name"
+
+[node name="DialogueDisplay" parent="DialogueContainer" instance=ExtResource("5_twl4m")]
+layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_xrw1f")
+volume_db = -14.023
