@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/RobotoMono-Thin.ttf-8aa8c5de3a7b9e45471ec5e0f
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
+disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48
