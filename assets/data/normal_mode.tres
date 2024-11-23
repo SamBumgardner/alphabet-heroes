@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="GameDifficulty" load_steps=15 format=3 uid="uid://c2udgqto5x3fd"]
+[gd_resource type="Resource" script_class="GameDifficulty" load_steps=16 format=3 uid="uid://c2udgqto5x3fd"]
 
 [ext_resource type="Resource" uid="uid://bp23cxel76cpd" path="res://assets/data/enemy/normal_mode/rat_swarm/RatSwarmData.tres" id="1_706st"]
 [ext_resource type="Script" path="res://src/util/GameDifficulty.gd" id="1_ahal5"]
+[ext_resource type="Script" path="res://src/combat/enemy/EnemyData.gd" id="1_qpo1f"]
 [ext_resource type="Resource" uid="uid://b4bkv68mpkiho" path="res://assets/data/enemy/normal_mode/goblins/GoblinData.tres" id="2_8x87k"]
 [ext_resource type="Resource" uid="uid://7mw50xfws721" path="res://assets/data/enemy/normal_mode/giant_spider/GiantSpider.tres" id="3_htwmx"]
 [ext_resource type="Resource" uid="uid://cipsutmvrehll" path="res://assets/data/enemy/normal_mode/dragon/Dragon.tres" id="4_uvjhv"]
@@ -60,7 +61,7 @@ health_recovered = 20
 [resource]
 script = ExtResource("1_ahal5")
 player_progressions = Array[ExtResource("7_nhwgx")]([SubResource("Resource_pvsyo"), SubResource("Resource_j18d3"), SubResource("Resource_4h6te"), SubResource("Resource_mnb3h"), SubResource("Resource_p1pkq"), SubResource("Resource_qgyhx")])
-enemy_list = Array[Resource("res://src/combat/enemy/EnemyData.gd")]([ExtResource("1_706st"), ExtResource("2_8x87k"), ExtResource("3_htwmx"), ExtResource("4_uvjhv"), ExtResource("5_yvbpy"), ExtResource("6_xur78")])
+enemy_list = Array[ExtResource("1_qpo1f")]([ExtResource("1_706st"), ExtResource("2_8x87k"), ExtResource("3_htwmx"), ExtResource("4_uvjhv"), ExtResource("5_yvbpy"), ExtResource("6_xur78")])
 hero_combat_values = [[3, 1, 0, 0], [1, 3, 0, 0], [0, 0, 3, 0], [1, 1, 1, 2], [1, 0, 0, 0]]
 intro_title = "Heroes of Keys and Kingdom"
 intro_text = "In a world plagued by evil, few have the strength to fight.        
