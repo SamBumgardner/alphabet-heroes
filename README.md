@@ -18,4 +18,5 @@ Open source resources used:
 - [Roboto](https://fonts.google.com/specimen/Roboto) font by Christian Robertson.
 - [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono) font by Christian Robertson.
 
-Coded using the [Godot](https://godotengine.org/) game engine.
+Coded using the [Godot](https://godotengine.org) game engine.
+Currently runs on version 4.3.
