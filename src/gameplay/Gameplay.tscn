@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene load_steps=39 format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" uid="uid://dsxfjyd4mn50u" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://tyta85a3jqfr" path="res://assets/art/Avatar_1.png" id="21_v76fs"]
 [ext_resource type="Script" uid="uid://tif6tbdky4a3" path="res://src/gameplay/EnterHintPanel.gd" id="23_5vmej"]
 [ext_resource type="Script" uid="uid://b7r1305qmna4r" path="res://src/gameplay/typing_hint_panel.gd" id="23_jbqrn"]
+[ext_resource type="Theme" uid="uid://dn7nvo0pl7fs4" path="res://assets/themes/informative_text_margins_theme.tres" id="25_iq52j"]
 [ext_resource type="Script" uid="uid://dks6and2g5jjp" path="res://src/gameplay/SkipTurnLabel.gd" id="27_flb7c"]
 [ext_resource type="FontFile" uid="uid://ck0ltu3wyr11x" path="res://assets/fonts/Roboto/Roboto-Black.ttf" id="29_fqwku"]
 [ext_resource type="Script" uid="uid://ctbxjkd31wu64" path="res://src/gameplay/IntroAnimation.gd" id="29_w3xnm"]
@@ -392,24 +393,26 @@ to summon your heroes
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TypingHintPanel" type="Panel" parent="CombatNodes"]
-layout_mode = 2
-offset_left = 401.0
+[node name="TypingHintPanel" type="PanelContainer" parent="CombatNodes"]
+layout_mode = 0
+offset_left = 450.0
 offset_top = 320.0
-offset_right = 751.0
-offset_bottom = 392.0
+offset_right = 707.0
+offset_bottom = 389.0
 script = ExtResource("23_jbqrn")
 
-[node name="Label" type="Label" parent="CombatNodes/TypingHintPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Panel" type="Panel" parent="CombatNodes/TypingHintPanel"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CombatNodes/TypingHintPanel"]
+layout_mode = 2
+theme = ExtResource("25_iq52j")
+
+[node name="Label" type="Label" parent="CombatNodes/TypingHintPanel/MarginContainer"]
+layout_mode = 2
 text = "Type letters to organize
-a party of heroes!
-"
+a party of heroes!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
