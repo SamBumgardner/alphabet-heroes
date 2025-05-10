@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d3pdnnecfo71e"]
 
 [ext_resource type="PackedScene" uid="uid://kkinuu2uyh6b" path="res://src/display/combat_preview/CombatValueIcon.tscn" id="1_3agbg"]
-[ext_resource type="Script" path="res://src/display/combat_preview/CombatPreview.gd" id="1_scif5"]
+[ext_resource type="Script" uid="uid://co3d4a4vntavl" path="res://src/display/combat_preview/CombatPreview.gd" id="1_scif5"]
 [ext_resource type="Texture2D" uid="uid://cibni73b2oa5m" path="res://assets/art/ui/ATTACK_icon_64x64.png" id="2_ck56f"]
 [ext_resource type="Texture2D" uid="uid://jedubhp5ulyv" path="res://assets/art/ui/BLOCK_icon_64x64.png" id="3_rojp5"]
 [ext_resource type="Texture2D" uid="uid://cj1npyym0bllx" path="res://assets/art/ui/MAGIC_icon_64x64.png" id="4_cdm2e"]

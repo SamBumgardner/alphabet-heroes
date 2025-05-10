@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="GameDifficulty" load_steps=9 format=3 uid="uid://caxdykd3lpo23"]
+[gd_resource type="Resource" script_class="GameDifficulty" load_steps=10 format=3 uid="uid://caxdykd3lpo23"]
 
 [ext_resource type="Resource" uid="uid://cipsutmvrehll" path="res://assets/data/enemy/normal_mode/dragon/Dragon.tres" id="1_kw2vn"]
-[ext_resource type="Script" path="res://src/util/GameDifficulty.gd" id="1_r6cho"]
-[ext_resource type="Script" path="res://src/util/PlayerProgressionChange.gd" id="1_yd8ca"]
+[ext_resource type="Script" uid="uid://kq73502exgl8" path="res://src/combat/enemy/EnemyData.gd" id="1_qtvpw"]
+[ext_resource type="Script" uid="uid://bd7mkb0ufvhnt" path="res://src/util/GameDifficulty.gd" id="1_r6cho"]
+[ext_resource type="Script" uid="uid://c5vg1lh5hn72n" path="res://src/util/PlayerProgressionChange.gd" id="1_yd8ca"]
 [ext_resource type="Resource" uid="uid://65ks8nkc28rx" path="res://assets/data/enemy/normal_mode/skeleton_king/SkeletonKing.tres" id="2_x8a4y"]
 [ext_resource type="Resource" uid="uid://3okmt0il35xw" path="res://assets/data/enemy/normal_mode/castle_of_doom/CastleOfDoomData.tres" id="3_nl3gi"]
 
@@ -33,7 +34,7 @@ health_recovered = 0
 [resource]
 script = ExtResource("1_r6cho")
 player_progressions = Array[ExtResource("1_yd8ca")]([SubResource("Resource_3jddf"), SubResource("Resource_4r25q"), SubResource("Resource_iqyvn")])
-enemy_list = Array[Resource("res://src/combat/enemy/EnemyData.gd")]([ExtResource("1_kw2vn"), ExtResource("3_nl3gi"), ExtResource("2_x8a4y")])
+enemy_list = Array[ExtResource("1_qtvpw")]([ExtResource("1_kw2vn"), ExtResource("3_nl3gi"), ExtResource("2_x8a4y")])
 hero_combat_values = [[3, 1, 0, 0], [2, 2, 0, 0], [0, 0, 3, 0], [1, 1, 1, 1], [1, 0, 0, 0]]
 intro_title = "Extra Special Hard Mode"
 intro_text = "My main motivation for creating this bonus mode was

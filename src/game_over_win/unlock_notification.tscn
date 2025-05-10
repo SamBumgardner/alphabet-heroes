@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://diovsu0ipgg3y"]
 
-[ext_resource type="Script" path="res://src/game_over_win/UnlockNotification.gd" id="1_lv353"]
+[ext_resource type="Script" uid="uid://dccmgcnt0ceff" path="res://src/game_over_win/UnlockNotification.gd" id="1_lv353"]
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="2_dhu4m"]
 [ext_resource type="AudioStream" uid="uid://2jyx6comlccd" path="res://assets/audio/113_sfx_unlock.wav" id="3_f6gpp"]
 

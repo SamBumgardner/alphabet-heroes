@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3 uid="uid://cipsutmvrehll"]
 
-[ext_resource type="Script" path="res://assets/data/enemy/normal_mode/dragon/DragonActionSelector.gd" id="1_hxo35"]
+[ext_resource type="Script" uid="uid://babxaf7sm3su1" path="res://assets/data/enemy/normal_mode/dragon/DragonActionSelector.gd" id="1_hxo35"]
 [ext_resource type="Texture2D" uid="uid://b3exy1nghvudj" path="res://assets/art/enemy/Dragon_256x256.png" id="2_i1r8y"]
-[ext_resource type="Script" path="res://src/combat/enemy/EnemyData.gd" id="3_adyaq"]
+[ext_resource type="Script" uid="uid://kq73502exgl8" path="res://src/combat/enemy/EnemyData.gd" id="3_adyaq"]
 
 [resource]
 script = ExtResource("3_adyaq")

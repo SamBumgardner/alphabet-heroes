@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3 uid="uid://b4bkv68mpkiho"]
 
-[ext_resource type="Script" path="res://src/combat/enemy/EnemyData.gd" id="1_ebfjx"]
-[ext_resource type="Script" path="res://assets/data/enemy/normal_mode/goblins/GoblinActionSelector.gd" id="1_ui3kw"]
+[ext_resource type="Script" uid="uid://kq73502exgl8" path="res://src/combat/enemy/EnemyData.gd" id="1_ebfjx"]
+[ext_resource type="Script" uid="uid://crx1gdp41ijgw" path="res://assets/data/enemy/normal_mode/goblins/GoblinActionSelector.gd" id="1_ui3kw"]
 [ext_resource type="Texture2D" uid="uid://d2ufnhfc1eoip" path="res://assets/art/enemy/Goblins_256x256_1.png" id="2_owwdb"]
 [ext_resource type="AudioStream" uid="uid://c32hohnfghmhv" path="res://assets/audio/audio_stream_randomizer_sfx_windup_goblin.tres" id="4_d68o8"]
 

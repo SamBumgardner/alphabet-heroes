@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://b2b37m7se3s4i" path="res://assets/fonts/lead_spelling_monospace_font_theme.tres" id="1_ct4li"]
 [ext_resource type="Texture2D" uid="uid://cnb78g1pq4vux" path="res://assets/art/ui/Tile.png" id="2_ufi6y"]
-[ext_resource type="Script" path="res://src/display/typed_word/LetterTile.gd" id="3_oylm3"]
+[ext_resource type="Script" uid="uid://mx1ilnkd6hwu" path="res://src/display/typed_word/LetterTile.gd" id="3_oylm3"]
 
 [node name="LeaderLetterTile" type="TextureRect"]
 custom_minimum_size = Vector2(48, 64)

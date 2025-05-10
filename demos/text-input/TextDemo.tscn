@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://7ppfouu8wanf"]
 
-[ext_resource type="Script" path="res://src/TextController.gd" id="1_cafyk"]
-[ext_resource type="Script" path="res://demos/text-input/SimpleTextVisualizer.gd" id="2_m585c"]
+[ext_resource type="Script" uid="uid://plhr2crh6lam" path="res://src/TextController.gd" id="1_cafyk"]
+[ext_resource type="Script" uid="uid://dyofx7yfjmqfw" path="res://demos/text-input/SimpleTextVisualizer.gd" id="2_m585c"]
 
 [node name="TextDemo" type="Node2D"]
 

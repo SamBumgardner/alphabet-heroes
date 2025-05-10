@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bv02y4o3plw5q"]
 
-[ext_resource type="Script" path="res://src/developer_only_navigation/DeveloperOnlyNavigation.gd" id="1_hdxli"]
+[ext_resource type="Script" uid="uid://bshgbeitrqdgy" path="res://src/developer_only_navigation/DeveloperOnlyNavigation.gd" id="1_hdxli"]
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_kdrps"]
 
 [node name="DeveloperOnlyNavigation" type="Control"]

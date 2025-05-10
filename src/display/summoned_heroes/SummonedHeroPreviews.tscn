@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ct2ln3f73kx8k"]
 
-[ext_resource type="Script" path="res://src/display/summoned_heroes/SummonedHeroPreviews.gd" id="1_mub8a"]
+[ext_resource type="Script" uid="uid://csc3w00dx8lsn" path="res://src/display/summoned_heroes/SummonedHeroPreviews.gd" id="1_mub8a"]
 [ext_resource type="PackedScene" uid="uid://dy2x3f8fvga25" path="res://src/display/summoned_heroes/HeroPreview.tscn" id="2_e0kcm"]
 
 [node name="SummonedHeroPreviews" type="HBoxContainer"]
