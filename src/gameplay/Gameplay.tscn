@@ -333,8 +333,8 @@ visible = false
 layout_mode = 0
 offset_left = 137.0
 offset_top = 455.0
-offset_right = 387.0
-offset_bottom = 527.0
+offset_right = 384.0
+offset_bottom = 524.0
 script = ExtResource("23_5vmej")
 
 [node name="Panel" type="Panel" parent="CombatNodes/PartySizeHintPanel"]
@@ -357,8 +357,8 @@ visible = false
 layout_mode = 0
 offset_left = 400.0
 offset_top = 34.0
-offset_right = 750.0
-offset_bottom = 127.0
+offset_right = 736.0
+offset_bottom = 103.0
 script = ExtResource("23_5vmej")
 
 [node name="Panel" type="Panel" parent="CombatNodes/LeaderBonusHintPanel"]
@@ -372,8 +372,7 @@ theme = ExtResource("25_iq52j")
 [node name="Label" type="Label" parent="CombatNodes/LeaderBonusHintPanel/MarginContainer"]
 layout_mode = 2
 text = "Heroes whose class matches 
-the first letter are x2 strong!
-"
+the first letter are x2 strong!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -382,8 +381,8 @@ visible = false
 layout_mode = 0
 offset_left = 401.0
 offset_top = 401.0
-offset_right = 751.0
-offset_bottom = 494.0
+offset_right = 743.0
+offset_bottom = 470.0
 script = ExtResource("23_5vmej")
 
 [node name="Panel" type="Panel" parent="CombatNodes/EnterHintPanel"]
@@ -397,8 +396,7 @@ theme = ExtResource("25_iq52j")
 [node name="Label" type="Label" parent="CombatNodes/EnterHintPanel/MarginContainer"]
 layout_mode = 2
 text = "Press [Enter] with a valid word 
-to summon your heroes
-"
+to summon your heroes"
 horizontal_alignment = 1
 vertical_alignment = 1
 
