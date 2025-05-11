@@ -328,7 +328,7 @@ horizontal_alignment = 1
 script = ExtResource("21_ln3va")
 text_controller = NodePath("../../TextController")
 
-[node name="PartySizeHintPanel" type="Panel" parent="CombatNodes"]
+[node name="PartySizeHintPanel" type="PanelContainer" parent="CombatNodes"]
 visible = false
 layout_mode = 0
 offset_left = 137.0
@@ -337,56 +337,65 @@ offset_right = 387.0
 offset_bottom = 527.0
 script = ExtResource("23_5vmej")
 
-[node name="Label" type="Label" parent="CombatNodes/PartySizeHintPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Panel" type="Panel" parent="CombatNodes/PartySizeHintPanel"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CombatNodes/PartySizeHintPanel"]
+layout_mode = 2
+theme = ExtResource("25_iq52j")
+
+[node name="Label" type="Label" parent="CombatNodes/PartySizeHintPanel/MarginContainer"]
+layout_mode = 2
 text = "Word length is limited
 by party size"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LeaderBonusHintPanel" type="Panel" parent="CombatNodes"]
+[node name="LeaderBonusHintPanel" type="PanelContainer" parent="CombatNodes"]
 visible = false
 layout_mode = 0
 offset_left = 400.0
 offset_top = 34.0
 offset_right = 750.0
-offset_bottom = 106.0
+offset_bottom = 127.0
 script = ExtResource("23_5vmej")
 
-[node name="Label" type="Label" parent="CombatNodes/LeaderBonusHintPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Panel" type="Panel" parent="CombatNodes/LeaderBonusHintPanel"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CombatNodes/LeaderBonusHintPanel"]
+layout_mode = 2
+theme = ExtResource("25_iq52j")
+
+[node name="Label" type="Label" parent="CombatNodes/LeaderBonusHintPanel/MarginContainer"]
+layout_mode = 2
 text = "Heroes whose class matches 
 the first letter are x2 strong!
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="EnterHintPanel" type="Panel" parent="CombatNodes"]
+[node name="EnterHintPanel" type="PanelContainer" parent="CombatNodes"]
 visible = false
 layout_mode = 0
 offset_left = 401.0
 offset_top = 401.0
 offset_right = 751.0
-offset_bottom = 473.0
+offset_bottom = 494.0
 script = ExtResource("23_5vmej")
 
-[node name="Label" type="Label" parent="CombatNodes/EnterHintPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Panel" type="Panel" parent="CombatNodes/EnterHintPanel"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CombatNodes/EnterHintPanel"]
+layout_mode = 2
+theme = ExtResource("25_iq52j")
+
+[node name="Label" type="Label" parent="CombatNodes/EnterHintPanel/MarginContainer"]
+layout_mode = 2
 text = "Press [Enter] with a valid word 
 to summon your heroes
 "
@@ -593,14 +602,14 @@ layout_mode = 1
 [connection signal="enemy_windup" from="CombatNodes/CombatSequencer" to="AudioManager" method="_on_combat_sequencer_enemy_windup"]
 [connection signal="player_impact" from="CombatNodes/CombatSequencer" to="AudioManager" method="_on_combat_sequencer_player_impact"]
 [connection signal="player_windup" from="CombatNodes/CombatSequencer" to="AudioManager" method="_on_combat_sequencer_player_windup"]
-[connection signal="word_changed" from="CombatNodes/TextController" to="CombatNodes/PartySizeHintPanel" method="_on_text_controller_word_changed"]
-[connection signal="word_changed" from="CombatNodes/TextController" to="CombatNodes/LeaderBonusHintPanel" method="_on_text_controller_word_changed"]
-[connection signal="word_changed" from="CombatNodes/TextController" to="CombatNodes/EnterHintPanel" method="_on_text_controller_word_changed"]
 [connection signal="word_changed" from="CombatNodes/TextController" to="CombatNodes/TypingHintPanel" method="_on_text_controller_word_changed"]
+[connection signal="word_changed" from="CombatNodes/TextController" to="CombatNodes/EnterHintPanel" method="_on_text_controller_word_changed"]
+[connection signal="word_changed" from="CombatNodes/TextController" to="CombatNodes/LeaderBonusHintPanel" method="_on_text_controller_word_changed"]
+[connection signal="word_changed" from="CombatNodes/TextController" to="CombatNodes/PartySizeHintPanel" method="_on_text_controller_word_changed"]
 [connection signal="word_consumed" from="CombatNodes/TextController" to="CombatNodes/HeroRepository" method="remove"]
-[connection signal="word_consumed" from="CombatNodes/TextController" to="CombatNodes/PartySizeHintPanel" method="_on_text_controller_word_consumed"]
-[connection signal="word_consumed" from="CombatNodes/TextController" to="CombatNodes/LeaderBonusHintPanel" method="_on_text_controller_word_consumed"]
 [connection signal="word_consumed" from="CombatNodes/TextController" to="CombatNodes/EnterHintPanel" method="_on_text_controller_word_consumed" flags=6]
+[connection signal="word_consumed" from="CombatNodes/TextController" to="CombatNodes/LeaderBonusHintPanel" method="_on_text_controller_word_consumed"]
+[connection signal="word_consumed" from="CombatNodes/TextController" to="CombatNodes/PartySizeHintPanel" method="_on_text_controller_word_consumed"]
 [connection signal="word_submitted" from="CombatNodes/TextController" to="CombatNodes/GameOverMonitorStatistics" method="_on_text_controller_word_submitted"]
 [connection signal="party_activated" from="CombatNodes/PartyController" to="CombatNodes/GameOverMonitorStatistics" method="_on_party_controller_party_activated"]
 [connection signal="hero_repository_contents_changed" from="CombatNodes/HeroRepository" to="CombatNodes/TrayOfHeroes" method="_on_hero_repository_hero_repository_contents_changed"]
