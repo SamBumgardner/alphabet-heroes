@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://dltgtmy7ux33w"]
 
-[ext_resource type="Script" path="res://src/TextController.gd" id="1_171lj"]
-[ext_resource type="Script" path="res://demos/text-input/SimpleTextVisualizer.gd" id="2_rtf72"]
-[ext_resource type="Script" path="res://src/heroes/PartyController.gd" id="3_7vanj"]
-[ext_resource type="Script" path="res://src/heroes/HeroRepository.gd" id="4_id8pd"]
-[ext_resource type="Script" path="res://demos/party-controller/SimplePartyVisualizer.gd" id="5_oj1a8"]
-[ext_resource type="Script" path="res://demos/party-controller/SimpleCombatPreviewVisualizer.gd" id="6_siuuk"]
-[ext_resource type="Script" path="res://demos/party-controller/HeroRepositoryVisualizer.gd" id="7_u4nuq"]
+[ext_resource type="Script" uid="uid://plhr2crh6lam" path="res://src/TextController.gd" id="1_171lj"]
+[ext_resource type="Script" uid="uid://dyofx7yfjmqfw" path="res://demos/text-input/SimpleTextVisualizer.gd" id="2_rtf72"]
+[ext_resource type="Script" uid="uid://vd0op65f1aix" path="res://src/heroes/PartyController.gd" id="3_7vanj"]
+[ext_resource type="Script" uid="uid://dj37llh01ngo4" path="res://src/heroes/HeroRepository.gd" id="4_id8pd"]
+[ext_resource type="Script" uid="uid://bct55aegqouvp" path="res://demos/party-controller/SimplePartyVisualizer.gd" id="5_oj1a8"]
+[ext_resource type="Script" uid="uid://tdnmp3p4y5m3" path="res://demos/party-controller/SimpleCombatPreviewVisualizer.gd" id="6_siuuk"]
+[ext_resource type="Script" uid="uid://c82t3t1giw1up" path="res://demos/party-controller/HeroRepositoryVisualizer.gd" id="7_u4nuq"]
 
 [node name="PartyControllerDemo" type="Control"]
 custom_minimum_size = Vector2(1152, 648)

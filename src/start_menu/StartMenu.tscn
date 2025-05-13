@@ -3,9 +3,9 @@
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_toiww"]
 [ext_resource type="Texture2D" uid="uid://ddu4fxnv4lisb" path="res://assets/art/background_start_menu_painted.jpg" id="3_4wbmo"]
 [ext_resource type="Theme" uid="uid://cio67ny2audx2" path="res://assets/fonts/start_menu_sub_title_font_theme.tres" id="4_0np53"]
-[ext_resource type="Script" path="res://src/start_menu/StartMenu.gd" id="5"]
+[ext_resource type="Script" uid="uid://cxyhc0gdu2w6l" path="res://src/start_menu/StartMenu.gd" id="5"]
 [ext_resource type="PackedScene" uid="uid://f34u2l70v1q7" path="res://src/audio_manager/AudioManager.tscn" id="5_oxss7"]
-[ext_resource type="Script" path="res://src/start_menu/HardModeButton.gd" id="5_w6ovx"]
+[ext_resource type="Script" uid="uid://dmkbg1wqtgv4g" path="res://src/start_menu/HardModeButton.gd" id="5_w6ovx"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bq3nvxvnxfek4"]
 
-[ext_resource type="Script" path="res://src/hero_panel/HeroPanel.gd" id="1_0kmgj"]
+[ext_resource type="Script" uid="uid://bhcfpg2irv7fo" path="res://src/hero_panel/HeroPanel.gd" id="1_0kmgj"]
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_lua0a"]
 [ext_resource type="Texture2D" uid="uid://bomytq1jpagf4" path="res://assets/art/heroes/portraits/Warrior_128x128.png" id="2_77xvi"]
 [ext_resource type="Texture2D" uid="uid://cubo57og8x0y0" path="res://assets/art/ui/Portrait_and_Letter_Background.png" id="4_33shr"]

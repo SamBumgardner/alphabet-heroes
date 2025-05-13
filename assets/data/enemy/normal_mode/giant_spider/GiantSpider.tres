@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3 uid="uid://7mw50xfws721"]
 
-[ext_resource type="Script" path="res://assets/data/enemy/normal_mode/giant_spider/GiantSpiderActionSelector.gd" id="1_82gwl"]
+[ext_resource type="Script" uid="uid://cljppjy6qq3td" path="res://assets/data/enemy/normal_mode/giant_spider/GiantSpiderActionSelector.gd" id="1_82gwl"]
 [ext_resource type="Texture2D" uid="uid://cp357u37b7h13" path="res://assets/art/enemy/Spider_256x256.png" id="2_fyn1n"]
-[ext_resource type="Script" path="res://src/combat/enemy/EnemyData.gd" id="3_14eed"]
+[ext_resource type="Script" uid="uid://kq73502exgl8" path="res://src/combat/enemy/EnemyData.gd" id="3_14eed"]
 
 [resource]
 script = ExtResource("3_14eed")

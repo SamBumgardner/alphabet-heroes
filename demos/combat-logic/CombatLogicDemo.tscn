@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://b6m2yqgfhvvmp"]
 
 [ext_resource type="PackedScene" uid="uid://dltgtmy7ux33w" path="res://demos/party-controller/PartyControllerDemo.tscn" id="1_cs5cw"]
-[ext_resource type="Script" path="res://src/combat/enemy/Enemy.gd" id="2_2eays"]
+[ext_resource type="Script" uid="uid://dnblm1b0frvjl" path="res://src/combat/enemy/Enemy.gd" id="2_2eays"]
 [ext_resource type="Resource" uid="uid://b4bkv68mpkiho" path="res://assets/data/enemy/normal_mode/goblins/GoblinData.tres" id="3_onwjp"]
-[ext_resource type="Script" path="res://src/combat/Player.gd" id="4_tiknu"]
-[ext_resource type="Script" path="res://demos/combat-logic/SimplePlayerHealthDisplay.gd" id="5_bv7fx"]
-[ext_resource type="Script" path="res://demos/combat-logic/SimplePlayerBlockDisplay.gd" id="6_uulhu"]
-[ext_resource type="Script" path="res://demos/combat-logic/SimpleEnemyPreviewVisualizer.gd" id="7_ytaj0"]
+[ext_resource type="Script" uid="uid://b0qj8opci8q1" path="res://src/combat/Player.gd" id="4_tiknu"]
+[ext_resource type="Script" uid="uid://chfg0l6vmr7g0" path="res://demos/combat-logic/SimplePlayerHealthDisplay.gd" id="5_bv7fx"]
+[ext_resource type="Script" uid="uid://c5dqled8h73s0" path="res://demos/combat-logic/SimplePlayerBlockDisplay.gd" id="6_uulhu"]
+[ext_resource type="Script" uid="uid://bopgb482fuy1w" path="res://demos/combat-logic/SimpleEnemyPreviewVisualizer.gd" id="7_ytaj0"]
 
 [node name="CombatLogicDemo" instance=ExtResource("1_cs5cw")]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cy6mn63arb02j"]
 
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_8vu6e"]
-[ext_resource type="Script" path="res://src/display/HealthBar.gd" id="1_37kk7"]
+[ext_resource type="Script" uid="uid://bjlgamo8gaich" path="res://src/display/HealthBar.gd" id="1_37kk7"]
 [ext_resource type="Texture2D" uid="uid://bgxma3npk0foe" path="res://assets/art/ui/health_bar_border.png" id="2_sqtnc"]
 [ext_resource type="PackedScene" uid="uid://cwp37vhuqicll" path="res://src/display/BlockIcon.tscn" id="4_31vk6"]
 

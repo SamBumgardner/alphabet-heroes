@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://eanx8lpdpjr4"]
 
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_o5oao"]
-[ext_resource type="Script" path="res://src/game_over_statistics/GameOverStatistics.gd" id="1_sxq5r"]
+[ext_resource type="Script" uid="uid://o5rcp6xrkygu" path="res://src/game_over_statistics/GameOverStatistics.gd" id="1_sxq5r"]
 
 [node name="GameOverStatistics" type="Control"]
 layout_mode = 3
