@@ -12,23 +12,14 @@
 
 [sub_resource type="Resource" id="Resource_pvsyo"]
 script = ExtResource("7_nhwgx")
-summon_batch_size_increase = 0
-summon_end_of_turn_increase = 0
-max_letters_increase = 0
-max_health_increase = 0
-health_recovered = 0
 
 [sub_resource type="Resource" id="Resource_j18d3"]
 script = ExtResource("7_nhwgx")
 summon_batch_size_increase = 1
 summon_end_of_turn_increase = 1
-max_letters_increase = 0
-max_health_increase = 0
-health_recovered = 0
 
 [sub_resource type="Resource" id="Resource_4h6te"]
 script = ExtResource("7_nhwgx")
-summon_batch_size_increase = 0
 summon_end_of_turn_increase = 1
 max_letters_increase = 2
 max_health_increase = 10
@@ -37,17 +28,11 @@ health_recovered = 10
 [sub_resource type="Resource" id="Resource_mnb3h"]
 script = ExtResource("7_nhwgx")
 summon_batch_size_increase = 1
-summon_end_of_turn_increase = 0
 max_letters_increase = 2
-max_health_increase = 0
 health_recovered = 10
 
 [sub_resource type="Resource" id="Resource_p1pkq"]
 script = ExtResource("7_nhwgx")
-summon_batch_size_increase = 0
-summon_end_of_turn_increase = 0
-max_letters_increase = 0
-max_health_increase = 0
 health_recovered = 10
 
 [sub_resource type="Resource" id="Resource_qgyhx"]

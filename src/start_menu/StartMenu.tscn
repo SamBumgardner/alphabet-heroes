@@ -42,7 +42,7 @@ texture = ExtResource("3_4wbmo")
 expand_mode = 3
 
 [node name="Padding8px" type="MarginContainer" parent="."]
-layout_mode = 2
+layout_mode = 0
 offset_left = 110.0
 offset_top = 260.0
 offset_right = 589.0
