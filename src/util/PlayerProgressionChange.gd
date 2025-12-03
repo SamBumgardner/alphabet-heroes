@@ -26,4 +26,5 @@ func _to_string():
 		result += "Max Health: +%s\n" % max_health_increase
 	if health_recovered != 0:
 		result += "Healed: %s\n" % health_recovered
+	result = result.trim_suffix("\n")
 	return result
