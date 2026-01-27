@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://veun1fxpclmp"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://veun1fxpclmp"]
 
 [ext_resource type="Texture2D" uid="uid://c5ppra0u33mlh" path="res://assets/art/heroes/combat_sheets/Peasant_Sheet.png" id="1_ubij4"]
 [ext_resource type="Texture2D" uid="uid://cs2fsgxxlolng" path="res://assets/art/heroes/summon_sheets/Peasant_Summon.png" id="2_ynny7"]

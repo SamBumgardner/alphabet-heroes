@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameDifficulty" load_steps=16 format=3 uid="uid://c2udgqto5x3fd"]
+[gd_resource type="Resource" script_class="GameDifficulty" format=3 uid="uid://c2udgqto5x3fd"]
 
 [ext_resource type="Script" uid="uid://kq73502exgl8" path="res://src/combat/enemy/EnemyData.gd" id="1_70yo0"]
 [ext_resource type="Resource" uid="uid://bp23cxel76cpd" path="res://assets/data/enemy/normal_mode/rat_swarm/RatSwarmData.tres" id="1_706st"]

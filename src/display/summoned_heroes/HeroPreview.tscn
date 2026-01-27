@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy2x3f8fvga25"]
+[gd_scene format=3 uid="uid://dy2x3f8fvga25"]
 
 [ext_resource type="Texture2D" uid="uid://dt6qcnmo0xomt" path="res://icon.svg" id="1_kbhjw"]
 [ext_resource type="Script" uid="uid://532txy1wqsqs" path="res://src/display/summoned_heroes/HeroPreview.gd" id="2_dgo4d"]
@@ -10,7 +10,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="HeroPreview" type="TextureRect"]
+[node name="HeroPreview" type="TextureRect" unique_id=235523201]
 self_modulate = Color(1, 1, 1, 0.784314)
 z_index = -1
 z_as_relative = false
@@ -20,7 +20,7 @@ texture = ExtResource("1_kbhjw")
 expand_mode = 1
 script = ExtResource("2_dgo4d")
 
-[node name="LeaderBonusGlow" type="Panel" parent="."]
+[node name="LeaderBonusGlow" type="Panel" parent="." unique_id=1221773349]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15

@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwp1rm1mjnafi"]
+[gd_scene format=3 uid="uid://bwp1rm1mjnafi"]
 
 [ext_resource type="SpriteFrames" uid="uid://veun1fxpclmp" path="res://assets/art/heroes/peasant_frames.tres" id="1_mt8k6"]
 [ext_resource type="Script" uid="uid://bnpbgsi8om3iy" path="res://src/display/summoned_heroes/SummonedHero.gd" id="2_gt1ed"]
 
-[node name="SummonedHero" type="AnimatedSprite2D"]
+[node name="SummonedHero" type="AnimatedSprite2D" unique_id=12755751]
 visible = false
 sprite_frames = ExtResource("1_mt8k6")
 animation = &"summon"

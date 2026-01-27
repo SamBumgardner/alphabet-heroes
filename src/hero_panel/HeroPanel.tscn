@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bq3nvxvnxfek4"]
+[gd_scene format=3 uid="uid://bq3nvxvnxfek4"]
 
 [ext_resource type="Script" uid="uid://bhcfpg2irv7fo" path="res://src/hero_panel/HeroPanel.gd" id="1_0kmgj"]
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_lua0a"]
@@ -16,30 +16,30 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[node name="HeroPanelContainer" type="PanelContainer"]
+[node name="HeroPanelContainer" type="PanelContainer" unique_id=2070876286]
 theme = ExtResource("1_lua0a")
 script = ExtResource("1_0kmgj")
 portrait_to_display = ExtResource("2_77xvi")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1940651564]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_3h14c")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=461904114]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_right = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=521941876]
 layout_mode = 2
 
-[node name="HeroPortrait" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+[node name="HeroPortrait" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=232230576]
 layout_mode = 2
 size_flags_vertical = 8
 texture = ExtResource("2_77xvi")
 stretch_mode = 2
 
-[node name="HelpPanel" type="Panel" parent="MarginContainer/HBoxContainer/HeroPortrait"]
+[node name="HelpPanel" type="Panel" parent="MarginContainer/HBoxContainer/HeroPortrait" unique_id=1373714672]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 7.0
@@ -47,7 +47,7 @@ offset_right = 24.0
 offset_bottom = 26.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4id1w")
 
-[node name="HelpQuestionMark" type="Label" parent="MarginContainer/HBoxContainer/HeroPortrait/HelpPanel"]
+[node name="HelpQuestionMark" type="Label" parent="MarginContainer/HBoxContainer/HeroPortrait/HelpPanel" unique_id=1433092447]
 layout_mode = 0
 offset_left = 6.0
 offset_right = 14.0
@@ -57,7 +57,7 @@ text = "?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CombatValuePreview" parent="MarginContainer/HBoxContainer/HeroPortrait" instance=ExtResource("4_ei1o6")]
+[node name="CombatValuePreview" parent="MarginContainer/HBoxContainer/HeroPortrait" unique_id=1308567276 instance=ExtResource("4_ei1o6")]
 visible = false
 layout_mode = 0
 offset_left = -1.0
@@ -68,20 +68,20 @@ grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.5, 0.5)
 
-[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer" unique_id=494268449]
 layout_mode = 2
 
-[node name="HeroStatistics" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="HeroStatistics" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=2136272379]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LabelOfJob" type="Label" parent="MarginContainer/HBoxContainer/HeroStatistics"]
+[node name="LabelOfJob" type="Label" parent="MarginContainer/HBoxContainer/HeroStatistics" unique_id=1219780821]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 text = "Peasant:"
 
-[node name="HeroesAsLetterNames" type="RichTextLabel" parent="MarginContainer/HBoxContainer/HeroStatistics"]
+[node name="HeroesAsLetterNames" type="RichTextLabel" parent="MarginContainer/HBoxContainer/HeroStatistics" unique_id=936405113]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)

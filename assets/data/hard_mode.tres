@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameDifficulty" load_steps=10 format=3 uid="uid://caxdykd3lpo23"]
+[gd_resource type="Resource" script_class="GameDifficulty" format=3 uid="uid://caxdykd3lpo23"]
 
 [ext_resource type="Resource" uid="uid://cipsutmvrehll" path="res://assets/data/enemy/normal_mode/dragon/Dragon.tres" id="1_kw2vn"]
 [ext_resource type="Script" uid="uid://kq73502exgl8" path="res://src/combat/enemy/EnemyData.gd" id="1_qtvpw"]

@@ -1,15 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://be1dxpeng5d1p"]
+[gd_scene format=3 uid="uid://be1dxpeng5d1p"]
 
 [ext_resource type="PackedScene" uid="uid://b6m2yqgfhvvmp" path="res://demos/combat-logic/CombatLogicDemo.tscn" id="1_08gcm"]
 [ext_resource type="Script" uid="uid://vn3gycf23yc1" path="res://demos/combat-timing/SimpleGameOverHandler.gd" id="2_k0qlv"]
 [ext_resource type="Script" uid="uid://crlnyphpvi8e6" path="res://src/combat/CombatSequencer.gd" id="2_yapv5"]
 
-[node name="CombatTimingDemo" instance=ExtResource("1_08gcm")]
+[node name="CombatTimingDemo" unique_id=391123498 instance=ExtResource("1_08gcm")]
 
-[node name="SimpleGameOverHandler" type="Node" parent="." index="0"]
+[node name="SimpleGameOverHandler" type="Node" parent="." index="0" unique_id=1095213193]
 script = ExtResource("2_k0qlv")
 
-[node name="CombatSequencer" type="Node" parent="." index="1"]
+[node name="CombatSequencer" type="Node" parent="." index="1" unique_id=798791497]
 script = ExtResource("2_yapv5")
 
 [connection signal="combat_finished" from="CombatSequencer" to="TextController" method="_on_combat_finished"]

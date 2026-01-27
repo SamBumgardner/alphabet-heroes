@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://diovsu0ipgg3y"]
+[gd_scene format=3 uid="uid://diovsu0ipgg3y"]
 
 [ext_resource type="Script" uid="uid://dccmgcnt0ceff" path="res://src/game_over_win/UnlockNotification.gd" id="1_lv353"]
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="2_dhu4m"]
@@ -11,17 +11,17 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 offsets = PackedFloat32Array(0, 0.335878, 0.667939, 1)
 colors = PackedColorArray(1, 0, 0, 1, 0.21, 0.763, 1, 1, 0.133333, 1, 0, 1, 1, 0.85, 0, 1)
 
-[node name="UnlockNotification" type="PanelContainer"]
+[node name="UnlockNotification" type="PanelContainer" unique_id=83040907]
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_lv353")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1530705322]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="BoxParticles" type="CPUParticles2D" parent="Control"]
+[node name="BoxParticles" type="CPUParticles2D" parent="Control" unique_id=798994172]
 emitting = false
 amount = 24
 one_shot = true
@@ -38,18 +38,18 @@ scale_amount_max = 20.0
 color_ramp = SubResource("Gradient_yuwmm")
 color_initial_ramp = SubResource("Gradient_loikc")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=827789355]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 5
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1764219147]
 layout_mode = 2
 theme = ExtResource("2_dhu4m")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 horizontal_alignment = 1
 
-[node name="UnlockSound" type="AudioStreamPlayer2D" parent="."]
+[node name="UnlockSound" type="AudioStreamPlayer2D" parent="." unique_id=447254643]
 stream = ExtResource("3_f6gpp")

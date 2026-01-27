@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3pdnnecfo71e"]
+[gd_scene format=3 uid="uid://d3pdnnecfo71e"]
 
 [ext_resource type="PackedScene" uid="uid://kkinuu2uyh6b" path="res://src/display/combat_preview/CombatValueIcon.tscn" id="1_3agbg"]
 [ext_resource type="Script" uid="uid://co3d4a4vntavl" path="res://src/display/combat_preview/CombatPreview.gd" id="1_scif5"]
@@ -7,19 +7,19 @@
 [ext_resource type="Texture2D" uid="uid://cj1npyym0bllx" path="res://assets/art/ui/MAGIC_icon_64x64.png" id="4_cdm2e"]
 [ext_resource type="Texture2D" uid="uid://dob3sly8ddrd6" path="res://assets/art/ui/HEAL_icon_64x64.png" id="5_v0jxx"]
 
-[node name="CombatPreview" type="HBoxContainer"]
+[node name="CombatPreview" type="HBoxContainer" unique_id=519199784]
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 5
 alignment = 1
 script = ExtResource("1_scif5")
 
-[node name="CombatValueIcon" parent="." instance=ExtResource("1_3agbg")]
+[node name="CombatValueIcon" parent="." unique_id=84551848 instance=ExtResource("1_3agbg")]
 layout_mode = 2
 tooltip_text = "Attack - Damages the opponent's block, then health if there's anything leftover."
 icon_graphic = ExtResource("2_ck56f")
 
-[node name="CombatValueIcon2" parent="." instance=ExtResource("1_3agbg")]
+[node name="CombatValueIcon2" parent="." unique_id=610686989 instance=ExtResource("1_3agbg")]
 layout_mode = 2
 tooltip_text = "Block - Will absorb incoming attack damage. 
 The player's block is lost at the end of a round.
@@ -27,12 +27,12 @@ Enemies get to keep it until destroyed.
 The powers of darkness are truly unfair."
 icon_graphic = ExtResource("3_rojp5")
 
-[node name="CombatValueIcon3" parent="." instance=ExtResource("1_3agbg")]
+[node name="CombatValueIcon3" parent="." unique_id=375747340 instance=ExtResource("1_3agbg")]
 layout_mode = 2
 tooltip_text = "Magic - Applies damage directly to the opponent's health, ignoring block. "
 icon_graphic = ExtResource("4_cdm2e")
 
-[node name="CombatValueIcon4" parent="." instance=ExtResource("1_3agbg")]
+[node name="CombatValueIcon4" parent="." unique_id=1542602135 instance=ExtResource("1_3agbg")]
 layout_mode = 2
 tooltip_text = "Healing - Restores missing health. 
 Cannot exceed the maximum, so excess healing is wasted."

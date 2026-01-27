@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://b35bxsur7a7ig"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://b35bxsur7a7ig"]
 
 [ext_resource type="Texture2D" uid="uid://tv3rt8xo55g7" path="res://assets/art/heroes/combat_sheets/Mage_Sheet.png" id="1_stwvv"]
 [ext_resource type="Texture2D" uid="uid://do8b47lq4rd0h" path="res://assets/art/heroes/summon_sheets/Mage_Summon.png" id="2_78tjx"]

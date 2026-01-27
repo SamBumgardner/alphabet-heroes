@@ -1,15 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://7ppfouu8wanf"]
+[gd_scene format=3 uid="uid://7ppfouu8wanf"]
 
 [ext_resource type="Script" uid="uid://plhr2crh6lam" path="res://src/TextController.gd" id="1_cafyk"]
 [ext_resource type="Script" uid="uid://dyofx7yfjmqfw" path="res://demos/text-input/SimpleTextVisualizer.gd" id="2_m585c"]
 
-[node name="TextDemo" type="Node2D"]
+[node name="TextDemo" type="Node2D" unique_id=512516900]
 
-[node name="TextController" type="Node" parent="."]
+[node name="TextController" type="Node" parent="." unique_id=1871502786]
 script = ExtResource("1_cafyk")
 max_letters = 10
 
-[node name="SimpleTextVisualizer" type="Label" parent="."]
+[node name="SimpleTextVisualizer" type="Label" parent="." unique_id=1808769431]
 offset_left = 328.0
 offset_top = 160.0
 offset_right = 378.0
