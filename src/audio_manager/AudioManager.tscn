@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://f34u2l70v1q7"]
+[gd_scene format=3 uid="uid://f34u2l70v1q7"]
 
 [ext_resource type="Script" uid="uid://d1elmxgq401j1" path="res://src/audio_manager/AudioManager.gd" id="1_abr2a"]
 [ext_resource type="AudioStream" uid="uid://dfkmsfggjrc3x" path="res://assets/audio/001_music_loop.ogg" id="2_gdr37"]
@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://c0vdiyhvpwa12" path="res://assets/audio/112_sfx_hurt.wav" id="8_eo0g1"]
 [ext_resource type="AudioStream" uid="uid://cbt5qv0nqxa6o" path="res://assets/audio/audio_stream_randomizer_sfx_player_hurt.tres" id="8_y2si7"]
 
-[node name="AudioManager" type="Node"]
+[node name="AudioManager" type="Node" unique_id=358107923]
 script = ExtResource("1_abr2a")
 background_music_calm_short = ExtResource("2_svuq4")
 background_music_default = ExtResource("2_gdr37")

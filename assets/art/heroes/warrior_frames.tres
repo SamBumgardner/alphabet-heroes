@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://bsdlq176egiea"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://bsdlq176egiea"]
 
 [ext_resource type="Texture2D" uid="uid://dvx45n83e0y8u" path="res://assets/art/heroes/combat_sheets/Warrior_Sheet.png" id="1_v8fmc"]
 [ext_resource type="Texture2D" uid="uid://dymfyp5fxtl67" path="res://assets/art/heroes/summon_sheets/Warrior_Summon.png" id="2_34eap"]

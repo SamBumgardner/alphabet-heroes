@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bs11mic41td2i"]
+[gd_scene format=3 uid="uid://bs11mic41td2i"]
 
 [ext_resource type="Theme" uid="uid://c76ovc86ky5qb" path="res://assets/fonts/start_menu_title_font_theme.tres" id="1_35pj7"]
 [ext_resource type="Script" uid="uid://dj1idkrbc1xom" path="res://src/game_over_win/GameOverWin.gd" id="1_76pb5"]
@@ -62,7 +62,7 @@ _data = {
 &"GameOverWinFadeIn": SubResource("Animation_rhtd4")
 }
 
-[node name="GameOverWin" type="Control"]
+[node name="GameOverWin" type="Control" unique_id=1309127695]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,7 +71,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_76pb5")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=1402895546]
 modulate = Color(0.5, 0.5, 0.5, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -82,7 +82,7 @@ grow_vertical = 2
 texture = ExtResource("1_nlmkv")
 expand_mode = 3
 
-[node name="StatsControl" type="Control" parent="."]
+[node name="StatsControl" type="Control" parent="." unique_id=580081030]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -91,7 +91,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Announcement" type="Label" parent="StatsControl"]
+[node name="Announcement" type="Label" parent="StatsControl" unique_id=1820301540]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -108,14 +108,14 @@ theme_override_constants/outline_size = 15
 text = "Victory!"
 horizontal_alignment = 1
 
-[node name="GameOverStatistics" parent="StatsControl" instance=ExtResource("1_u87r6")]
+[node name="GameOverStatistics" parent="StatsControl" unique_id=659132661 instance=ExtResource("1_u87r6")]
 layout_mode = 1
 
-[node name="BackToStartMenuButton" parent="StatsControl" instance=ExtResource("1_ppj6s")]
+[node name="BackToStartMenuButton" parent="StatsControl" unique_id=1392414417 instance=ExtResource("1_ppj6s")]
 layout_direction = 0
 layout_mode = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="StatsControl"]
+[node name="PanelContainer" type="PanelContainer" parent="StatsControl" unique_id=1298224277]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -127,17 +127,15 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_yrogm")
 
-[node name="Button" type="Button" parent="StatsControl/PanelContainer"]
+[node name="Button" type="Button" parent="StatsControl/PanelContainer" unique_id=1986847989]
 layout_mode = 2
 text = "Return to Main Menu"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_008t8")
-}
-autoplay = "GameOverWinFadeIn"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=345223928]
+libraries/ = SubResource("AnimationLibrary_008t8")
+autoplay = &"GameOverWinFadeIn"
 
-[node name="UnlockNotification" parent="." instance=ExtResource("6_071hs")]
+[node name="UnlockNotification" parent="." unique_id=953575433 instance=ExtResource("6_071hs")]
 visible = false
 layout_mode = 1
 anchors_preset = -1

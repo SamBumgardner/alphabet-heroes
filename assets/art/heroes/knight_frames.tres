@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://dsmof5dwj4fks"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://dsmof5dwj4fks"]
 
 [ext_resource type="Texture2D" uid="uid://cp3skn1pn3is1" path="res://assets/art/heroes/combat_sheets/Knight_Sheet.png" id="1_n0y6r"]
 [ext_resource type="Texture2D" uid="uid://bvxkh63fahotw" path="res://assets/art/heroes/summon_sheets/Knight_Summon.png" id="2_iqheg"]

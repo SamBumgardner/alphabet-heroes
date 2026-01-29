@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://kkinuu2uyh6b"]
+[gd_scene format=3 uid="uid://kkinuu2uyh6b"]
 
 [ext_resource type="Script" uid="uid://bqijknr34v1wb" path="res://src/display/combat_preview/CombatValueIcon.gd" id="1_6j5t2"]
 [ext_resource type="Texture2D" uid="uid://cibni73b2oa5m" path="res://assets/art/ui/ATTACK_icon_64x64.png" id="2_t3yvj"]
 
-[node name="CombatValueIcon" type="MarginContainer"]
+[node name="CombatValueIcon" type="MarginContainer" unique_id=1777077095]
 script = ExtResource("1_6j5t2")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1151406899]
 layout_mode = 2
 texture = ExtResource("2_t3yvj")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=376148541]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8

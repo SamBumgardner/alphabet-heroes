@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://eanx8lpdpjr4"]
+[gd_scene format=3 uid="uid://eanx8lpdpjr4"]
 
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_o5oao"]
 [ext_resource type="Script" uid="uid://o5rcp6xrkygu" path="res://src/game_over_statistics/GameOverStatistics.gd" id="1_sxq5r"]
 
-[node name="GameOverStatistics" type="Control"]
+[node name="GameOverStatistics" type="Control" unique_id=1576548638]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,7 @@ grow_vertical = 2
 theme = ExtResource("1_o5oao")
 script = ExtResource("1_sxq5r")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1542920172]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -27,113 +27,113 @@ offset_bottom = 51.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="PanelContainer"]
+[node name="Panel" type="Panel" parent="PanelContainer" unique_id=915396457]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1005674995]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_right = 4
 
-[node name="Rows" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="Rows" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=2134044907]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="HeroesSummoned" type="HBoxContainer" parent="PanelContainer/MarginContainer/Rows"]
+[node name="HeroesSummoned" type="HBoxContainer" parent="PanelContainer/MarginContainer/Rows" unique_id=1785774080]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Rows/HeroesSummoned"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Rows/HeroesSummoned" unique_id=2124504150]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 text = "Heroes Summoned"
 
-[node name="HSpacing" type="Control" parent="PanelContainer/MarginContainer/Rows/HeroesSummoned"]
+[node name="HSpacing" type="Control" parent="PanelContainer/MarginContainer/Rows/HeroesSummoned" unique_id=621895631]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Multiplication" type="Label" parent="PanelContainer/MarginContainer/Rows/HeroesSummoned"]
+[node name="Multiplication" type="Label" parent="PanelContainer/MarginContainer/Rows/HeroesSummoned" unique_id=561827990]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 text = "X"
 
-[node name="Count" type="Label" parent="PanelContainer/MarginContainer/Rows/HeroesSummoned"]
+[node name="Count" type="Label" parent="PanelContainer/MarginContainer/Rows/HeroesSummoned" unique_id=117822915]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 text = "0"
 
-[node name="PeasantsConscripted" type="HBoxContainer" parent="PanelContainer/MarginContainer/Rows"]
+[node name="PeasantsConscripted" type="HBoxContainer" parent="PanelContainer/MarginContainer/Rows" unique_id=413189166]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Rows/PeasantsConscripted"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Rows/PeasantsConscripted" unique_id=1502438520]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 text = "Peasants Conscripted"
 
-[node name="HSpacing" type="Control" parent="PanelContainer/MarginContainer/Rows/PeasantsConscripted"]
+[node name="HSpacing" type="Control" parent="PanelContainer/MarginContainer/Rows/PeasantsConscripted" unique_id=1217045059]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Multiplication" type="Label" parent="PanelContainer/MarginContainer/Rows/PeasantsConscripted"]
+[node name="Multiplication" type="Label" parent="PanelContainer/MarginContainer/Rows/PeasantsConscripted" unique_id=1516468601]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 text = "X"
 
-[node name="Count" type="Label" parent="PanelContainer/MarginContainer/Rows/PeasantsConscripted"]
+[node name="Count" type="Label" parent="PanelContainer/MarginContainer/Rows/PeasantsConscripted" unique_id=398525028]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 text = "0"
 
-[node name="MonstersSlain" type="HBoxContainer" parent="PanelContainer/MarginContainer/Rows"]
+[node name="MonstersSlain" type="HBoxContainer" parent="PanelContainer/MarginContainer/Rows" unique_id=73156360]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Rows/MonstersSlain"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Rows/MonstersSlain" unique_id=1788355702]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 text = "Monsters Slain"
 
-[node name="HSpacing" type="Control" parent="PanelContainer/MarginContainer/Rows/MonstersSlain"]
+[node name="HSpacing" type="Control" parent="PanelContainer/MarginContainer/Rows/MonstersSlain" unique_id=1743276945]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Multiplication" type="Label" parent="PanelContainer/MarginContainer/Rows/MonstersSlain"]
+[node name="Multiplication" type="Label" parent="PanelContainer/MarginContainer/Rows/MonstersSlain" unique_id=1007783640]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 text = "X"
 
-[node name="Count" type="Label" parent="PanelContainer/MarginContainer/Rows/MonstersSlain"]
+[node name="Count" type="Label" parent="PanelContainer/MarginContainer/Rows/MonstersSlain" unique_id=2095649063]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 text = "0"
 
-[node name="FightsRetried" type="HBoxContainer" parent="PanelContainer/MarginContainer/Rows"]
+[node name="FightsRetried" type="HBoxContainer" parent="PanelContainer/MarginContainer/Rows" unique_id=321579787]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Rows/FightsRetried"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Rows/FightsRetried" unique_id=1784067179]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 text = "Fights Retried"
 
-[node name="HSpacing" type="Control" parent="PanelContainer/MarginContainer/Rows/FightsRetried"]
+[node name="HSpacing" type="Control" parent="PanelContainer/MarginContainer/Rows/FightsRetried" unique_id=1190846876]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Multiplication" type="Label" parent="PanelContainer/MarginContainer/Rows/FightsRetried"]
+[node name="Multiplication" type="Label" parent="PanelContainer/MarginContainer/Rows/FightsRetried" unique_id=1292752916]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 text = "X"
 
-[node name="Count" type="Label" parent="PanelContainer/MarginContainer/Rows/FightsRetried"]
+[node name="Count" type="Label" parent="PanelContainer/MarginContainer/Rows/FightsRetried" unique_id=1144673838]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8

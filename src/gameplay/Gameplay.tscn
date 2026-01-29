@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bcxndlanc4xko"]
+[gd_scene format=3 uid="uid://bcxndlanc4xko"]
 
 [ext_resource type="Script" uid="uid://dsxfjyd4mn50u" path="res://src/gameplay/Gameplay.gd" id="1_fe8ca"]
 [ext_resource type="PackedScene" uid="uid://hybadqqg72n5" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="2_66iqr"]
@@ -158,7 +158,7 @@ _data = {
 &"intro_animation": SubResource("Animation_wtvfq")
 }
 
-[node name="Gameplay" type="Control"]
+[node name="Gameplay" type="Control" unique_id=837644962]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -168,12 +168,12 @@ grow_vertical = 2
 theme = ExtResource("5_hjbl1")
 script = ExtResource("1_fe8ca")
 
-[node name="AudioManager" parent="." instance=ExtResource("6_rf27n")]
+[node name="AudioManager" parent="." unique_id=2105048325 instance=ExtResource("6_rf27n")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1947558592]
 layer = -1
 
-[node name="WorldMap" type="TextureRect" parent="CanvasLayer"]
+[node name="WorldMap" type="TextureRect" parent="CanvasLayer" unique_id=105535295]
 self_modulate = Color(0.317647, 0.317647, 0.317647, 1)
 offset_right = 4819.0
 offset_bottom = 3592.0
@@ -181,7 +181,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_x1ldo")
 script = ExtResource("4_q7c0o")
 
-[node name="CombatNodes" type="Control" parent="."]
+[node name="CombatNodes" type="Control" parent="." unique_id=957348975]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -190,7 +190,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TrayOfHeroes" parent="CombatNodes" instance=ExtResource("4_vlgye")]
+[node name="TrayOfHeroes" parent="CombatNodes" unique_id=827167741 instance=ExtResource("4_vlgye")]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -199,11 +199,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="DeveloperOnlyNavigation" parent="CombatNodes" instance=ExtResource("3_6xc6h")]
+[node name="DeveloperOnlyNavigation" parent="CombatNodes" unique_id=1165816149 instance=ExtResource("3_6xc6h")]
 visible = false
 layout_mode = 1
 
-[node name="SummonNewHeroesButton" type="Button" parent="CombatNodes"]
+[node name="SummonNewHeroesButton" type="Button" parent="CombatNodes" unique_id=267313230]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -223,29 +223,29 @@ Summon More
 Heroes"
 script = ExtResource("9_vh48n")
 
-[node name="GameOverMonitorStatistics" parent="CombatNodes" instance=ExtResource("7_y431v")]
+[node name="GameOverMonitorStatistics" parent="CombatNodes" unique_id=2094736406 instance=ExtResource("7_y431v")]
 
-[node name="CombatSequencer" type="Node" parent="CombatNodes"]
+[node name="CombatSequencer" type="Node" parent="CombatNodes" unique_id=161483785]
 script = ExtResource("6_13qwi")
 
-[node name="TextController" type="Node" parent="CombatNodes"]
+[node name="TextController" type="Node" parent="CombatNodes" unique_id=1333551286]
 script = ExtResource("6_dfxbv")
 
-[node name="PartyController" type="Node" parent="CombatNodes" node_paths=PackedStringArray("hero_repository")]
+[node name="PartyController" type="Node" parent="CombatNodes" unique_id=1440271293 node_paths=PackedStringArray("hero_repository")]
 script = ExtResource("7_vb18x")
 hero_repository = NodePath("../HeroRepository")
 
-[node name="HeroRepository" type="Node" parent="CombatNodes"]
+[node name="HeroRepository" type="Node" parent="CombatNodes" unique_id=247582552]
 script = ExtResource("8_uko4w")
 
-[node name="Enemy" type="Node" parent="CombatNodes"]
+[node name="Enemy" type="Node" parent="CombatNodes" unique_id=1407794185]
 script = ExtResource("12_mx65p")
 enemy_data = ExtResource("13_4stoj")
 
-[node name="Player" type="Node" parent="CombatNodes"]
+[node name="Player" type="Node" parent="CombatNodes" unique_id=273587996]
 script = ExtResource("14_t6j6y")
 
-[node name="EnemyDisplay" type="VBoxContainer" parent="CombatNodes" node_paths=PackedStringArray("enemy")]
+[node name="EnemyDisplay" type="VBoxContainer" parent="CombatNodes" unique_id=1458051584 node_paths=PackedStringArray("enemy")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.75
@@ -262,22 +262,22 @@ theme_override_constants/separation = 0
 script = ExtResource("14_y1tmu")
 enemy = NodePath("../Enemy")
 
-[node name="TextureRect" type="TextureRect" parent="CombatNodes/EnemyDisplay"]
+[node name="TextureRect" type="TextureRect" parent="CombatNodes/EnemyDisplay" unique_id=684663219]
 layout_mode = 2
 texture = ExtResource("13_i2a36")
 
-[node name="HealthBar" parent="CombatNodes/EnemyDisplay" node_paths=PackedStringArray("combatant") instance=ExtResource("14_q3t14")]
+[node name="HealthBar" parent="CombatNodes/EnemyDisplay" unique_id=36548399 node_paths=PackedStringArray("combatant") instance=ExtResource("14_q3t14")]
 layout_mode = 2
 combatant = NodePath("../../Enemy")
 
-[node name="Label" type="Label" parent="CombatNodes/EnemyDisplay"]
+[node name="Label" type="Label" parent="CombatNodes/EnemyDisplay" unique_id=1867746755]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 text = "Group of Goblins"
 horizontal_alignment = 1
 
-[node name="PlayerCombatPreview" parent="CombatNodes" instance=ExtResource("17_kwces")]
+[node name="PlayerCombatPreview" parent="CombatNodes" unique_id=1322279022 instance=ExtResource("17_kwces")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.45
@@ -285,7 +285,7 @@ anchor_top = 0.2
 anchor_right = 0.45
 anchor_bottom = 0.2
 
-[node name="EnemyCombatPreview" parent="CombatNodes" instance=ExtResource("17_kwces")]
+[node name="EnemyCombatPreview" parent="CombatNodes" unique_id=1538654374 instance=ExtResource("17_kwces")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.75
@@ -293,7 +293,7 @@ anchor_top = 0.2
 anchor_right = 0.75
 anchor_bottom = 0.2
 
-[node name="PlayerDisplay" type="VBoxContainer" parent="CombatNodes"]
+[node name="PlayerDisplay" type="VBoxContainer" parent="CombatNodes" unique_id=220480998]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
@@ -308,17 +308,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="CombatNodes/PlayerDisplay"]
+[node name="TextureRect" type="TextureRect" parent="CombatNodes/PlayerDisplay" unique_id=253330605]
 custom_minimum_size = Vector2(175, 175)
 layout_mode = 2
 texture = ExtResource("21_v76fs")
 expand_mode = 3
 
-[node name="HealthBar" parent="CombatNodes/PlayerDisplay" node_paths=PackedStringArray("combatant") instance=ExtResource("14_q3t14")]
+[node name="HealthBar" parent="CombatNodes/PlayerDisplay" unique_id=7750821 node_paths=PackedStringArray("combatant") instance=ExtResource("14_q3t14")]
 layout_mode = 2
 combatant = NodePath("../../Player")
 
-[node name="PartySizeLimitLabel" type="Label" parent="CombatNodes/PlayerDisplay" node_paths=PackedStringArray("text_controller")]
+[node name="PartySizeLimitLabel" type="Label" parent="CombatNodes/PlayerDisplay" unique_id=694457802 node_paths=PackedStringArray("text_controller")]
 layout_mode = 2
 theme = ExtResource("5_hjbl1")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -328,7 +328,7 @@ horizontal_alignment = 1
 script = ExtResource("21_ln3va")
 text_controller = NodePath("../../TextController")
 
-[node name="PartySizeHintPanel" type="PanelContainer" parent="CombatNodes"]
+[node name="PartySizeHintPanel" type="PanelContainer" parent="CombatNodes" unique_id=41051592]
 visible = false
 layout_mode = 0
 offset_left = 137.0
@@ -337,22 +337,22 @@ offset_right = 384.0
 offset_bottom = 524.0
 script = ExtResource("23_5vmej")
 
-[node name="Panel" type="Panel" parent="CombatNodes/PartySizeHintPanel"]
+[node name="Panel" type="Panel" parent="CombatNodes/PartySizeHintPanel" unique_id=1427099625]
 visible = false
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CombatNodes/PartySizeHintPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="CombatNodes/PartySizeHintPanel" unique_id=1814834759]
 layout_mode = 2
 theme = ExtResource("25_iq52j")
 
-[node name="Label" type="Label" parent="CombatNodes/PartySizeHintPanel/MarginContainer"]
+[node name="Label" type="Label" parent="CombatNodes/PartySizeHintPanel/MarginContainer" unique_id=1215045512]
 layout_mode = 2
 text = "Word length is limited
 by party size"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LeaderBonusHintPanel" type="PanelContainer" parent="CombatNodes"]
+[node name="LeaderBonusHintPanel" type="PanelContainer" parent="CombatNodes" unique_id=1717711645]
 visible = false
 layout_mode = 0
 offset_left = 400.0
@@ -361,22 +361,22 @@ offset_right = 736.0
 offset_bottom = 103.0
 script = ExtResource("23_5vmej")
 
-[node name="Panel" type="Panel" parent="CombatNodes/LeaderBonusHintPanel"]
+[node name="Panel" type="Panel" parent="CombatNodes/LeaderBonusHintPanel" unique_id=1556702158]
 visible = false
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CombatNodes/LeaderBonusHintPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="CombatNodes/LeaderBonusHintPanel" unique_id=1681936263]
 layout_mode = 2
 theme = ExtResource("25_iq52j")
 
-[node name="Label" type="Label" parent="CombatNodes/LeaderBonusHintPanel/MarginContainer"]
+[node name="Label" type="Label" parent="CombatNodes/LeaderBonusHintPanel/MarginContainer" unique_id=1949135606]
 layout_mode = 2
 text = "Heroes whose class matches 
 the first letter are x2 strong!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="EnterHintPanel" type="PanelContainer" parent="CombatNodes"]
+[node name="EnterHintPanel" type="PanelContainer" parent="CombatNodes" unique_id=1608181494]
 visible = false
 layout_mode = 0
 offset_left = 401.0
@@ -385,22 +385,22 @@ offset_right = 743.0
 offset_bottom = 470.0
 script = ExtResource("23_5vmej")
 
-[node name="Panel" type="Panel" parent="CombatNodes/EnterHintPanel"]
+[node name="Panel" type="Panel" parent="CombatNodes/EnterHintPanel" unique_id=1705704016]
 visible = false
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CombatNodes/EnterHintPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="CombatNodes/EnterHintPanel" unique_id=1701748197]
 layout_mode = 2
 theme = ExtResource("25_iq52j")
 
-[node name="Label" type="Label" parent="CombatNodes/EnterHintPanel/MarginContainer"]
+[node name="Label" type="Label" parent="CombatNodes/EnterHintPanel/MarginContainer" unique_id=391717460]
 layout_mode = 2
 text = "Press [Enter] with a valid word 
 to summon your heroes"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TypingHintPanel" type="PanelContainer" parent="CombatNodes"]
+[node name="TypingHintPanel" type="PanelContainer" parent="CombatNodes" unique_id=1156738052]
 layout_mode = 0
 offset_left = 450.0
 offset_top = 320.0
@@ -408,22 +408,22 @@ offset_right = 707.0
 offset_bottom = 389.0
 script = ExtResource("23_jbqrn")
 
-[node name="Panel" type="Panel" parent="CombatNodes/TypingHintPanel"]
+[node name="Panel" type="Panel" parent="CombatNodes/TypingHintPanel" unique_id=1035685213]
 visible = false
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CombatNodes/TypingHintPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="CombatNodes/TypingHintPanel" unique_id=1340356052]
 layout_mode = 2
 theme = ExtResource("25_iq52j")
 
-[node name="Label" type="Label" parent="CombatNodes/TypingHintPanel/MarginContainer"]
+[node name="Label" type="Label" parent="CombatNodes/TypingHintPanel/MarginContainer" unique_id=1663467237]
 layout_mode = 2
 text = "Type letters to organize
 a party of heroes!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TileTextDisplay" parent="CombatNodes" instance=ExtResource("20_xgcmq")]
+[node name="TileTextDisplay" parent="CombatNodes" unique_id=1512704832 instance=ExtResource("20_xgcmq")]
 layout_mode = 1
 anchor_left = 0.45
 anchor_top = 0.45
@@ -431,35 +431,35 @@ anchor_right = 0.45
 anchor_bottom = 0.45
 grow_horizontal = 2
 
-[node name="SummonedHeroPreviews" parent="CombatNodes" instance=ExtResource("19_sv48p")]
+[node name="SummonedHeroPreviews" parent="CombatNodes" unique_id=1939955088 instance=ExtResource("19_sv48p")]
 layout_mode = 1
 
-[node name="AnimatedHeroDisplayer" type="Node" parent="CombatNodes"]
+[node name="AnimatedHeroDisplayer" type="Node" parent="CombatNodes" unique_id=640016719]
 script = ExtResource("20_5hje4")
 charge_destination = Vector2(939, 282)
 
-[node name="SummonedHero" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+[node name="SummonedHero" parent="CombatNodes/AnimatedHeroDisplayer" unique_id=1155638437 instance=ExtResource("21_onhpi")]
 scale = Vector2(1.15, 1.15)
 
-[node name="SummonedHero2" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+[node name="SummonedHero2" parent="CombatNodes/AnimatedHeroDisplayer" unique_id=81830517 instance=ExtResource("21_onhpi")]
 
-[node name="SummonedHero3" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+[node name="SummonedHero3" parent="CombatNodes/AnimatedHeroDisplayer" unique_id=501946626 instance=ExtResource("21_onhpi")]
 
-[node name="SummonedHero4" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+[node name="SummonedHero4" parent="CombatNodes/AnimatedHeroDisplayer" unique_id=1351762105 instance=ExtResource("21_onhpi")]
 
-[node name="SummonedHero5" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+[node name="SummonedHero5" parent="CombatNodes/AnimatedHeroDisplayer" unique_id=1998177128 instance=ExtResource("21_onhpi")]
 
-[node name="SummonedHero6" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+[node name="SummonedHero6" parent="CombatNodes/AnimatedHeroDisplayer" unique_id=1299690032 instance=ExtResource("21_onhpi")]
 
-[node name="SummonedHero7" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+[node name="SummonedHero7" parent="CombatNodes/AnimatedHeroDisplayer" unique_id=303337975 instance=ExtResource("21_onhpi")]
 
-[node name="SummonedHero8" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+[node name="SummonedHero8" parent="CombatNodes/AnimatedHeroDisplayer" unique_id=1296974349 instance=ExtResource("21_onhpi")]
 
-[node name="SummonedHero9" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+[node name="SummonedHero9" parent="CombatNodes/AnimatedHeroDisplayer" unique_id=850198733 instance=ExtResource("21_onhpi")]
 
-[node name="SummonedHero10" parent="CombatNodes/AnimatedHeroDisplayer" instance=ExtResource("21_onhpi")]
+[node name="SummonedHero10" parent="CombatNodes/AnimatedHeroDisplayer" unique_id=766937030 instance=ExtResource("21_onhpi")]
 
-[node name="SkipTurnLabel" type="Label" parent="CombatNodes"]
+[node name="SkipTurnLabel" type="Label" parent="CombatNodes" unique_id=1486795967]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -479,7 +479,7 @@ Turn"
 horizontal_alignment = 1
 script = ExtResource("27_flb7c")
 
-[node name="TravelNodes" type="Control" parent="."]
+[node name="TravelNodes" type="Control" parent="." unique_id=367057844]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -488,7 +488,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="TravelNodes"]
+[node name="Label" type="Label" parent="TravelNodes" unique_id=121325908]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.1
@@ -502,7 +502,7 @@ theme_override_font_sizes/font_size = 48
 text = "Travelling..."
 horizontal_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="TravelNodes"]
+[node name="PanelContainer" type="PanelContainer" parent="TravelNodes" unique_id=425944267]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -511,7 +511,7 @@ anchor_right = 0.5
 anchor_bottom = 0.3
 grow_horizontal = 2
 
-[node name="ProgressionText" type="Label" parent="TravelNodes/PanelContainer"]
+[node name="ProgressionText" type="Label" parent="TravelNodes/PanelContainer" unique_id=1166021279]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
@@ -519,7 +519,7 @@ theme_override_font_sizes/font_size = 48
 text = "Your legend grows:"
 horizontal_alignment = 1
 
-[node name="IntroNodes" type="Control" parent="."]
+[node name="IntroNodes" type="Control" parent="." unique_id=272139540]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -528,14 +528,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("30_t1cjc")
 
-[node name="IntroAnimation" type="AnimationPlayer" parent="IntroNodes"]
+[node name="IntroAnimation" type="AnimationPlayer" parent="IntroNodes" unique_id=1539020140]
 root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_asj78")
-}
+libraries/ = SubResource("AnimationLibrary_asj78")
 script = ExtResource("29_w3xnm")
 
-[node name="TitleLabel" type="Label" parent="IntroNodes"]
+[node name="TitleLabel" type="Label" parent="IntroNodes" unique_id=2033492193]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -550,7 +548,7 @@ theme_override_font_sizes/font_size = 82
 text = "Heroes of Keys and Kingdoms"
 horizontal_alignment = 1
 
-[node name="IntroText" type="Label" parent="IntroNodes"]
+[node name="IntroText" type="Label" parent="IntroNodes" unique_id=1789018970]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.07
@@ -571,7 +569,7 @@ May you find the strength to prevail where others have fallen."
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="StartInstructions" type="Label" parent="IntroNodes"]
+[node name="StartInstructions" type="Label" parent="IntroNodes" unique_id=1156124019]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -587,7 +585,7 @@ theme = ExtResource("30_ori8m")
 theme_override_constants/outline_size = 15
 text = "[press any key to begin]"
 
-[node name="BackToStartMenuButton" parent="." instance=ExtResource("2_66iqr")]
+[node name="BackToStartMenuButton" parent="." unique_id=1813177748 instance=ExtResource("2_66iqr")]
 layout_direction = 0
 layout_mode = 1
 

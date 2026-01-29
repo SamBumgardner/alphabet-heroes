@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwp37vhuqicll"]
+[gd_scene format=3 uid="uid://cwp37vhuqicll"]
 
 [ext_resource type="Texture2D" uid="uid://jedubhp5ulyv" path="res://assets/art/ui/BLOCK_icon_64x64.png" id="1_2d2ud"]
 [ext_resource type="Script" uid="uid://c3dqvvoe62n0x" path="res://src/display/BlockIcon.gd" id="2_g4ay0"]
 [ext_resource type="Theme" uid="uid://d2lmihmptd82a" path="res://assets/fonts/spelling_monospace_font_theme.tres" id="3_xvcdb"]
 
-[node name="BlockIcon" type="TextureRect"]
+[node name="BlockIcon" type="TextureRect" unique_id=1317365440]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -14,7 +14,7 @@ texture = ExtResource("1_2d2ud")
 script = ExtResource("2_g4ay0")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1453810830]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5

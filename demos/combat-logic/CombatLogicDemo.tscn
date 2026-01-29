@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6m2yqgfhvvmp"]
+[gd_scene format=3 uid="uid://b6m2yqgfhvvmp"]
 
 [ext_resource type="PackedScene" uid="uid://dltgtmy7ux33w" path="res://demos/party-controller/PartyControllerDemo.tscn" id="1_cs5cw"]
 [ext_resource type="Script" uid="uid://dnblm1b0frvjl" path="res://src/combat/enemy/Enemy.gd" id="2_2eays"]
@@ -8,16 +8,16 @@
 [ext_resource type="Script" uid="uid://c5dqled8h73s0" path="res://demos/combat-logic/SimplePlayerBlockDisplay.gd" id="6_uulhu"]
 [ext_resource type="Script" uid="uid://bopgb482fuy1w" path="res://demos/combat-logic/SimpleEnemyPreviewVisualizer.gd" id="7_ytaj0"]
 
-[node name="CombatLogicDemo" instance=ExtResource("1_cs5cw")]
+[node name="CombatLogicDemo" unique_id=1580318842 instance=ExtResource("1_cs5cw")]
 
-[node name="Enemy" type="Node" parent="." index="8"]
+[node name="Enemy" type="Node" parent="." index="8" unique_id=1457409873]
 script = ExtResource("2_2eays")
 enemy_data = ExtResource("3_onwjp")
 
-[node name="Player" type="Node" parent="." index="9"]
+[node name="Player" type="Node" parent="." index="9" unique_id=844848891]
 script = ExtResource("4_tiknu")
 
-[node name="SimplePlayerHealthDisplay" type="Label" parent="." index="10"]
+[node name="SimplePlayerHealthDisplay" type="Label" parent="." index="10" unique_id=2122439361]
 layout_mode = 0
 offset_left = 71.0
 offset_top = 312.0
@@ -28,7 +28,7 @@ theme_override_constants/outline_size = 5
 text = "Health:"
 script = ExtResource("5_bv7fx")
 
-[node name="SimplePlayerBlockDisplay" type="Label" parent="." index="11"]
+[node name="SimplePlayerBlockDisplay" type="Label" parent="." index="11" unique_id=1023570233]
 layout_mode = 0
 offset_left = 209.0
 offset_top = 309.0
@@ -39,7 +39,7 @@ theme_override_constants/outline_size = 5
 text = "Block:"
 script = ExtResource("6_uulhu")
 
-[node name="SimpleEnemyHealthDisplay" type="Label" parent="." index="12"]
+[node name="SimpleEnemyHealthDisplay" type="Label" parent="." index="12" unique_id=1031115585]
 layout_mode = 0
 offset_left = 834.0
 offset_top = 261.0
@@ -50,7 +50,7 @@ theme_override_constants/outline_size = 5
 text = "Health:"
 script = ExtResource("5_bv7fx")
 
-[node name="SimpleEnemyBlockDisplay" type="Label" parent="." index="13"]
+[node name="SimpleEnemyBlockDisplay" type="Label" parent="." index="13" unique_id=197187204]
 layout_mode = 0
 offset_left = 972.0
 offset_top = 258.0
@@ -61,7 +61,7 @@ theme_override_constants/outline_size = 5
 text = "Block:"
 script = ExtResource("6_uulhu")
 
-[node name="SimpleEnemyPreviewVisualizer" type="Label" parent="." index="14"]
+[node name="SimpleEnemyPreviewVisualizer" type="Label" parent="." index="14" unique_id=1009152376]
 layout_mode = 0
 offset_left = 801.0
 offset_right = 932.0

@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://6jgkvybyq834"]
+[gd_scene format=3 uid="uid://6jgkvybyq834"]
 
 [ext_resource type="Theme" uid="uid://b2b37m7se3s4i" path="res://assets/fonts/lead_spelling_monospace_font_theme.tres" id="1_ct4li"]
 [ext_resource type="Texture2D" uid="uid://cnb78g1pq4vux" path="res://assets/art/ui/Tile.png" id="2_ufi6y"]
 [ext_resource type="Script" uid="uid://mx1ilnkd6hwu" path="res://src/display/typed_word/LetterTile.gd" id="3_oylm3"]
 
-[node name="LeaderLetterTile" type="TextureRect"]
+[node name="LeaderLetterTile" type="TextureRect" unique_id=326908677]
 custom_minimum_size = Vector2(48, 64)
 offset_left = -24.0
 offset_top = -32.0
@@ -17,7 +17,7 @@ texture = ExtResource("2_ufi6y")
 expand_mode = 1
 script = ExtResource("3_oylm3")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=433378577]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

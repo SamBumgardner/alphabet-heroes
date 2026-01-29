@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cckjypba5jdnl"]
+[gd_scene format=3 uid="uid://cckjypba5jdnl"]
 
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_toiww"]
 [ext_resource type="Texture2D" uid="uid://ddu4fxnv4lisb" path="res://assets/art/background_start_menu_painted.jpg" id="3_4wbmo"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://f34u2l70v1q7" path="res://src/audio_manager/AudioManager.tscn" id="5_oxss7"]
 [ext_resource type="Script" uid="uid://dmkbg1wqtgv4g" path="res://src/start_menu/HardModeButton.gd" id="5_w6ovx"]
 
-[node name="StartMenu" type="Control"]
+[node name="StartMenu" type="Control" unique_id=2110018213]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,7 +17,7 @@ grow_vertical = 2
 theme = ExtResource("1_toiww")
 script = ExtResource("5")
 
-[node name="TitleControlsMarginContainer" type="MarginContainer" parent="."]
+[node name="TitleControlsMarginContainer" type="MarginContainer" parent="." unique_id=438894929]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -31,7 +31,7 @@ offset_bottom = 143.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=1409139270]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,7 +41,7 @@ grow_vertical = 2
 texture = ExtResource("3_4wbmo")
 expand_mode = 3
 
-[node name="Padding8px" type="MarginContainer" parent="."]
+[node name="Padding8px" type="MarginContainer" parent="." unique_id=1304520710]
 layout_mode = 0
 offset_left = 110.0
 offset_top = 260.0
@@ -54,10 +54,10 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="TitleControlsRows" type="VBoxContainer" parent="Padding8px"]
+[node name="TitleControlsRows" type="VBoxContainer" parent="Padding8px" unique_id=541992882]
 layout_mode = 2
 
-[node name="SubTitle" type="Label" parent="Padding8px/TitleControlsRows"]
+[node name="SubTitle" type="Label" parent="Padding8px/TitleControlsRows" unique_id=1959421113]
 layout_mode = 2
 theme = ExtResource("4_0np53")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -66,21 +66,21 @@ text = "Ludum Dare 55 Game Jam Entry"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonRows" type="VBoxContainer" parent="Padding8px/TitleControlsRows"]
+[node name="ButtonRows" type="VBoxContainer" parent="Padding8px/TitleControlsRows" unique_id=726544437]
 layout_mode = 2
 size_flags_horizontal = 5
 theme_override_constants/separation = 6
 
-[node name="StartButton" type="Button" parent="Padding8px/TitleControlsRows/ButtonRows"]
+[node name="StartButton" type="Button" parent="Padding8px/TitleControlsRows/ButtonRows" unique_id=1269188426]
 layout_mode = 2
 text = "Start"
 
-[node name="HardMode" type="Button" parent="Padding8px/TitleControlsRows/ButtonRows"]
+[node name="HardMode" type="Button" parent="Padding8px/TitleControlsRows/ButtonRows" unique_id=1996151360]
 layout_mode = 2
 text = "Hard Mode"
 script = ExtResource("5_w6ovx")
 
-[node name="CreditsButton" type="MenuButton" parent="Padding8px/TitleControlsRows/ButtonRows"]
+[node name="CreditsButton" type="MenuButton" parent="Padding8px/TitleControlsRows/ButtonRows" unique_id=832706715]
 layout_mode = 2
 focus_mode = 2
 text = "Credits"
@@ -104,11 +104,11 @@ popup/item_6/id = 3
 popup/item_7/text = "Roboto Mono Font by Christian Robertson"
 popup/item_7/id = 6
 
-[node name="QuitButton" type="Button" parent="Padding8px/TitleControlsRows/ButtonRows"]
+[node name="QuitButton" type="Button" parent="Padding8px/TitleControlsRows/ButtonRows" unique_id=1470415532]
 layout_mode = 2
 text = "Quit"
 
-[node name="AudioManager" parent="." instance=ExtResource("5_oxss7")]
+[node name="AudioManager" parent="." unique_id=309017726 instance=ExtResource("5_oxss7")]
 
 [connection signal="ready" from="." to="AudioManager" method="_on_start_menu_ready"]
 [connection signal="mouse_entered" from="Padding8px/TitleControlsRows/ButtonRows/StartButton" to="AudioManager" method="_on_start_button_mouse_entered"]

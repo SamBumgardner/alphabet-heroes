@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://hybadqqg72n5"]
+[gd_scene format=3 uid="uid://hybadqqg72n5"]
 
 [ext_resource type="Script" uid="uid://dmbtx2xi0khet" path="res://src/back_to_start_menu_button/BackToStartMenuButton.gd" id="1_rehh2"]
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="2_oxqip"]
 [ext_resource type="PackedScene" uid="uid://f34u2l70v1q7" path="res://src/audio_manager/AudioManager.tscn" id="3_fom00"]
 
-[node name="BackToStartMenuButton" type="Control"]
+[node name="BackToStartMenuButton" type="Control" unique_id=210980303]
 layout_direction = 3
 layout_mode = 3
 anchors_preset = 1
@@ -13,7 +13,7 @@ anchor_right = 1.0
 grow_horizontal = 0
 script = ExtResource("1_rehh2")
 
-[node name="ExitButton" type="Button" parent="."]
+[node name="ExitButton" type="Button" parent="." unique_id=1174792172]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -24,7 +24,7 @@ grow_horizontal = 0
 theme = ExtResource("2_oxqip")
 text = "X"
 
-[node name="AudioManager" parent="." instance=ExtResource("3_fom00")]
+[node name="AudioManager" parent="." unique_id=1626596445 instance=ExtResource("3_fom00")]
 
 [connection signal="mouse_entered" from="ExitButton" to="AudioManager" method="_on_exit_button_mouse_entered"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

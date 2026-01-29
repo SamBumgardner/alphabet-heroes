@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqv757c3cshe4"]
+[gd_scene format=3 uid="uid://cqv757c3cshe4"]
 
 [ext_resource type="Script" uid="uid://q4l65lx075rj" path="res://src/display/typed_word/TileTextDisplay.gd" id="1_ax1nb"]
 [ext_resource type="PackedScene" uid="uid://6jgkvybyq834" path="res://src/display/typed_word/LeaderLetterTile.tscn" id="2_un76b"]
 [ext_resource type="PackedScene" uid="uid://dt6pfo6qcx0lj" path="res://src/display/typed_word/LetterTile.tscn" id="3_w6clr"]
 
-[node name="TileTextDisplay" type="HBoxContainer"]
+[node name="TileTextDisplay" type="HBoxContainer" unique_id=88957101]
 anchors_preset = -1
 anchor_left = 0.307
 anchor_top = 0.4
@@ -13,32 +13,32 @@ anchor_bottom = 0.4
 theme_override_constants/separation = 0
 script = ExtResource("1_ax1nb")
 
-[node name="LetterTile" parent="." instance=ExtResource("2_un76b")]
+[node name="LetterTile" parent="." unique_id=1053954775 instance=ExtResource("2_un76b")]
 layout_mode = 2
 
-[node name="LetterTile2" parent="." instance=ExtResource("3_w6clr")]
+[node name="LetterTile2" parent="." unique_id=1347016371 instance=ExtResource("3_w6clr")]
 layout_mode = 2
 
-[node name="LetterTile3" parent="." instance=ExtResource("3_w6clr")]
+[node name="LetterTile3" parent="." unique_id=1494195292 instance=ExtResource("3_w6clr")]
 layout_mode = 2
 
-[node name="LetterTile4" parent="." instance=ExtResource("3_w6clr")]
+[node name="LetterTile4" parent="." unique_id=1184710692 instance=ExtResource("3_w6clr")]
 layout_mode = 2
 
-[node name="LetterTile5" parent="." instance=ExtResource("3_w6clr")]
+[node name="LetterTile5" parent="." unique_id=118639683 instance=ExtResource("3_w6clr")]
 layout_mode = 2
 
-[node name="LetterTile6" parent="." instance=ExtResource("3_w6clr")]
+[node name="LetterTile6" parent="." unique_id=133289815 instance=ExtResource("3_w6clr")]
 layout_mode = 2
 
-[node name="LetterTile7" parent="." instance=ExtResource("3_w6clr")]
+[node name="LetterTile7" parent="." unique_id=674957539 instance=ExtResource("3_w6clr")]
 layout_mode = 2
 
-[node name="LetterTile8" parent="." instance=ExtResource("3_w6clr")]
+[node name="LetterTile8" parent="." unique_id=1979018801 instance=ExtResource("3_w6clr")]
 layout_mode = 2
 
-[node name="LetterTile9" parent="." instance=ExtResource("3_w6clr")]
+[node name="LetterTile9" parent="." unique_id=1154554522 instance=ExtResource("3_w6clr")]
 layout_mode = 2
 
-[node name="LetterTile10" parent="." instance=ExtResource("3_w6clr")]
+[node name="LetterTile10" parent="." unique_id=1915238689 instance=ExtResource("3_w6clr")]
 layout_mode = 2

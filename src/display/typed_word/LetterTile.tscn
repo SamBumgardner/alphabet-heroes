@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dt6pfo6qcx0lj"]
+[gd_scene format=3 uid="uid://dt6pfo6qcx0lj"]
 
 [ext_resource type="Texture2D" uid="uid://cnb78g1pq4vux" path="res://assets/art/ui/Tile.png" id="2_jf0x8"]
 [ext_resource type="Theme" uid="uid://d2lmihmptd82a" path="res://assets/fonts/spelling_monospace_font_theme.tres" id="2_qtksh"]
 [ext_resource type="Script" uid="uid://mx1ilnkd6hwu" path="res://src/display/typed_word/LetterTile.gd" id="3_6612j"]
 
-[node name="LetterTile" type="TextureRect"]
+[node name="LetterTile" type="TextureRect" unique_id=1377595468]
 custom_minimum_size = Vector2(32, 48)
 grow_horizontal = 2
 grow_vertical = 2
@@ -15,7 +15,7 @@ texture = ExtResource("2_jf0x8")
 expand_mode = 1
 script = ExtResource("3_6612j")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=931833136]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

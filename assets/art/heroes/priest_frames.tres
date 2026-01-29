@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://cgoht46do4l2c"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://cgoht46do4l2c"]
 
 [ext_resource type="Texture2D" uid="uid://up1q0sj63li0" path="res://assets/art/heroes/combat_sheets/Priest_Sheet.png" id="1_dna2c"]
 [ext_resource type="Texture2D" uid="uid://b7iokv8kobj7o" path="res://assets/art/heroes/summon_sheets/Priest_Summon.png" id="2_3rkgf"]

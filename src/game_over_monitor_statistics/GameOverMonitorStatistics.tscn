@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6qrbk6hrtpc"]
+[gd_scene format=3 uid="uid://c6qrbk6hrtpc"]
 
 [ext_resource type="Script" uid="uid://s1tt122bx4u6" path="res://src/game_over_monitor_statistics/GameOverMonitorStatistics.gd" id="1_wjq0x"]
 
-[node name="GameOverMonitorStatistics" type="Node"]
+[node name="GameOverMonitorStatistics" type="Node" unique_id=1275203284]
 script = ExtResource("1_wjq0x")

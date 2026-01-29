@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://oyd68ql208nv"]
+[gd_scene format=3 uid="uid://oyd68ql208nv"]
 
 [ext_resource type="Theme" uid="uid://c1rbyyhtqrqqt" path="res://assets/fonts/normal_font_theme.tres" id="1_vu46n"]
 [ext_resource type="Script" uid="uid://rqnui1smjgab" path="res://src/tray_of_heroes/TrayOfHeroes.gd" id="2_0a3gd"]
@@ -7,13 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://4drt8tdciyox" path="res://assets/art/heroes/portraits/Priest_128x128.png" id="5_5lri7"]
 [ext_resource type="PackedScene" uid="uid://bq3nvxvnxfek4" path="res://src/hero_panel/HeroPanel.tscn" id="5_vshlj"]
 
-[node name="TrayOfHeroes" type="Control"]
+[node name="TrayOfHeroes" type="Control" unique_id=1448001536]
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("1_vu46n")
 script = ExtResource("2_0a3gd")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=17946031]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -27,26 +27,26 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="ColumnsOfPanels" type="HBoxContainer" parent="MarginContainer"]
+[node name="ColumnsOfPanels" type="HBoxContainer" parent="MarginContainer" unique_id=836675234]
 layout_mode = 2
 
-[node name="HeroPanelWarrior" parent="MarginContainer/ColumnsOfPanels" instance=ExtResource("5_vshlj")]
+[node name="HeroPanelWarrior" parent="MarginContainer/ColumnsOfPanels" unique_id=663481220 instance=ExtResource("5_vshlj")]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HeroPanelKnight" parent="MarginContainer/ColumnsOfPanels" instance=ExtResource("5_vshlj")]
+[node name="HeroPanelKnight" parent="MarginContainer/ColumnsOfPanels" unique_id=1201026551 instance=ExtResource("5_vshlj")]
 layout_mode = 2
 size_flags_horizontal = 3
 job_to_display = 1
 portrait_to_display = ExtResource("3_uyr2j")
 
-[node name="HeroPanelMage" parent="MarginContainer/ColumnsOfPanels" instance=ExtResource("5_vshlj")]
+[node name="HeroPanelMage" parent="MarginContainer/ColumnsOfPanels" unique_id=663251152 instance=ExtResource("5_vshlj")]
 layout_mode = 2
 size_flags_horizontal = 3
 job_to_display = 2
 portrait_to_display = ExtResource("3_kjwg4")
 
-[node name="HeroPanelPriest" parent="MarginContainer/ColumnsOfPanels" instance=ExtResource("5_vshlj")]
+[node name="HeroPanelPriest" parent="MarginContainer/ColumnsOfPanels" unique_id=1116480042 instance=ExtResource("5_vshlj")]
 layout_mode = 2
 size_flags_horizontal = 3
 job_to_display = 3

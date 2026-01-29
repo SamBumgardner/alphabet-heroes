@@ -8,18 +8,22 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="aphabet-heroes"
 run/main_scene="res://src/start_menu/StartMenu.tscn"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Database="*res://assets/data/database.gd"
 TextValidator="*res://src/util/TextValidator.gd"
-SoundManager="*res://addons/sound_manager/sound_manager.gd"
+SoundManager="*uid://bah7f1tjkcqmn"
 
 [display]
 
